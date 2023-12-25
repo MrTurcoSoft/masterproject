@@ -1,0 +1,20 @@
+/***************************
+Add your custom styles below
+****************************/
+.carixe {
+    background-color: black;
+    color: darkred;
+   font-size: large;
+}
+.welvet {
+    background-color: #1e73dd;
+    color: white;
+    font-size: large;
+}
+.catalogue {
+    background-color: #ea4704;
+    color: white;
+    font-size: large;
+    margin-left: 10px;
+}
+
