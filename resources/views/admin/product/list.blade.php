@@ -2,6 +2,8 @@
 @section('title',env('APP_NAME').' | Ürünler ')
 @section('page-css')
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css"/>
+    {{-- selec2 cdn --}}
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
 @endsection
 
@@ -38,7 +40,7 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <table id="myTable" class="table table-bordered table-striped">
+                            <table id="MyTable" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
                                     <th>#</th>
@@ -61,7 +63,7 @@
                                             <td style="width: 40%">@if($value->image) <img src="{{$value->image}}" width="50%">@else
                                                     <label class="btn btn-danger btn-sm">Resim Yok</label> @endif</td>
                                             @foreach($value->kategoriler as $category)
-                                            <td style="width: 20%">{{$category->cat_name}}</td>
+                                            <td style="width: 20%">{{SiteHelpers::getCategoryName($category->id)}}</td>
                                             @endforeach
                                             <td style="width: 20%">{{$value->name}}</td>
                                             <td style="width: 20%">{{$value->title}}</td>
@@ -75,7 +77,7 @@
                                                    class="btn btn-primary btn-sm">
                                                    <i class="bi bi-pencil-fill"></i>
                                                 </a>
-                                                <a href="javascript:Void(0)">
+                                                <a href="javascript:;">
                                                     <button type="button"
                                                             title="Sil" id="{{$value->id}}"
                                                             class="btn btn-circle btn-sm btn-danger delete"><i
@@ -104,9 +106,10 @@
 
 
 @section('page-js')
-    <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
-        let table = new DataTable('#myTable');
+
         $(function () {
             $.ajaxSetup({
                 headers: {
@@ -117,7 +120,6 @@
             $(".delete").click(function () {
                 destroy_id = $(this).attr('id');
                 alertify.confirm('Kaydı Silmek İstediğinize Emin misiniz?', '<b style="color: #f30404;text-transform: uppercase;">ÖNEMLİ UYARI:</b> Kaydı sildiğinizde geri alamazsınız!',
-
 
                     function () {
                         $.ajax({
@@ -147,6 +149,10 @@
 
             });
         });
-    </script>
 
+        jQuery(document).ready(function($) {
+            $('#MyTable').DataTable();
+        } );
+    </script>
+    <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 @endsection

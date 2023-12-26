@@ -86,9 +86,6 @@
 <script src="{{asset("admin/assets/static/js/pages/horizontal-layout.js")}}"></script>
 <script src="{{asset("admin/assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js")}}"></script>
 <script src="{{asset("admin/assets/compiled/js/app.js")}}"></script>
-
-<script src="{{asset("admin/assets/extensions/apexcharts/apexcharts.min.js")}}"></script>
-<script src="{{asset("admin/assets/static/js/pages/dashboard.js")}}"></script>
 <script src="{{asset("admin/assets/compiled/js/mrTurco.js")}}"></script>
 
 

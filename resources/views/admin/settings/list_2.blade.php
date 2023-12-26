@@ -54,26 +54,26 @@
             </div>
         </nav>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <div class="panel panel-default">
-                        <div class="panel-heading text-center">
-                            <h2>Site Ayarları</h2>
-                        </div>
-
-                        <div class="panel-body">
-                            <h3>Ayarlar Listesi</h3>
-                            <div class="flash-message">
-                                @foreach (['danger', 'warning', 'success', 'info'] as $msg)
-                                    @if(Session::has('alert-' . $msg))
-                                        <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
-                                    @endif
-                                @endforeach
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="panel panel-default">
+                            <div class="panel-heading text-center">
+                                <h2>Site Ayarları</h2>
                             </div>
 
-                            <table class="table table-hover">
-                                <thead>
+                            <div class="panel-body">
+                                <h3>Ayarlar Listesi</h3>
+                                <div class="flash-message">
+                                    @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+                                        @if(Session::has('alert-' . $msg))
+                                            <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
+                                        @endif
+                                    @endforeach
+                                </div>
+
+                                <table class="table table-hover">
+                                    <thead>
                                     <tr>
                                         <th>Sıra</th>
                                         <th>İşlemler</th>
@@ -83,39 +83,39 @@
                                         <th>Değer</th>
 
                                     </tr>
-                                </thead>
-                                <tbody>
+                                    </thead>
+                                    <tbody>
                                     @if (!$settings->isEmpty())
                                         @php $count=1; @endphp
                                         @foreach ($settings as $setting)
-                                        <tr>
-                                            <td>{{ $setting->settings_must }}</td>
-                                            <td>
-                                                <a href="{{ url('/settings/'.$setting->id.'/edit') }}"><button class="btn btn-warning btn-sm">Düzenle</button></a>
-                                                <a href="{{ url('/settings/'.$setting->id) }}"><button class="btn btn-primary btn-sm">Show</button></a>
-                                            </td>
-                                            <td>{{ $setting->settings_description }}</td>
-                                            <td>{{ $setting->settings_key }}</td>
-                                            <td>{{ $setting->settings_type }}</td>
-                                            <td>{{ $setting->settings_value }}</td>
+                                            <tr>
+                                                <td>{{ $setting->settings_must }}</td>
+                                                <td>
+                                                    <a href="{{ url('/settings/'.$setting->id.'/edit') }}"><button class="btn btn-warning btn-sm">Düzenle</button></a>
+                                                    <a href="{{ url('/settings/'.$setting->id) }}"><button class="btn btn-primary btn-sm">Show</button></a>
+                                                </td>
+                                                <td>{{ $setting->settings_description }}</td>
+                                                <td>{{ $setting->settings_key }}</td>
+                                                <td>{{ $setting->settings_type }}</td>
+                                                <td>{{ $setting->settings_value }}</td>
 
-                                        </tr>
-                                        @php $count++; @endphp
+                                            </tr>
+                                            @php $count++; @endphp
                                         @endforeach
                                     @else
                                         <tr>
                                             <td colspan="4">No Setting</td>
                                         </tr>
                                     @endif
-                                </tbody>
-                            </table>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <h3>Usage</h3>
-                            <table class="table">
-                                <tbody>
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <h3>Usage</h3>
+                                <table class="table">
+                                    <tbody>
                                     <tr>
                                         <td>{{ config('settings.site_name') }}</td>
                                     </tr>
@@ -128,13 +128,13 @@
                                     <tr>
                                         <td>{{ config('settings.email') }}</td>
                                     </tr>
-                                </tbody>
-                            </table>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>

@@ -7,7 +7,9 @@ use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Cache\Factory;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 
 class SettingsController extends Controller
@@ -17,6 +19,7 @@ class SettingsController extends Controller
         $this->middleware('auth');
         parent::__construct();
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -24,9 +27,12 @@ class SettingsController extends Controller
      */
     public function index()
     {
-
-        $settings = Setting::all()->sortBy('settings_must');
-        return view('admin.settings.index', compact('settings'));
+        if (Auth::user()->isAdmin == 0) {
+            $settings = Setting::all()->sortBy('settings_must');
+        } else {
+            $settings = Setting::all()->where('see_is_user', 1)->sortBy('settings_must');
+        }
+        return view('admin.settings.list', compact('settings'));
     }
 
     /**
@@ -36,112 +42,184 @@ class SettingsController extends Controller
      */
     public function create()
     {
-        return view('admin.settings.new');
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, Factory $cache)
     {
-        $input = $request->all();
-
-        $settings = [
-            'settings_description.required' => 'Lütfen Açıklama alanını doldurunuz.',
-            'settings_key.required' => 'Lütfen Anahtar alanını doldurunuz.',
-            'settings_value.required' => 'Lütfen Değer alanını doldurunuz.',
-            'settings_type.required' => 'Lütfen Tip alanını doldurunuz.',
-            'settings_must.required' => 'Lütfen Sıralama alanını doldurunuz.',
-        ];
-
-        $this->validate($request,[
-            'settings_description' => 'required|max:255',
-            'settings_key' => 'required|max:255',
-            'settings_type' => 'required|max:255',
-            'settings_must' => 'required|max:3',
-            'settings_value' => 'required',
-        ], $settings);
-
-        Setting::create($input)->id;
-
-        /* Important ********** */
-        $cache->forget('settings');
-        /* //Important ********** */
-
-        $request->session()->flash('alert-success', 'Setting added successfully!');
-
-        return view('admin.settings.index');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $setting = Setting::findOrFail($id);
-        return view('admin.settings.show', compact('setting'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, $type)
     {
-        $setting   = Setting::findOrFail($id);
-        return view('admin.settings.edit', compact('setting'));
+        $setting = Setting::findOrFail($id);
+        return view('admin.settings.edit', compact('setting', 'type'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id, Factory $cache)
     {
         $input = $request->all();
-
-        $messages = [
-            'settings_description.required' => 'Lütfen Açıklama alanını doldurunuz.',
-            'settings_key.required' => 'Lütfen Anahtar alanını doldurunuz.',
-            'settings_value.required' => 'Lütfen Değer alanını doldurunuz.',
-            'settings_type.required' => 'Lütfen Tip alanını doldurunuz.',
-            /*'settings_must.required' => 'Lütfen Sıralama alanını doldurunuz.',*/
-        ];
-
-        $this->validate($request,[
-            'settings_description' => 'required|max:255',
-            'settings_key' => 'required|max:255',
-            'settings_type' => 'required|max:255',
-            /* 'settings_must' => 'required|max:3',*/
-            'settings_value' => 'required',
-        ], $messages);
-
         $data = Setting::findOrFail($id);
-        $data->fill($input)->save();
+        if ($request->settings_key == 'textarea' || $request->settings_key == 'text' || $request->settings_key == 'switch') {
+            // Form validation
+            $rules = [
+                'settings_value' => 'required'
+            ];
 
-        /* Important ********** */
-        $cache->forget('settings');
-        /* //Important ********** */
+            $customMessages = [
+                'required' => ':attribute girişi gereklidir.',
+                'image' => 'Sadece resim dosyası yükleyebilirsiniz!',
+                'mimes' => 'Sadece jpeg,png,jpg,gif,svg uzantılı resim dosyası yükleyebilirsiniz! ',
+                'max' => 'Yüklediğiniz resmin büyüklüğü 2048 Kb. dan küçük olmalıdır!',
+                'dimensions' => 'Yüklediğiniz resmin Genişliği 800 px x Yüksekliği 600 px olmalıdır.'
+            ];
 
-        $request->session()->flash('alert-success', 'Setting updated successfully!');
-        return view('admin.settings.index');
+            $validator = Validator::make($request->all(), $rules, $customMessages);
+
+            if ($validator->fails()) {
+                alert('<b><i style="color: red" class="bi bi-x-octagon-fill"></i><br>Hata!</b>', $validator->errors()->first(), 'danger');
+                return back();
+            }
+            $data->fill($input)->save();
+            /* Important ********** */
+            $cache->forget('settings');
+            /* //Important ********** */
+
+            toast('Site Ayarı Başarıyla Güncellendi', 'success');
+            return back();
+        } elseif ($request->settings_key == 'logo')
+        {
+            // Form validation
+            $rules = [
+                'settings_value' => 'required|image|mimes:png,svg|max:2048|dimensions:min_width=1450,min_height=816,max_width=1450,max_height=816'
+            ];
+
+            $customMessages = [
+                'required' => ':attribute girişi gereklidir.',
+                'image' => 'Sadece resim dosyası yükleyebilirsiniz!',
+                'mimes' => 'Sadece png veya svg uzantılı resim dosyası yükleyebilirsiniz! ',
+                'max' => 'Yüklediğiniz resmin büyüklüğü 2048 Kb. dan küçük olmalıdır!',
+                'dimensions' => 'Yüklediğiniz resmin Genişliği 1450 px x Yüksekliği 816 px olmalıdır.'
+            ];
+
+            $validator = Validator::make($request->all(), $rules, $customMessages);
+
+            if ($validator->fails()) {
+                alert('<b><i style="color: red" class="bi bi-x-octagon-fill"></i><br>Hata!</b>', $validator->errors()->first(), 'danger');
+                return back();
+            }
+            $fileName = time() . '.' . $request->file('settings_value')->getClientOriginalExtension();
+            $path = $request->file('settings_value')->storeAs('images/settings', $fileName, 'public');
+            $input['settings_value'] = '/storage/' . $path;
+            File::delete(public_path( $data->settings_value));
+            $data->fill($input)->save();
+            /* Important ********** */
+            $cache->forget('settings');
+            /* //Important ********** */
+
+            toast('Logo Başarıyla Güncellendi', 'success');
+            return back();
+        } elseif($request->settings_key == 'slogo')
+        {
+            // Form validation
+            $rules = [
+                'settings_value' => 'required|image|mimes:png,svg|max:2048|dimensions:min_width=730,min_height=411,max_width=730,max_height=411'
+            ];
+
+            $customMessages = [
+                'required' => ':attribute girişi gereklidir.',
+                'image' => 'Sadece resim dosyası yükleyebilirsiniz!',
+                'mimes' => 'Sadece png veya svg uzantılı resim dosyası yükleyebilirsiniz! ',
+                'max' => 'Yüklediğiniz resmin büyüklüğü 2048 Kb. dan küçük olmalıdır!',
+                'dimensions' => 'Yüklediğiniz resmin Genişliği 730 px x Yüksekliği 411 px olmalıdır.'
+            ];
+
+            $validator = Validator::make($request->all(), $rules, $customMessages);
+
+            if ($validator->fails()) {
+                alert('<b><i style="color: red" class="bi bi-x-octagon-fill"></i><br>Hata!</b>', $validator->errors()->first(), 'danger');
+                return back();
+            }
+            $fileName = time() . '.' . $request->file('settings_value')->getClientOriginalExtension();
+            $path = $request->file('settings_value')->storeAs('images/settings', $fileName, 'public');
+            $input['settings_value'] = '/storage/' . $path;
+            File::delete(public_path( $data->settings_value));
+            $data->fill($input)->save();
+            /* Important ********** */
+            $cache->forget('settings');
+            /* //Important ********** */
+
+            toast('Logo Başarıyla Güncellendi', 'success');
+            return back();
+        } elseif($request->settings_key == 'favicon')
+        {
+            // Form validation
+            $rules = [
+                'settings_value' => 'required|image|mimes:png,svg|max:2048|dimensions:min_width=100,min_height=56,max_width=100,max_height=56'
+            ];
+
+            $customMessages = [
+                'required' => ':attribute girişi gereklidir.',
+                'image' => 'Sadece resim dosyası yükleyebilirsiniz!',
+                'mimes' => 'Sadece png veya svg uzantılı resim dosyası yükleyebilirsiniz! ',
+                'max' => 'Yüklediğiniz resmin büyüklüğü 2048 Kb. dan küçük olmalıdır!',
+                'dimensions' => 'Yüklediğiniz resmin Genişliği 100 px x Yüksekliği 56 px olmalıdır.'
+            ];
+
+            $validator = Validator::make($request->all(), $rules, $customMessages);
+
+            if ($validator->fails()) {
+                alert('<b><i style="color: red" class="bi bi-x-octagon-fill"></i><br>Hata!</b>', $validator->errors()->first(), 'danger');
+                return back();
+            }
+            $fileName = time() . '.' . $request->file('settings_value')->getClientOriginalExtension();
+            $path = $request->file('settings_value')->storeAs('images/settings', $fileName, 'public');
+            $input['settings_value'] = '/storage/' . $path;
+            File::delete(public_path( $data->settings_value));
+            $data->fill($input)->save();
+            /* Important ********** */
+            $cache->forget('settings');
+            /* //Important ********** */
+
+            toast('Logo Başarıyla Güncellendi', 'success');
+            return back();
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

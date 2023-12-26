@@ -178,6 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         \App\Providers\SettingsServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        Yajra\DataTables\DataTablesServiceProvider::class,
 
 
     ],

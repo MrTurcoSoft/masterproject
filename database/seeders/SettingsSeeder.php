@@ -41,28 +41,29 @@ class SettingsSeeder extends Seeder
                 "settings_description" => "Logo (standart)",
                 "settings_key" => "logo",
                 "settings_value" => "/frontend/img/della_soft_logo.png",
-                "settings_type" => "image",
+                "settings_type" => "logo",
                 "settings_must" => "11"
             ],
             [
                 "settings_description" => "Logo (küçük)",
                 "settings_key" => "logo_small",
                 "settings_value" => "/frontend/img/della_soft_logo_2.png",
-                "settings_type" => "image",
+                "settings_type" => "slogo",
                 "settings_must" => "12"
             ],
             [
                 "settings_description" => "Footer Logo",
                 "settings_key" => "logo_footer",
                 "settings_value" => "#",
-                "settings_type" => "image",
-                "settings_must" => "13"
+                "settings_type" => "slogo",
+                "settings_must" => "13",
+                "see_is_user" => "0"
             ],
             [
                 "settings_description" => "Favicon",
                 "settings_key" => "favicon",
                 "settings_value" => "/frontend/img/favicon.png",
-                "settings_type" => "image",
+                "settings_type" => "favicn",
                 "settings_must" => "14"
             ],
             [

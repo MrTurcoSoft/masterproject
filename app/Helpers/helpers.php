@@ -124,4 +124,14 @@ class SiteHelpers
         return true;
     }
 
+    public static function getCategoryName($id)
+    {
+        $parent = \App\Models\Category::whereId($id)->first();
+        if($parent) {
+                return $parent->cat_name;
+        } else {
+            return 'Ana Kategori';
+        }
+    }
+
 }

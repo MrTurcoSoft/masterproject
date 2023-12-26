@@ -163,10 +163,10 @@
                 </li>
                 <li class="menu-item"> </li>
                 <li class="menu-item"> </li>
+                <li class="menu-item"><a style="color: #ffffff; font-size: xx-large " href="{{route('settings.index')}}"  title="Site Ayarları"><i class="bi bi-database-gear"></i></a> </li>
                 <li class="menu-item"> </li>
                 <li class="menu-item"> </li>
-                <li class="menu-item"> </li>
-                <li class="menu-item"> </li>
+
                 <li class="menu-item"><a style="color: #ffffff; font-size: xx-large " href="{{route('home')}}" target="_blank" title="Web Sitesine Git"><i class="bi bi-globe2"></i></a></li>
 
             </ul>
