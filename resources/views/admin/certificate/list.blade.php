@@ -127,7 +127,7 @@
 
                     },
                     function () {
-                        alertify.error('{{trans('back.deleting-aborted')}}')
+                        alertify.error('Silme işlemi iptal edildi.')
                     }
                 )
                 ;

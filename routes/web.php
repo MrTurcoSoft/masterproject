@@ -36,7 +36,8 @@ Route::resource('/products','App\Http\Controllers\Admin\ProductController');
 Route::post('products/delete','App\Http\Controllers\Admin\ProductController@deleteImage')->name('products.delete');
 Route::resource('/settings','App\Http\Controllers\Admin\SettingsController');
 Route::get('/settings/{id}/{type}','App\Http\Controllers\Admin\SettingsController@edit')->name('settings.edit');
-
+Route::resource('/catalog','App\Http\Controllers\Admin\CatalogController');
+Route::get('/settings/delete','App\Http\Controllers\Admin\CatalogController@deleteImage')->name('catalog.delete');
 
 
 

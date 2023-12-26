@@ -134,6 +134,11 @@
                                     <a href="{{route('certificates.index')}}"
                                        class='submenu-link'>Sertifikalar/Belgeler</a>
                                 </li>
+                                <li
+                                    class="submenu-item  ">
+                                    <a href="{{route('catalog.index')}}"
+                                       class='submenu-link'>Katalog</a>
+                                </li>
                                 </ul>
                         </div>
                     </div>
