@@ -1,5 +1,5 @@
 @extends('admin.layouts.admin')
-@section('title',env('APP_NAME').' | Slider Listesi ')
+@section('title',SiteHelpers::ayar('author').' | Slider Listesi ')
 @section('page-css')
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css"/>
 

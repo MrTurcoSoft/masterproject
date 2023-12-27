@@ -8,7 +8,7 @@
     <meta name="keywords" content="coming soon template, material comingsoon, material under construction, site under construction, countdown, mailchimp, responsive, material comingsoon design">
     <meta name="author" content="trendytheme.net">
 
-    <title>{{env('APP_NAME').' | We are in maintenance'}}</title>
+    <title>{{SiteHelpers::ayar('mark').' | We are in maintenance'}}</title>
 
     <!--  favicon -->
     <link rel="shortcut icon" href="{{SiteHelpers::ayar('favicon')}}">
@@ -60,7 +60,7 @@
             <div class="comingsoon-wrapper text-center">
                 <div class="logo">
                     <a href="#">
-                        <img src="{{asset(SiteHelpers::ayar('logo_small'))}}" alt="Logo">
+                        <img src="{{asset(SiteHelpers::ayar('logo_small'))}}" width="50%" alt="Logo">
                     </a>
                 </div><!-- /.logo -->
 <div class="goog-te-menu-value">

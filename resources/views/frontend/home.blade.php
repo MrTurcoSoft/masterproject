@@ -1,5 +1,5 @@
 @extends('frontend.layouts.frontend')
-@section('title',env('APP_NAME').' | Home')
+@section('title',SiteHelpers::ayar('mark').' |'.SiteHelpers::GoogleTRS('Homepage'))
 @section('page-css')
     {{--sayfaya özel css kodlarını eklemek için kullanın--}}
 

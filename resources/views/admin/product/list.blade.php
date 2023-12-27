@@ -1,5 +1,5 @@
 @extends('admin.layouts.admin')
-@section('title',env('APP_NAME').' | Ürünler ')
+@section('title',SiteHelpers::ayar('author').' | Ürünler ')
 @section('page-css')
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css"/>
     {{-- selec2 cdn --}}

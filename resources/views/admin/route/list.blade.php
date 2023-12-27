@@ -1,5 +1,5 @@
 @extends('admin.layouts.admin')
-@section('title',env('APP_NAME').' | Route Listesi ')
+@section('title',SiteHelpers::ayar('author').' | Route Listesi ')
 @section('page-css')
     {{--sayfaya özel css kodlarını eklemek için kullanın--}}
 

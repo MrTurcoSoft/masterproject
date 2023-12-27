@@ -1,5 +1,5 @@
 @extends('admin.layouts.admin')
-@section('title',env('APP_NAME').' | Hakkımızda Sayfası ')
+@section('title',SiteHelpers::ayar('author').' | Hakkımızda Sayfası ')
 @section('page-css')
     {{--sayfaya özel css kodlarını eklemek için kullanın--}}
 

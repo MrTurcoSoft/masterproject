@@ -1,5 +1,5 @@
 @extends('frontend.layouts.frontend')
-@section('title',\Stichoza\GoogleTranslate\GoogleTranslate::trans(env('APP_NAME'),app()->getLocale()).' | '.\Stichoza\GoogleTranslate\GoogleTranslate::trans('CATALOGUE’S',app()->getLocale()))
+@section('title',\SiteHelpers::ayar('mark').' | '.\Stichoza\GoogleTranslate\GoogleTranslate::trans('CATALOGUE’S',app()->getLocale()))
 @section('page-css')
     {{--sayfaya özel css kodlarını eklemek için kullanın--}}
 
