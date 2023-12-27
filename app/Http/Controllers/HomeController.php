@@ -10,6 +10,7 @@ use App\Models\SectionTab;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Schema;
 use Jenssegers\Agent\Agent;
 
 class HomeController extends Controller
@@ -32,6 +33,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $controll= Schema::hasTable('settings');
+       if ($controll) {
+
 
         if (\SiteHelpers::ayar('maintenance_mode') == 1 && Auth::user()) {
             $sliders = Slider::all()->where('isActive', 1);
@@ -55,6 +59,9 @@ class HomeController extends Controller
         } elseif (\SiteHelpers::ayar('maintenance_mode') == 1) {
             return view('maintenance.index');
         }
+       } else {
+           return redirect('/install');
+       }
     }
 
 

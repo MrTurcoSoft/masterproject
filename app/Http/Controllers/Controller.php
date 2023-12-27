@@ -10,6 +10,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
 use Jenssegers\Agent\Agent;
@@ -20,6 +21,7 @@ class Controller extends BaseController
 
     public function __construct()
     {
+
 
         $categories = Category::all()->where('isActive')->sortBy('must');
         View::share('_categories', $categories);
