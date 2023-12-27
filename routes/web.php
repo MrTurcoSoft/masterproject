@@ -26,9 +26,9 @@ Route::get('/clear', function () {
     echo 'Cache temizlendi!';
 });
 
-Route::get('/install', function () {
+Route::get('/new-install', function () {
     Artisan::call('storage:link');
-    Artisan::call('migrate');
+    Artisan::call('migrate:refresh');
     Artisan::call('db:seed');
 
     echo 'Veritaban(lar)ı başarıyla oluşturuldu';

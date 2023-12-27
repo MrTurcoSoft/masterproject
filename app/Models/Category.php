@@ -13,6 +13,7 @@ class Category extends Model
 
     protected $guarded = array('_token');
 
+
     public function urunler()
     {
         return $this->belongsToMany('App\Models\Product', 'category_products');
