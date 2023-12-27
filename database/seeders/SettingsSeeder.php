@@ -194,7 +194,7 @@ class SettingsSeeder extends Seeder
             [
                 "settings_description" => "Site Bakım Modu",
                 "settings_key" => "maintenance_mode",
-                "settings_value" => "0",
+                "settings_value" => "1",
                 "settings_type" => "switch",
                 "settings_must" => "26"
             ],
