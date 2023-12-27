@@ -4,6 +4,7 @@ use App\Http\Controllers\LangController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Schema;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,7 +73,15 @@ Route::get('lang/home', [LangController::class, 'index']);
 Route::get('lang/change', [LangController::class, 'change'])->name('changeLang');
 
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+if (Schema::hasTable('setting')== false) {
+    Route::get('/', function(){
+        return 'Kurulum yapılması gerekiyor!';
+    });
+} else {
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+}
+
+
 
 Route::get('/about',[App\Http\Controllers\AboutController::class,'index'])->name('about');
 Route::get('/catalogue',[App\Http\Controllers\HomeController::class,'catalog'])->name('catalogue');
