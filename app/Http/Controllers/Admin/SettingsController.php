@@ -90,7 +90,7 @@ class SettingsController extends Controller
     {
         $input = $request->all();
         $data = Setting::findOrFail($id);
-        if ($request->settings_key == 'textarea' || $request->settings_key == 'text' || $request->settings_key == 'switch') {
+        if ($request->settings_type == 'textarea' || $request->settings_type == 'text' || $request->settings_type == 'switch') {
             // Form validation
             $rules = [
                 'settings_value' => 'required'
@@ -117,7 +117,7 @@ class SettingsController extends Controller
 
             toast('Site Ayarı Başarıyla Güncellendi', 'success');
             return back();
-        } elseif ($request->settings_key == 'logo')
+        } elseif ($request->settings_type == 'logo')
         {
             // Form validation
             $rules = [
@@ -149,7 +149,7 @@ class SettingsController extends Controller
 
             toast('Logo Başarıyla Güncellendi', 'success');
             return back();
-        } elseif($request->settings_key == 'slogo')
+        } elseif($request->settings_type == 'slogo')
         {
             // Form validation
             $rules = [
@@ -181,7 +181,7 @@ class SettingsController extends Controller
 
             toast('Logo Başarıyla Güncellendi', 'success');
             return back();
-        } elseif($request->settings_key == 'favicon')
+        } elseif($request->settings_type == 'favicon')
         {
             // Form validation
             $rules = [
