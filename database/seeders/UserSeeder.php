@@ -24,5 +24,14 @@ class UserSeeder extends Seeder
             "isAdmin" => "0", //0: SuperAdmin 1:Admin 2:Editor
             "isActive" => "1",
         ]);
+
+        User::create([
+            "name" => "Can Küçükşabanoğlu",
+            "email" => "office@aureus.ltd",
+            "password" => Hash::make('CanAureus2024*Della'),
+            "image" => "admin/image/user_image.png",
+            "isAdmin" => "1", //0: SuperAdmin 1:Admin 2:Editor
+            "isActive" => "1",
+        ]);
     }
 }
