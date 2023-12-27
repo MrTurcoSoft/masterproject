@@ -27,7 +27,19 @@
     <link href="{{asset('frontend/css/style.css')}}" rel="stylesheet"/>
     <!-- Custom CSS -->
     <link href="{{asset('maintenance/assets/css/custom.css')}}" rel="stylesheet">
-
+    <style type="text/css">
+        <!--
+        a.gflag {vertical-align:middle;font-size:65px;padding:1px 0;background-repeat:no-repeat;background-image:url({{asset('frontend/img/flag/flags.png')}});}
+        a.gflag img {border:0;padding-top: 16px !important;}
+        /*a.gflag:hover {background-image:url(//gtranslate.net/flags/32a.png);}*/
+        a.gflag:hover {background-image:url({{asset('frontend/img/flag/flags.png')}});}
+        #goog-gt-tt {display:none !important;}
+        .goog-te-banner-frame {display:none !important;}
+        .goog-te-menu-value:hover {text-decoration:none !important;}
+        body {top:0 !important;}
+        #google_translate_element2 {display:none!important;}
+        -->
+    </style>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -43,13 +55,67 @@
     <div class="valign-cell">
         <div class="container">
 
+
+
             <div class="comingsoon-wrapper text-center">
                 <div class="logo">
                     <a href="#">
                         <img src="{{asset(SiteHelpers::ayar('logo_small'))}}" alt="Logo">
                     </a>
                 </div><!-- /.logo -->
+<div class="goog-te-menu-value">
+    <a href="lang/change?lang=en"
+       title="English" class="gflag"
+       style="background-position:-0px -0px;">
+        <img src="{{asset("frontend/img/main/blank.png")}}"
+             height="32" width="32" alt="English"/>
+    </a>
+    <a href="lang/change?lang=de"
+       title="{{\Stichoza\GoogleTranslate\GoogleTranslate::trans('German','de')}}"
+       class="gflag"
+       style="background-position:-100px -0px;">
+        <img src="{{asset("frontend/img/main/blank.png")}}"
+             height="32" width="32" alt="German"/>
+    </a>
+    <a href="lang/change?lang=fr"
+       title="{{\Stichoza\GoogleTranslate\GoogleTranslate::trans('French','fr')}}"
+       class="gflag"
+       style="background-position:-200px -0px;">
+        <img src="{{asset("frontend/img/main/blank.png")}}"
+             height="32" width="32" alt="French"/>
+    </a>
 
+    <a href="lang/change?lang=ar-IQ"
+       title="{{\Stichoza\GoogleTranslate\GoogleTranslate::trans('Arabic','ar-IQ')}}"
+       class="gflag"
+       style="background-position:-300px -0px;">
+        <img src="{{asset("frontend/img/main/blank.png")}}"
+             height="32" width="32" alt="Arabic"/>
+    </a>
+    <a href="lang/change?lang=ru"
+       title="{{\Stichoza\GoogleTranslate\GoogleTranslate::trans('Russian','ru')}}"
+       class="gflag"
+       style="background-position:-400px -0px;">
+        <img src="{{asset("frontend/img/main/blank.png")}}"
+             height="32" width="32" alt="Russian"/>
+    </a>
+    <a
+        href="lang/change?lang=ar-SA"
+        title="{{\Stichoza\GoogleTranslate\GoogleTranslate::trans('Arabic','ar-SA')}}"
+        class="gflag"
+        style="background-position:-500px -0px;">
+        <img src="{{asset("frontend/img/main/blank.png")}}"
+             height="32" width="32" alt="Arabic"/>
+    </a>
+    <a
+        href="lang/change?lang=tr"
+        title="{{\Stichoza\GoogleTranslate\GoogleTranslate::trans('Turkish','tr')}}"
+        class="gflag"
+        style="background-position:-600px -0px;">
+        <img src="{{asset("frontend/img/main/blank.png")}}"
+             height="32" width="32" alt="Turkish"/>
+    </a>
+</div>
                 <div class="mb-50">
                     <h1 class="intro-title black-text text-uppercase">{{\Stichoza\GoogleTranslate\GoogleTranslate::trans(SiteHelpers::ayar('maintenance_message_title'),app()->getLocale())}}</h1>
                     <p style="color: white;"class="sub-intro lead">{{\Stichoza\GoogleTranslate\GoogleTranslate::trans(SiteHelpers::ayar('maintenance_message_content'),app()->getLocale())}}</p>

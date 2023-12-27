@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LangController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,25 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/clear', function () {
+    Artisan::call('cache:clear');
+    Artisan::call('view:clear');
+    Artisan::call('route:clear');
+    Artisan::call('config:clear');
+    Artisan::call('config:cache');
+    echo 'Cache temizlendi!';
+});
+
+Route::get('/install', function () {
+    Artisan::call('storage:link');
+    Artisan::call('migrate');
+    Artisan::call('db:seed');
+
+    echo 'Veritaban(lar)ı başarıyla oluşturuldu';
+});
+
+
 Auth::routes();
 
 Route::get('/dashboard',[\App\Http\Controllers\Admin\AdminController::class,'index'])->name('dashboard');
