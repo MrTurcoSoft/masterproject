@@ -13,7 +13,9 @@
 
 @include('frontend.inc.footer')
 </div>
+
 <script src="{{asset('frontend/js/mrturco.js')}}"></script>
+
 @yield('page-js')
 </body>
 </html>

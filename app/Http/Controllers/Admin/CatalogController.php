@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Catalog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+use SiteHelpers;
 
 class CatalogController extends Controller
 {
@@ -32,7 +36,7 @@ class CatalogController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.catalog.new');
     }
 
     /**
@@ -43,7 +47,32 @@ class CatalogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Form validation
+        $rules = [
+            'name' => 'required',
+            'file' => 'required|mimes:pdf|max:2048'
+        ];
+        $customMessages = [
+            'required' => ':attribute girişi gereklidir.',
+            'mimes' => 'Sadece PDF uzantılı dosya yükleyebilirsiniz! ',
+            'max' => 'Yüklediğiniz dosyanın büyüklüğü 2048 Kb. dan küçük olmalıdır!'
+        ];
+        $validator = Validator::make($request->all(), $rules, $customMessages);
+        if ($validator->fails()) {
+            alert('<b><i style="color: red" class="bi bi-x-octagon-fill"></i><br>Hata!</b>', $validator->errors()->first(), 'danger');
+            return back();
+        }
+        Validator::replacer('custom_validation_rule', function ($message, $attribute, $rule, $parameters) {
+            return str_replace(':foo', $parameters[0], $message);
+        });
+        $requestData = $request->all();
+        $fileName =time().'-'. $request->file('file')->getClientOriginalName();
+        $path = $request->file('file')->storeAs('file/catalog', $fileName, 'public');
+        $requestData['file'] = '/storage/' . $path;
+
+        Catalog::create($requestData);
+        toast('Katalog Başarıyla Eklendi', 'success');
+        return back();
     }
 
     /**
@@ -80,6 +109,29 @@ class CatalogController extends Controller
         //
     }
 
+
+    public function deleteImage(Request $request)
+    {
+        $id = $request->id;
+        $root = Catalog::findOrFail($id);
+
+        if (!empty($root->file)) {
+            Storage::delete($root->file);
+        }
+        $this->delete($id);
+    }
+
+    public function delete($id)
+    {
+        $root = Catalog::findOrFail($id);
+        $root->delete();
+        if ($root) {
+            echo 'ok';
+        } else {
+            echo 'no';
+        }
+
+    }
     /**
      * Remove the specified resource from storage.
      *

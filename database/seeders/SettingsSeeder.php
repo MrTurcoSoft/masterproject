@@ -194,7 +194,7 @@ class SettingsSeeder extends Seeder
             ],
             [
                 "settings_description" => "Site Bakım Modu",
-                "settings_key" => "maintenance",
+                "settings_key" => "maintenance_mode",
                 "settings_value" => "0",
                 "settings_type" => "switch",
                 "settings_must" => "26"
@@ -231,6 +231,20 @@ class SettingsSeeder extends Seeder
                 "settings_type" => "text",
                 "settings_must" => "103",
                 "see_is_user" => "0"
+            ],
+            [
+                "settings_description" => "Bakım Modu Mesajı (Başlk)",
+                "settings_key" => "maintenance_message_title",
+                "settings_value" => "OUR WEBSITE IS UNDER CONSTRUCTION ",
+                "settings_type" => "text",
+                "settings_must" => "27"
+            ],
+            [
+                "settings_description" => "Bakım Modu Mesajı (İçerik)",
+                "settings_key" => "maintenance_message_content",
+                "settings_value" => "We will be back in soon ",
+                "settings_type" => "text",
+                "settings_must" => "28"
             ]
         ];
 

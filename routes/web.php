@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LangController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -37,7 +38,7 @@ Route::post('products/delete','App\Http\Controllers\Admin\ProductController@dele
 Route::resource('/settings','App\Http\Controllers\Admin\SettingsController');
 Route::get('/settings/{id}/{type}','App\Http\Controllers\Admin\SettingsController@edit')->name('settings.edit');
 Route::resource('/catalog','App\Http\Controllers\Admin\CatalogController');
-Route::get('/settings/delete','App\Http\Controllers\Admin\CatalogController@deleteImage')->name('catalog.delete');
+Route::post('/catalog/delete','App\Http\Controllers\Admin\CatalogController@deleteImage')->name('catalog.delete');
 
 
 
@@ -47,10 +48,14 @@ Route::get('/settings/delete','App\Http\Controllers\Admin\CatalogController@dele
 Route::get('/route-list',[\App\Http\Controllers\Admin\RouteController::class,'index'])->name('route.list');
 
 
+Route::get('lang/home', [LangController::class, 'index']);
+Route::get('lang/change', [LangController::class, 'change'])->name('changeLang');
+
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/about',[App\Http\Controllers\AboutController::class,'index'])->name('about');
+Route::get('/catalogue',[App\Http\Controllers\HomeController::class,'catalog'])->name('catalogue');
 Route::get('/contact',[App\Http\Controllers\ContactController::class,'index'])->name('contact');
 
 Route::get('/category/{slug}', [App\Http\Controllers\CategoryController::class, 'index'])->name('category');

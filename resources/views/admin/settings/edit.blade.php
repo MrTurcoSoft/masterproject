@@ -67,6 +67,26 @@
                                 <label class="form-check-label" for="flexSwitchCheckChecked">Pasif / Aktif</label>
                             </div>
 
+                        @elseif($setting->settings_type =='ckeditor')
+                            <div class="form-group">
+                                <label>Açıklama *</label>
+                                <input type="text" disabled value="{{ $setting->settings_description }}" maxlength="100"
+                                       class="form-control" name="settings_description" id="settings_description"
+                                       placeholder="Option">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Değer *</label>
+                                <textarea class="form-control" name="settings_value" id="body" cols="30" rows="10">{!! $setting->settings_value !!}</textarea>
+                            </div>
+                            <script>
+                                ClassicEditor
+                                    .create(document.querySelector('#body'))
+                                    .catch(error => {
+                                        console.error(error);
+                                    });
+                            </script>
+
                         @endif
                         <input type="hidden" name="settings_key" value="{{$setting->settings_type}}">
                         <input type="submit" value="Ayarı Güncelle" class="btn btn-primary">

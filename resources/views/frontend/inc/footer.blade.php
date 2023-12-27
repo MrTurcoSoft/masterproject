@@ -5,10 +5,10 @@
         <div class="row footer__lower text-center-xs">
             <div class="col-sm-4">
                             <span class="type--fine-print">&copy;
-                                <span class="update-year">{{date('Y')}}</span> Del'la Soft - All Rights Reserved.</span>
+                                <span class="update-year">{{date('Y')}}</span> {{SiteHelpers::GoogleTRS("Del'la Soft - All Rights Reserved.")}}</span>
             </div>
             <div class="col-sm-4 text-center">
-                    <span class="type--fine-print">Designed & Coding by <a href="{{SiteHelpers::ayar("webmaster_url")}}"
+                    <span class="type--fine-print">{{SiteHelpers::GoogleTRS('Designed & Coding by')}} <a href="{{SiteHelpers::ayar("webmaster_url")}}"
                                                                            target="_blank">{{SiteHelpers::ayar("author")}}</a> </span>
             </div>
             <div class="col-sm-4 text-right text-center-xs">

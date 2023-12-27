@@ -1,5 +1,5 @@
 @extends('frontend.layouts.frontend')
-@section('title',env('APP_NAME').' | Contact')
+@section('title',\Stichoza\GoogleTranslate\GoogleTranslate::trans(env('APP_NAME'),app()->getLocale()).' | '.\Stichoza\GoogleTranslate\GoogleTranslate::trans('Contact',app()->getLocale()))
 @section('page-css')
     {{--sayfaya özel css kodlarını eklemek için kullanın--}}
 
@@ -13,7 +13,7 @@
         <div class="container pos-vertical-center">
             <div class="row">
                 <div class="col-sm-10 col-sm-offset-1 text-center">
-                    <h2>Contact</h2>
+                    <h2>{{\Stichoza\GoogleTranslate\GoogleTranslate::trans('Contact',app()->getLocale())}}</h2>
                 </div>
             </div>
             <!--end row-->
@@ -25,39 +25,39 @@
         <div class="feature bg--primary-1 col-md-4 text-center" style="background-color: black">
 
             <i class="icon icon--lg fa-solid fa-industry-windows color--white"></i>
-            <h5>{{config('settings.firm')}}</h5>
+            <h5>{{\Stichoza\GoogleTranslate\GoogleTranslate::trans(config('settings.firm'),app()->getLocale())}}</h5>
             <p>
-                {{config('settings.address')}}  <br>
-                {{config('settings.postcode')}},{{config('settings.firmCounty')}},{{config('settings.firmCity')}}/Turkiye<br>
+                {{\Stichoza\GoogleTranslate\GoogleTranslate::trans(config('settings.address'),app()->getLocale())}}  <br>
+                {{\Stichoza\GoogleTranslate\GoogleTranslate::trans(config('settings.postcode'),app()->getLocale())}},{{\Stichoza\GoogleTranslate\GoogleTranslate::trans(config('settings.firmCounty'),app()->getLocale())}},{{\Stichoza\GoogleTranslate\GoogleTranslate::trans(config('settings.firmCity'),app()->getLocale())}}/{{\Stichoza\GoogleTranslate\GoogleTranslate::trans('Turkiye',app()->getLocale())}}<br>
                 E-mail :<a href="{{config('settings.email')}}" style="text-decoration: none;font-weight: bold">{{config('settings.email')}}</a><br>
-                <small>Phone :<a href="tel:{{config('settings.phone')}}" style="text-decoration: none;font-weight: bold">{{config('settings.phone')}}</a></small><br>
-                <small>Mobile Phone :<a href="tel:{{config('settings.phoneGsm')}}" style="text-decoration: none;font-weight: bold">{{config('settings.phoneGsm')}}</a></small><br>
+                <small>Phone :<a href="tel:{{config('settings.phone')}}" style="text-decoration: none;font-weight: bold">{{\Stichoza\GoogleTranslate\GoogleTranslate::trans(config('settings.phone'),app()->getLocale())}}</a></small><br>
+                <small>Mobile Phone :<a href="tel:{{config('settings.phoneGsm')}}" style="text-decoration: none;font-weight: bold">{{\Stichoza\GoogleTranslate\GoogleTranslate::trans(config('settings.phoneGsm'),app()->getLocale())}}</a></small><br>
             </p>
         </div>
 
         <div class="feature bg--secondary col-md-4 text-center">
 
             <i class="icon icon--lg fa-solid fa-store"></i>
-            <h5>OPENING HOURS </h5>
+            <h5>{{\Stichoza\GoogleTranslate\GoogleTranslate::trans('OPENING HOURS',app()->getLocale())}} </h5>
             <p>
-              Mon-Friday:  {{config('settings.workHour_week')}} <br>
-              Sat       :  {{config('settings.workHour_weekend')}}
+              {{\Stichoza\GoogleTranslate\GoogleTranslate::trans('Mon-Friday:',app()->getLocale())}}  {{\Stichoza\GoogleTranslate\GoogleTranslate::trans(config('settings.workHour_week'),app()->getLocale())}} <br>
+              {{\Stichoza\GoogleTranslate\GoogleTranslate::trans('Sat       :',app()->getLocale())}}  {{\Stichoza\GoogleTranslate\GoogleTranslate::trans(config('settings.workHour_weekend'),app()->getLocale())}}
             </p>
         </div>
 
         <div class="feature bg--primary-1 col-md-4 text-center" style="background-color: black">
 
             <i class="icon icon--lg fa-solid fa-store color--white"></i>
-            <h5>CONTACT US  </h5>
+            <h5>{{\Stichoza\GoogleTranslate\GoogleTranslate::trans('CONTACT US',app()->getLocale())}}  </h5>
             <p>
-                <a href="https://wa.me/{{config('settings.whatsapp')}}" target="_blank"><button class="btn btn-success socicon-whatsapp text-white-50"> How can we help you?</button></a>
+                <a href="https://wa.me/{{config('settings.whatsapp')}}" target="_blank"><button class="btn btn-success socicon-whatsapp text-white-50"> {{\Stichoza\GoogleTranslate\GoogleTranslate::trans('How can we help you?',app()->getLocale())}}</button></a>
 
             </p>
         </div>
         <div class="feature bg--secondary col-md-12 text-center">
 
             <i class="icon icon--lg fa-solid fa-store"></i>
-            <h5>GET DIRECTIONS </h5>
+            <h5>{{\Stichoza\GoogleTranslate\GoogleTranslate::trans('GET DIRECTIONS',app()->getLocale())}} </h5>
             <p>
 
                 {!! config('settings.gmaps') !!}

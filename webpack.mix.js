@@ -20,6 +20,11 @@ const mix = require('laravel-mix');
 const AdminResAsset = 'resources/assets/admin/';
 const AdminPubAsset = 'public/admin/';
 
+const MaintenanceResAsset = 'resources/assets/maintenance/';
+const MaintenancePubAsset = 'public/maintenance/';
+
+
+mix.copy(MaintenanceResAsset + 'assets/', MaintenancePubAsset + 'assets/');
 
 mix.copy(AdminResAsset + 'assets/', AdminPubAsset + 'assets/');
 mix.copy(AdminResAsset + 'image/', AdminPubAsset + 'image/');
@@ -28,7 +33,7 @@ mix.copy(AdminResAsset + 'image/', AdminPubAsset + 'image/');
 mix.combine([
     AdminResAsset + 'assets/custom.js'
 ], AdminPubAsset + 'assets/custom.js')
-    .sass('sweetalert2/src/sweetalert2.scss', 'assets/mrturco.css')
+    /*.sass('sweetalert2/src/sweetalert2.scss', 'assets/mrturco.css')*/
 
 
 /*
@@ -61,6 +66,7 @@ mix.copy(FrendResAsset + 'css/interface-icons.css', FrendPubAsset + 'css/interfa
 mix.copy(FrendResAsset + 'css/owl.carousel.css', FrendPubAsset + 'css/owl.carousel.css');
 mix.copy(FrendResAsset + 'css/lightbox.min.css', FrendPubAsset + 'css/lightbox.min.css');
 mix.copy(FrendResAsset + 'css/theme5661.css', FrendPubAsset + 'css/theme5661.css');
+mix.copy(FrendResAsset + 'css/style.css', FrendPubAsset + 'css/style.css');
 /*
  |--------------------------------------------------------------------------
  | Copy JS Files

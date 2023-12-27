@@ -8,12 +8,13 @@
         "php": "^8.0",
         "fruitcake/laravel-cors": "^2.0.5",
         "guzzlehttp/guzzle": "^7.2",
+        "jenssegers/agent": "^2.6",
         "laravel/framework": "^9.0",
         "laravel/sanctum": "^2.14",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.3",
         "realrashid/sweet-alert": "^7.1",
-        "tanmuhittin/laravel-google-translate": "^2.2",
+        "stichoza/google-translate-php": "^5.1",
         "yajra/laravel-datatables-oracle": "^10.0"
     },
     "require-dev": {

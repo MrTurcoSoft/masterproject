@@ -134,4 +134,10 @@ class SiteHelpers
         }
     }
 
+    public static function GoogleTRS($str)
+    {
+      $translate=  \Stichoza\GoogleTranslate\GoogleTranslate::trans($str,app()->getLocale());
+      return $translate;
+    }
+
 }

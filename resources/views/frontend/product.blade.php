@@ -1,5 +1,5 @@
 @extends('frontend.layouts.frontend')
-@section('title',env('APP_NAME').' | '.$product->name.' '.$product->title)
+@section('title',\Stichoza\GoogleTranslate\GoogleTranslate::trans(env('APP_NAME'),app()->getLocale()).' | '.\Stichoza\GoogleTranslate\GoogleTranslate::trans($product->name.' '.$product->title,app()->getLocale()))
 @section('page-css')
     {{--sayfaya özel css kodlarını eklemek için kullanın--}}
 
@@ -13,7 +13,7 @@
         <div class="container pos-vertical-center">
             <div class="row">
                 <div class="col-sm-10 col-sm-offset-1 text-center">
-                    <h2>{{$category->cat_name}}</h2>
+                    <h2>{{\Stichoza\GoogleTranslate\GoogleTranslate::trans($category->cat_name,app()->getLocale())}}</h2>
                 </div>
             </div>
             <!--end row-->
@@ -36,18 +36,18 @@
                     </div>
                     <div class="col-md-4 col-md-offset-1 col-sm-6">
                         <div class="item__title">
-                            <h4>{{$product->name}} <br> {{$product->title}}</h4>
+                            <h4>{{\Stichoza\GoogleTranslate\GoogleTranslate::trans($product->name,app()->getLocale())}} <br> {{\Stichoza\GoogleTranslate\GoogleTranslate::trans($product->title,app()->getLocale())}}</h4>
 
                         </div>
                         <br>
                         <br>
                         <div class="item__description">
-                            <p>{!! $product->description !!}&nbsp;</p> <br>
+                            <p>{!! \Stichoza\GoogleTranslate\GoogleTranslate::trans($product->description,app()->getLocale()) !!}&nbsp;</p> <br>
                             <table style="border-collapse: collapse; width: 100%;" border="1">
                                 <tbody>
                                 <tr>
                                     <td style="width: 100%; text-align: center;background: #1c75fa;color: #ffffff;font-weight: bold">
-                                        PRODUCT SPESIFICATIONS
+                                        {{\Stichoza\GoogleTranslate\GoogleTranslate::trans('PRODUCT SPESIFICATIONS',app()->getLocale())}}
                                     </td>
                                 </tr>
                                 </tbody>
@@ -56,36 +56,36 @@
                             <table class="mb-10" style="border-collapse: collapse; width: 100%;border:#ffffff;">
                                 <tbody>
                                 <tr>
-                                    <td style="width: 50%;background: #d6e6ff"><b>Volume/Pack Of</b></td>
-                                    <td style="width: 50%;background: #d6e6ff">{{$product->detay->volume}}</td>
+                                    <td style="width: 50%;background: #d6e6ff"><b>{{\Stichoza\GoogleTranslate\GoogleTranslate::trans('Volume/Pack Of',app()->getLocale())}}</b></td>
+                                    <td style="width: 50%;background: #d6e6ff">{{\Stichoza\GoogleTranslate\GoogleTranslate::trans($product->detay->volume,app()->getLocale())}}</td>
                                 </tr>
                                 <tr>
-                                    <td style="width: 50%;"><b>Box Sizes</b></td>
-                                    <td style="width: 50%;">{{$product->detay->boxsize}}</td>
+                                    <td style="width: 50%;"><b>{{\Stichoza\GoogleTranslate\GoogleTranslate::trans('Box Sizes',app()->getLocale())}}</b></td>
+                                    <td style="width: 50%;">{{SiteHelpers::GoogleTRS($product->detay->boxsize)}}</td>
                                 </tr>
                                 <tr>
-                                    <td style="width: 50%;background: #d6e6ff"><b>Quantity in Box</b></td>
-                                    <td style="width: 50%;background: #d6e6ff">{{$product->detay->qtyBox}}</td>
+                                    <td style="width: 50%;background: #d6e6ff"><b>{{SiteHelpers::GoogleTRS('Quantity in Box')}}</b></td>
+                                    <td style="width: 50%;background: #d6e6ff">{{SiteHelpers::GoogleTRS($product->detay->qtyBox)}}</td>
                                 </tr>
                                 <tr>
-                                    <td style="width: 50%;"><b>Box Net Weight</b></td>
-                                    <td style="width: 50%;">{{$product->detay->BoxNetW}}</td>
+                                    <td style="width: 50%;"><b>{{SiteHelpers::GoogleTRS('Box Net Weight')}}</b></td>
+                                    <td style="width: 50%;">{{SiteHelpers::GoogleTRS($product->detay->BoxNetW)}}</td>
                                 </tr>
                                 <tr>
-                                    <td style="width: 50%;background: #d6e6ff"><b>Box Gross Weight</b></td>
-                                    <td style="width: 50%;background: #d6e6ff">{{$product->detay->BoxGrossW}}</td>
+                                    <td style="width: 50%;background: #d6e6ff"><b>{{SiteHelpers::GoogleTRS('Box Gross Weight')}}</b></td>
+                                    <td style="width: 50%;background: #d6e6ff">{{SiteHelpers::GoogleTRS($product->detay->BoxGrossW)}}</td>
                                 </tr>
                                 <tr>
-                                    <td style="width: 50%;"><b>Boxes on Pallet</b></td>
-                                    <td style="width: 50%;">{{$product->detay->BoxOnPallet}}</td>
+                                    <td style="width: 50%;"><b>{{SiteHelpers::GoogleTRS('Boxes on Pallet')}}</b></td>
+                                    <td style="width: 50%;">{{SiteHelpers::GoogleTRS($product->detay->BoxOnPallet)}}</td>
                                 </tr>
                                 <tr>
-                                    <td style="width: 50%;background: #d6e6ff"><b>HS CODE</b></td>
-                                    <td style="width: 50%;background: #d6e6ff">{{$product->detay->hsCode}}</td>
+                                    <td style="width: 50%;background: #d6e6ff"><b>{{SiteHelpers::GoogleTRS('HS CODE')}}</b></td>
+                                    <td style="width: 50%;background: #d6e6ff">{{SiteHelpers::GoogleTRS($product->detay->hsCode)}}</td>
                                 </tr>
                                 <tr>
-                                    <td style="width: 50%;"><b>BARCODE</b></td>
-                                    <td style="width: 50%;">{{$product->detay->barcode}}</td>
+                                    <td style="width: 50%;"><b>{{SiteHelpers::GoogleTRS('BARCODE')}}</b></td>
+                                    <td style="width: 50%;">{{SiteHelpers::GoogleTRS($product->detay->barcode)}}</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -105,7 +105,7 @@
             <div class="row">
                 <div class="related-products">
                     <div class="col-sm-12">
-                        <h4>Related Products</h4>
+                        <h4>{{SiteHelpers::GoogleTRS('Related Products')}}</h4>
                     </div>
 
                     @foreach($relateProducts->random(3) as $key => $value)
@@ -117,7 +117,7 @@
                                              src="{{$value->image}}"/>
                                     </div>
                                     <div class="shop-item__title text-center">
-                                        <h5>{{$value->name.' '.$value->title}}</h5>
+                                        <h5>{{SiteHelpers::GoogleTRS($value->name.' '.$value->title)}}</h5>
 
                                     </div>
                                 </div>
