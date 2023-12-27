@@ -73,13 +73,9 @@ Route::get('lang/home', [LangController::class, 'index']);
 Route::get('lang/change', [LangController::class, 'change'])->name('changeLang');
 
 
-if (Schema::hasTable('setting')== false) {
-    Route::get('/', function(){
-        return 'Kurulum yapılması gerekiyor!';
-    });
-} else {
-    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-}
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 
 
