@@ -15,6 +15,18 @@
                     <div class="col-12">
                         <div class='form-check'>
                             <div class="mb-3">
+                                <label for="formFileSm" class="form-label">Katalog Kapak Resmi </label>
+                                <input class="form-control form-control-sm" id="formFileSm" name="image" type="file">
+                                <small style="color: red;font-weight: bold">Yanlızca 600px X 800px boyutunda </small>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class='form-check'>
+                            <div class="mb-3">
                                 <label for="formFileSm" class="form-label">Katalog </label>
                                 <input class="form-control form-control-sm" id="formFileSm" name="file" type="file">
                                 <small style="color: red;font-weight: bold">Yanlızca PDF belge</small>
@@ -23,6 +35,7 @@
 
                         </div>
                     </div>
+
                     <div class="col-12">
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="hidden" id="flexSwitchCheckChecked" name="isActive" value="0" >

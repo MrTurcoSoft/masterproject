@@ -54,7 +54,7 @@
                                         <tr>
                                             <td>{{$key+1}}</td>
                                             <td style="width: 20%"><a href="{{$value->file}}" download="{{$value->name}}"><img
-                                                        src="{{asset('frontend/img/main/pdf.webp')}}" width="30%" alt=""></a></td>
+                                                        src="{{asset($value->image)}}" width="30%" alt=""></a></td>
                                             <td style="width: 40%">{{$value->name}}</td>
                                             <td style="width: 30%">{{$value->isActive == 1 ? 'Aktif' : 'Pasif'}}</td>
                                             <td style="width: 10%">
