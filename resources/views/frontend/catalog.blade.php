@@ -34,7 +34,7 @@
                             <a href="{{$value->file}}" target="_blank" download="{{\Stichoza\GoogleTranslate\GoogleTranslate::trans($value->name,app()->getLocale())}}">
                                 <div class="card card-7">
                                     <div class="card__image bg--white">
-                                        <img src="{{asset($value->image)}}" width="30%" alt="">
+                                        <img src="{{asset($value->image)}}" width="30%" alt="{{$value->name}}">
                                     </div>
                                     <div class="card__body boxed bg--white text-center">
                                         <div class="card__title">
