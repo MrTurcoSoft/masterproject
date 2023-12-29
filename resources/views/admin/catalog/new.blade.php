@@ -17,7 +17,7 @@
                             <div class="mb-3">
                                 <label for="formFileSm" class="form-label">Katalog Kapak Resmi </label>
                                 <input class="form-control form-control-sm" id="formFileSm" name="image" type="file">
-                                <small style="color: red;font-weight: bold">Yanlızca 600px X 800px boyutunda </small>
+                                <small style="color: red;font-weight: bold">Yanlızca 600px X 800px boyutunda olmalıdır. </small>
                             </div>
 
 

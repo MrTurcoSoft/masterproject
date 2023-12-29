@@ -60,7 +60,7 @@ class CatalogController extends Controller
             'file.max' => 'Yüklediğiniz dosyanın büyüklüğü 2048 Kb. dan küçük olmalıdır!',
             'image.mimes' => 'Sadece jpeg,png,jpg,gif,svg uzantılı resim dosyası yükleyebilirsiniz! ',
             'image.max' => 'Yüklediğiniz resmin büyüklüğü 2048 Kb. dan küçük olmalıdır!',
-            'dimensions' => 'Yüklediğiniz resmin Genişliği 600 px x Yüksekliği 800 px olmalıdır.'
+            'dimensions' => 'Yüklediğiniz resmin Genişliği 600 px X Yüksekliği 800 px olmalıdır.'
         ];
         $validator = Validator::make($request->all(), $rules, $customMessages);
         if ($validator->fails()) {

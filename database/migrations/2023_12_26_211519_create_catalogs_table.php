@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('names')->nullable();
             $table->string('file');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->enum('isActive', ['0', '1'])->default(1);
             $table->softDeletes();
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
