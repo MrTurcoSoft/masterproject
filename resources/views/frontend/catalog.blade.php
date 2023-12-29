@@ -30,7 +30,7 @@
                     <div class="masonry__container masonry--animate masonry--active">
                         @if($catalog->count() > 0 )
                        @foreach($catalog as $key => $value)
-                        <div class="col-md-4 col-sm-6 masonry__item">
+                        <div class="col-md-3 col-sm-6 masonry__item">
                             <a href="{{$value->file}}" target="_blank" download="{{\Stichoza\GoogleTranslate\GoogleTranslate::trans($value->name,app()->getLocale())}}">
                                 <div class="card card-7">
                                     <div class="card__image bg--white">
