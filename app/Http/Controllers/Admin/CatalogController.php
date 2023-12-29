@@ -51,7 +51,7 @@ class CatalogController extends Controller
         $rules = [
             'name' => 'required',
             'file' => 'required|mimes:pdf|max:2048',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=600,min_height=800,max_width=600,max_height=800',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=750,min_height=450,max_width=750,max_height=450',
             'dimensions' => 'Yüklediğiniz resmin Genişliği 600 px x Yüksekliği 800 px olmalıdır.'
         ];
         $customMessages = [
@@ -60,7 +60,7 @@ class CatalogController extends Controller
             'file.max' => 'Yüklediğiniz dosyanın büyüklüğü 2048 Kb. dan küçük olmalıdır!',
             'image.mimes' => 'Sadece jpeg,png,jpg,gif,svg uzantılı resim dosyası yükleyebilirsiniz! ',
             'image.max' => 'Yüklediğiniz resmin büyüklüğü 2048 Kb. dan küçük olmalıdır!',
-            'dimensions' => 'Yüklediğiniz resmin Genişliği 600 px X Yüksekliği 800 px olmalıdır.'
+            'dimensions' => 'Yüklediğiniz resmin Genişliği 750 px X Yüksekliği 450 px olmalıdır.'
         ];
         $validator = Validator::make($request->all(), $rules, $customMessages);
         if ($validator->fails()) {
