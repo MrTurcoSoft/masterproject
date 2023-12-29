@@ -1,0 +1,15 @@
+Index: .env
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.env b/.env
+--- a/.env	(revision 35fb492be286ca1b56fc552678ecf11b4540ead1)
++++ b/.env	(revision c5758f4b921ca890fdd0f7e9b462b6b5ab560987)
+@@ -1,5 +1,5 @@
+ APP_NAME="Del'la Soft"
+-APP_ENV=production
++APP_ENV=local
+ APP_KEY=base64:XlsNIzrEPjESAvxuIJyfH9a/vF85LCZBhoh72aeJHpo=
+ APP_DEBUG=true
+ APP_LANG=en
