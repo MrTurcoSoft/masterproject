@@ -31,10 +31,10 @@
                         @if($catalog->count() > 0 )
                        @foreach($catalog as $key => $value)
                         <div class="col-md-4 col-sm-6 masonry__item">
-                            <a href="{{$value->file}}" download="{{\Stichoza\GoogleTranslate\GoogleTranslate::trans($value->name,app()->getLocale())}}">
+                            <a href="{{$value->file}}" target="_blank" download="{{\Stichoza\GoogleTranslate\GoogleTranslate::trans($value->name,app()->getLocale())}}">
                                 <div class="card card-7">
                                     <div class="card__image bg--white">
-                                        <img src="{{asset('frontend/img/main/pdf.webp')}}" width="30%" alt="">
+                                        <img src="{{asset($value->image)}}" width="30%" alt="">
                                     </div>
                                     <div class="card__body boxed bg--white text-center">
                                         <div class="card__title">
