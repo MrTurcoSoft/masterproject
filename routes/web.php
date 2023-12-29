@@ -71,6 +71,8 @@ Route::get('/route-list',[\App\Http\Controllers\Admin\RouteController::class,'in
 
 Route::get('lang/home', [LangController::class, 'index']);
 Route::get('lang/change', [LangController::class, 'change'])->name('changeLang');
+Route::get('/category/{slug}/lang/change', [LangController::class, 'change'])->name('changeLang');
+Route::get('/category/lang/change', [LangController::class, 'change'])->name('changeLang');
 
 
 
