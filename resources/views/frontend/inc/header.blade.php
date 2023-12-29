@@ -15,13 +15,8 @@
                 @foreach($_categories as $key => $category)
                     <li>
                         <a href="{{route('category',$category->slug)}}">
-                            @if($category->must != 5)
                                 <div>{{\Stichoza\GoogleTranslate\GoogleTranslate::trans($category->cat_name,app()->getLocale())}}</div>
-                            @else
-                                <div>
-                                    <b class="carixe">{{\Stichoza\GoogleTranslate\GoogleTranslate::trans($category->cat_name,app()->getLocale())}}</b>
-                                </div>
-                            @endif
+
                         </a>
                     </li>
 
