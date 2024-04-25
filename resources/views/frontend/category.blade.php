@@ -1,5 +1,5 @@
 @extends('frontend.layouts.frontend')
-@section('title',SiteHelpers::ayar('mark').' | '.\Stichoza\GoogleTranslate\GoogleTranslate::trans($cat->cat_name,app()->getLocale()))
+@section('title',SiteHelpers::ayar('mark').' | '.$tr->trans($cat->cat_name,app()->getLocale()))
 @section('page-css')
     {{--sayfaya özel css kodlarını eklemek için kullanın--}}
 
@@ -13,7 +13,7 @@
         <div class="container pos-vertical-center">
             <div class="row">
                 <div class="col-sm-10 col-sm-offset-1 text-center">
-                    <h2>{{\Stichoza\GoogleTranslate\GoogleTranslate::trans($cat->cat_name,app()->getLocale())}}</h2>
+                    <h2>{{$tr->trans($cat->cat_name,app()->getLocale())}}</h2>
                 </div>
             </div>
             <!--end row-->
@@ -26,9 +26,9 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 col-sm-12 text-center">
                     <p class="lead" style="font-size:medium">
-                        <b>{{\Stichoza\GoogleTranslate\GoogleTranslate::trans($cat->title,app()->getLocale())}}</b>
+                        <b>{{$tr->trans($cat->title,app()->getLocale())}}</b>
                         <br>
-                        {!! \Stichoza\GoogleTranslate\GoogleTranslate::trans($cat->description,app()->getLocale()) !!}
+                        {!! $tr->trans($cat->description,app()->getLocale()) !!}
 
 
                     </p>
@@ -54,8 +54,8 @@
                                     </div>
                                     <div class="card__body boxed bg--white text-center">
                                         <div class="card__title">
-                                            <h5 class="text-uppercase">{{\Stichoza\GoogleTranslate\GoogleTranslate::trans($product->name,app()->getLocale())}} <br> </h5>
-                                            <h5>{{\Stichoza\GoogleTranslate\GoogleTranslate::trans($product->title,app()->getLocale())}}</h5>
+                                            <h5 class="text-uppercase">{{$tr->trans($product->name,app()->getLocale())}} <br> </h5>
+                                            <h5>{{$tr->trans($product->title,app()->getLocale())}}</h5>
 
                                         </div>
                                     </div>

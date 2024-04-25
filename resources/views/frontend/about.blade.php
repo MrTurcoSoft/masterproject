@@ -1,5 +1,5 @@
 @extends('frontend.layouts.frontend')
-@section('title',\SiteHelpers::ayar('mark').' | '.\Stichoza\GoogleTranslate\GoogleTranslate::trans('About us',app()->getLocale()))
+@section('title',\SiteHelpers::ayar('mark').' | '.$tr->trans('About us',app()->getLocale()))
 @section('page-css')
 
 
@@ -13,7 +13,7 @@
         <div class="container pos-vertical-center">
             <div class="row">
                 <div class="col-sm-10 col-sm-offset-1 text-center">
-                    <h2>{{\Stichoza\GoogleTranslate\GoogleTranslate::trans($about->name,app()->getLocale())}}</h2>
+                    <h2>{{$tr->trans($about->name,app()->getLocale())}}</h2>
                 </div>
             </div>
             <!--end row-->
@@ -30,7 +30,7 @@
             <div class="row">
                 <div class="col-md-5 col-md-push-7 col-sm-8 col-sm-push-4 text-justify">
 
-                    {!! \Stichoza\GoogleTranslate\GoogleTranslate::trans($about->description,app()->getLocale()) !!}
+                    {!! $tr->trans($about->description,app()->getLocale()) !!}
                 </div>
             </div>
             <!--end of row-->
@@ -41,7 +41,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 text-center">
-                    <h4>{{\Stichoza\GoogleTranslate\GoogleTranslate::trans('Our Brands and Certificates',app()->getLocale())}}</h4>
+                    <h4>{{$tr->trans('Our Brands and Certificates',app()->getLocale())}}</h4>
                 </div>
             </div>
             <!--end of row-->
@@ -50,7 +50,7 @@
                 <div class="col-sm-3">
                     <div class="text-center">
                         <a href="{{$value->image}}" data-lightbox="Certificates"><img src="{{$value->image}}" alt="{{$value->name}}"></a>
-                        <h5>{{\Stichoza\GoogleTranslate\GoogleTranslate::trans($value->name,app()->getLocale())}}</h5>
+                        <h5>{{$tr->trans($value->name,app()->getLocale())}}</h5>
                     </div>
 
                 </div>

@@ -71,14 +71,14 @@
              height="32" width="32" alt="English"/>
     </a>
     <a href="lang/change?lang=de"
-       title="{{\Stichoza\GoogleTranslate\GoogleTranslate::trans('German','de')}}"
+       title="{{$tr->trans('German','de')}}"
        class="gflag"
        style="background-position:-100px -0px;">
         <img src="{{asset("frontend/img/main/blank.png")}}"
              height="32" width="32" alt="German"/>
     </a>
     <a href="lang/change?lang=fr"
-       title="{{\Stichoza\GoogleTranslate\GoogleTranslate::trans('French','fr')}}"
+       title="{{$tr->trans('French','fr')}}"
        class="gflag"
        style="background-position:-200px -0px;">
         <img src="{{asset("frontend/img/main/blank.png")}}"
@@ -86,14 +86,14 @@
     </a>
 
     <a href="lang/change?lang=ar-IQ"
-       title="{{\Stichoza\GoogleTranslate\GoogleTranslate::trans('Arabic','ar-IQ')}}"
+       title="{{$tr->trans('Arabic','ar-IQ')}}"
        class="gflag"
        style="background-position:-300px -0px;">
         <img src="{{asset("frontend/img/main/blank.png")}}"
              height="32" width="32" alt="Arabic"/>
     </a>
     <a href="lang/change?lang=ru"
-       title="{{\Stichoza\GoogleTranslate\GoogleTranslate::trans('Russian','ru')}}"
+       title="{{$tr->trans('Russian','ru')}}"
        class="gflag"
        style="background-position:-400px -0px;">
         <img src="{{asset("frontend/img/main/blank.png")}}"
@@ -101,7 +101,7 @@
     </a>
     <a
         href="lang/change?lang=ar-SA"
-        title="{{\Stichoza\GoogleTranslate\GoogleTranslate::trans('Arabic','ar-SA')}}"
+        title="{{$tr->trans('Arabic','ar-SA')}}"
         class="gflag"
         style="background-position:-500px -0px;">
         <img src="{{asset("frontend/img/main/blank.png")}}"
@@ -109,7 +109,7 @@
     </a>
     <a
         href="lang/change?lang=tr"
-        title="{{\Stichoza\GoogleTranslate\GoogleTranslate::trans('Turkish','tr')}}"
+        title="{{$tr->trans('Turkish','tr')}}"
         class="gflag"
         style="background-position:-600px -0px;">
         <img src="{{asset("frontend/img/main/blank.png")}}"
@@ -117,8 +117,8 @@
     </a>
 </div>
                 <div class="mb-50">
-                    <h1 class="intro-title black-text text-uppercase">{{\Stichoza\GoogleTranslate\GoogleTranslate::trans(SiteHelpers::ayar('maintenance_message_title'),app()->getLocale())}}</h1>
-                    <p style="color: white;"class="sub-intro lead">{{\Stichoza\GoogleTranslate\GoogleTranslate::trans(SiteHelpers::ayar('maintenance_message_content'),app()->getLocale())}}</p>
+                    <h1 class="intro-title black-text text-uppercase">{{$tr->trans(SiteHelpers::ayar('maintenance_message_title'),app()->getLocale())}}</h1>
+                    <p style="color: white;"class="sub-intro lead">{{$tr->trans(SiteHelpers::ayar('maintenance_message_content'),app()->getLocale())}}</p>
                 </div>
 
                 <div class="countdown-wrapper mb-30 white-text" style="display: none;">

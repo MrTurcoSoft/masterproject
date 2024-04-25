@@ -1,5 +1,5 @@
 @extends('frontend.layouts.frontend')
-@section('title',SiteHelpers::ayar('mark').' | '.\Stichoza\GoogleTranslate\GoogleTranslate::trans($product->name.' '.$product->title,app()->getLocale()))
+@section('title',SiteHelpers::ayar('mark').' | '.$tr->trans($product->name.' '.$product->title,app()->getLocale()))
 @section('page-css')
     {{--sayfaya özel css kodlarını eklemek için kullanın--}}
 
@@ -13,7 +13,7 @@
         <div class="container pos-vertical-center">
             <div class="row">
                 <div class="col-sm-10 col-sm-offset-1 text-center">
-                    <h2>{{\Stichoza\GoogleTranslate\GoogleTranslate::trans($category->cat_name,app()->getLocale())}}</h2>
+                    <h2>{{$tr->trans($category->cat_name,app()->getLocale())}}</h2>
                 </div>
             </div>
             <!--end row-->
@@ -36,18 +36,18 @@
                     </div>
                     <div class="col-md-4 col-md-offset-1 col-sm-6">
                         <div class="item__title">
-                            <h4>{{\Stichoza\GoogleTranslate\GoogleTranslate::trans($product->name,app()->getLocale())}} <br> {{\Stichoza\GoogleTranslate\GoogleTranslate::trans($product->title,app()->getLocale())}}</h4>
+                            <h4>{{$tr->trans($product->name,app()->getLocale())}} <br> {{$tr->trans($product->title,app()->getLocale())}}</h4>
 
                         </div>
                         <br>
                         <br>
                         <div class="item__description">
-                            <p>{!! \Stichoza\GoogleTranslate\GoogleTranslate::trans($product->description,app()->getLocale()) !!}&nbsp;</p> <br>
+                            <p>{!! $tr->trans($product->description,app()->getLocale()) !!}&nbsp;</p> <br>
                             <table style="border-collapse: collapse; width: 100%;" border="1">
                                 <tbody>
                                 <tr>
                                     <td style="width: 100%; text-align: center;background: #1c75fa;color: #ffffff;font-weight: bold">
-                                        {{\Stichoza\GoogleTranslate\GoogleTranslate::trans('PRODUCT SPESIFICATIONS',app()->getLocale())}}
+                                        {{$tr->trans('PRODUCT SPESIFICATIONS',app()->getLocale())}}
                                     </td>
                                 </tr>
                                 </tbody>
@@ -56,11 +56,11 @@
                             <table class="mb-10" style="border-collapse: collapse; width: 100%;border:#ffffff;">
                                 <tbody>
                                 <tr>
-                                    <td style="width: 50%;background: #d6e6ff"><b>{{\Stichoza\GoogleTranslate\GoogleTranslate::trans('Volume/Pack Of',app()->getLocale())}}</b></td>
-                                    <td style="width: 50%;background: #d6e6ff">{{\Stichoza\GoogleTranslate\GoogleTranslate::trans($product->detay->volume,app()->getLocale())}}</td>
+                                    <td style="width: 50%;background: #d6e6ff"><b>{{$tr->trans('Volume/Pack Of',app()->getLocale())}}</b></td>
+                                    <td style="width: 50%;background: #d6e6ff">{{$tr->trans($product->detay->volume,app()->getLocale())}}</td>
                                 </tr>
                                 <tr>
-                                    <td style="width: 50%;"><b>{{\Stichoza\GoogleTranslate\GoogleTranslate::trans('Box Sizes',app()->getLocale())}}</b></td>
+                                    <td style="width: 50%;"><b>{{$tr->trans('Box Sizes',app()->getLocale())}}</b></td>
                                     <td style="width: 50%;">{{SiteHelpers::GoogleTRS($product->detay->boxsize)}}</td>
                                 </tr>
                                 <tr>

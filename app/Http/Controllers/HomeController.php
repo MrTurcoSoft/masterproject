@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
 use Jenssegers\Agent\Agent;
+use Stichoza\GoogleTranslate\GoogleTranslate;
 
 class HomeController extends Controller
 {
@@ -33,6 +34,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $tr = new GoogleTranslate();
+        $tr->setSource('en');
         $controll= Schema::hasTable('settings');
        if ($controll) {
 
@@ -44,7 +47,7 @@ class HomeController extends Controller
             $section5 = Homesection::all()->where('section', 4)->where('isActive')->first();
             $tabs = SectionTab::all()->where('isActive')->take(4);
             $categories = Category::all()->where('isActive')->sortBy('must');
-            return view('frontend.home', compact('sliders', 'section2', 'section3', 'section5', 'tabs', 'categories'));
+            return view('frontend.home', compact('sliders', 'tr','section2', 'section3', 'section5', 'tabs', 'categories'));
 
         } elseif (\SiteHelpers::ayar('maintenance_mode') == 0)
         {
@@ -54,10 +57,11 @@ class HomeController extends Controller
             $section5 = Homesection::all()->where('section', 4)->where('isActive')->first();
             $tabs = SectionTab::all()->where('isActive')->take(4);
             $categories = Category::all()->where('isActive')->sortBy('must');
-            return view('frontend.home', compact('sliders', 'section2', 'section3', 'section5', 'tabs', 'categories'));
+            return view('frontend.home', compact('sliders', 'tr','section2', 'section3', 'section5', 'tabs', 'categories'));
 
         } elseif (\SiteHelpers::ayar('maintenance_mode') == 1) {
-            return view('maintenance.index');
+
+            return view('maintenance.index',compact('tr'));
         }
        } else {
            return redirect('/install');
@@ -67,8 +71,10 @@ class HomeController extends Controller
 
     public function catalog()
     {
+        $tr = new GoogleTranslate();
+        $tr->setSource('en');
         $about = About::all()->firstOrFail();
         $catalog = Catalog::all()->where('isActive', 1);
-        return view('frontend.catalog', compact('catalog', 'about'));
+        return view('frontend.catalog', compact('catalog', 'about','tr'));
     }
 }
