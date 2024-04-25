@@ -19,12 +19,12 @@
                 <div class="container pos-vertical-center" style="top: 50%;">
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text-center">
-                            <h2>{{$tr->trans($slider->title,app()->getLocale())}}</h2>
+                            <h2>{{SiteHelpers::GoogleTRS($slider->title)}}</h2>
                             <p class="lead">
                             </p>
                             <a class="btn btn--primary-3" href="{{$slider->url}}">
                                         <span class="btn__text">
-                                           {{$tr->trans($slider->btnText,app()->getLocale())}}
+                                           {{SiteHelpers::GoogleTRS($slider->btnText)}}
 
                                         </span>
                             </a>
@@ -45,8 +45,8 @@
             @endif
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 col-sm-12 text-center">
-                    <p class="lead">{{$tr->trans($section2->title,app()->getLocale())}}<br>
-                        {!! $tr->trans($section2->description,app()->getLocale()) !!}
+                    <p class="lead">{{SiteHelpers::GoogleTRS($section2->title)}}<br>
+                        {!! SiteHelpers::GoogleTRS($section2->description) !!}
                     </p>
                 </div>
             </div>
@@ -69,13 +69,13 @@
             <div class="row">
 
                 <div class="col-md-5 col-sm-8">
-                    <h3>{{$tr->trans($section3->title,app()->getLocale())}}</h3>
+                    <h3>{{SiteHelpers::GoogleTRS($section3->title)}}</h3>
                     <p>
-                        {!! $tr->trans($section3->description,app()->getLocale()) !!}
+                        {!! SiteHelpers::GoogleTRS($section3->description) !!}
                     </p>
                     <a class="btn mb--1" href="{{$section3->url}}">
                                 <span class="btn__text">
-                                    {{$tr->trans($section3->btnText,app()->getLocale())}}
+                                    {{SiteHelpers::GoogleTRS($section3->btnText)}}
                                 </span>
                     </a>
 
@@ -99,18 +99,18 @@
 @foreach($tabs as $key=>$tab)
                         <li class="{{$key==0 ? 'active':null }}">
                             <div class="tab__title btn">
-                                <span class="btn__text">{{$tr->trans($tab->title,app()->getLocale())}}</span>
+                                <span class="btn__text">{{SiteHelpers::GoogleTRS($tab->title)}}</span>
                             </div>
                             <div class="tab__content">
                                 <div class="row pos-vertical-align-columns">
                                     <div class="col-md-6">
                                         <p class="lead">
-                                           {!! $tr->trans($tab->description,app()->getLocale()) !!}
+                                           {!! SiteHelpers::GoogleTRS($tab->description) !!}
                                         </p>
 
                                         <a class="btn btn--primary-3" href="{{$tab->url}}">
                                                     <span class="btn__text">
-                                                        {{$tr->trans($tab->btnText,app()->getLocale())}}
+                                                        {{SiteHelpers::GoogleTRS($tab->btnText)}}
                                                     </span>
                                         </a>
 
@@ -143,10 +143,10 @@
             @endif
             <div class="row">
                 <div class="col-sm-10 col-sm-offset-1 text-center">
-                    <h4>{{$tr->trans($section5->title,app()->getLocale())}}</h4>
+                    <h4>{{SiteHelpers::GoogleTRS($section5->title)}}</h4>
                     <a class="btn btn--primary-3" href="mailto:{{$section5->url}}">
                                 <span class="btn__text">
-                                   {{$tr->trans($section5->btnText,app()->getLocale())}}
+                                   {{SiteHelpers::GoogleTRS($section5->btnText)}}
                                 </span>
                     </a>
                 </div>
