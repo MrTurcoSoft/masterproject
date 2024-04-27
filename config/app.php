@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Amenity Supplier'),
 
     /*
     |--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'https://amenitysupplier.com'),
 
     'asset_url' => env('ASSET_URL', null),
 
@@ -121,7 +121,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY'),
+    'key' => env('APP_KEY','base64:XlsNIzrEPjESAvxuIJyfH9a/vF85LCZBhoh72aeJHpo='),
 
     'cipher' => 'AES-256-CBC',
 
