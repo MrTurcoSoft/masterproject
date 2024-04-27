@@ -3,7 +3,7 @@
         <div class="nav-module logo-module left">
             <a href="{{route('home')}}">
                 <img class="logo logo-dark" alt="logo" src="{{asset(config('settings.logo'))}}"/>
-                <img class="logo logo-light" alt="logo" src="{{asset(config('settings.logo_small'))}}"/>
+                <img class="logo logo-light" alt="logo" src="{{asset(config('settings.slogo'))}}"/>
             </a>
         </div>
         <div class="nav-module menu-module left">
