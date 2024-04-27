@@ -2,8 +2,8 @@
     <div class="nav-bar nav--absolute nav--transparent" data-fixed-at="200">
         <div class="nav-module logo-module left">
             <a href="{{route('home')}}">
-                <img class="logo logo-dark" alt="logo" src="{{asset(SiteHelpers::ayar("logo"))}}"/>
-                <img class="logo logo-light" alt="logo" src="{{asset(SiteHelpers::ayar("logo_small"))}}"/>
+                <img class="logo logo-dark" alt="logo" src="/{{asset(SiteHelpers::ayar("logo"))}}"/>
+                <img class="logo logo-light" alt="logo" src="/{{asset(SiteHelpers::ayar("logo_small"))}}"/>
             </a>
         </div>
         <div class="nav-module menu-module left">
