@@ -2,24 +2,24 @@
     <div class="nav-bar nav--absolute nav--transparent" data-fixed-at="200">
         <div class="nav-module logo-module left">
             <a href="{{route('home')}}">
-                <img class="logo logo-dark" alt="logo" src="/{{asset(SiteHelpers::ayar("logo"))}}"/>
-                <img class="logo logo-light" alt="logo" src="/{{asset(SiteHelpers::ayar("logo_small"))}}"/>
+                <img class="logo logo-dark" alt="logo" src="/{{SiteHelpers::ayar("logo")}}"/>
+                <img class="logo logo-light" alt="logo" src="/{{SiteHelpers::ayar("logo_small")}}"/>
             </a>
         </div>
         <div class="nav-module menu-module left">
             <ul class="menu">
                 <li>
-                    <a href="{{route('about')}}">{{$tr->trans('About Us',app()->getLocale())}}</a>
+                    <a href="{{route('about')}}">{{SiteHelpers::GoogleTRS('About Us')}}</a>
                 </li>
 
                 @foreach($_categories as $key => $category)
                     <li>
                         <a href="{{route('category',$category->slug)}}">
                             @if($category->must != 5)
-                                <div>{{$tr->trans($category->cat_name,app()->getLocale())}}</div>
+                                <div>{{SiteHelpers::GoogleTRS($category->cat_name)}}</div>
                             @else
                                 <div>
-                                    <b class="carixe">{{$tr->trans($category->cat_name,app()->getLocale())}}</b>
+                                    <b class="carixe">{{SiteHelpers::GoogleTRS($category->cat_name)}}</b>
                                 </div>
                             @endif
                         </a>
@@ -27,7 +27,7 @@
 
                 @endforeach
                 <li>
-                    <a href="{{route('contact')}}">{{$tr->trans('Contact Us',app()->getLocale())}}</a>
+                    <a href="{{route('contact')}}">{{SiteHelpers::GoogleTRS('Contact Us')}}</a>
                 </li>
                 <li class="mt-3">
                     <a href="lang/change?lang=en"
@@ -94,7 +94,7 @@
             <ul class="menu">
                 <li><a href="{{route('catalogue')}}">
                         <div>
-                            <b class="catalogue">{{$tr->trans('CATALOGUE’S',app()->getLocale())}}</b>
+                            <b class="catalogue">{{SiteHelpers::GoogleTRS('CATALOGUE’S')}}</b>
                         </div>
                     </a></li>
             </ul>
