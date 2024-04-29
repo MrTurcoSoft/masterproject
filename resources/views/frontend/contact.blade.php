@@ -54,15 +54,15 @@
 
             </p>
         </div>
-        <div class="feature bg--secondary col-md-12 text-center">
+{{--        <div class="feature bg--secondary col-md-12 text-center">--}}
 
-            <i class="icon icon--lg fa-solid fa-store"></i>
-            <h5>{{SiteHelpers::GoogleTRS('GET DIRECTIONS')}} </h5>
-            <p>
+{{--            <i class="icon icon--lg fa-solid fa-store"></i>--}}
+{{--            <h5>{{SiteHelpers::GoogleTRS('GET DIRECTIONS')}} </h5>--}}
+{{--            <p>--}}
 
-                {!! config('settings.gmaps') !!}
-            </p>
-        </div>
+{{--                {!! config('settings.gmaps') !!}--}}
+{{--            </p>--}}
+{{--        </div>--}}
 
     </section>
 
