@@ -19,7 +19,7 @@
     <link href='https://fonts.googleapis.com/css?family=Lora:400,400italic,700%7CMontserrat:400,700' rel='stylesheet' type='text/css'>
     <style type="text/css">
         <!--
-        a.gflag {vertical-align:middle;font-size:5px;padding:1px 0;background-repeat:no-repeat;background-image:url({{asset('frontend/img/flag/flags.png')}});}
+        a.gflag {vertical-align:middle;font-size:5px;padding:1px 0;background-repeat:no-repeat;background-image:url({{asset('frontend/img/flag/flags.png')}});margin-top: 20px;}
         a.gflag img {border:0;padding-top: 16px !important;}
         /*a.gflag:hover {background-image:url(//gtranslate.net/flags/32a.png);}*/
         a.gflag:hover {background-image:url({{asset('frontend/img/flag/flags.png')}});}
@@ -29,6 +29,9 @@
         body {top:0 !important;}
         #google_translate_element2 {display:none!important;}
         -->
+        .gflag-ml {
+            margin-left: 87px!important;
+        }
     </style>
 
     @yield('page-css')

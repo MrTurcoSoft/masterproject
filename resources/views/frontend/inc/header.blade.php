@@ -29,7 +29,7 @@
                 <li>
                     <a href="{{route('contact')}}">{{SiteHelpers::GoogleTRS('Contact Us')}}</a>
                 </li>
-                <li class="mt-3">
+                <li class="mt-3 gflag-ml" >
                     <a href="lang/change?lang=en"
                        title="English" class="gflag"
                        style="background-position:-0px -0px;">
