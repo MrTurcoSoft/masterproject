@@ -153,6 +153,7 @@ class CategoryController extends Controller
             $root->must = $request->input('must');
             $root->isActive = $request->input('isActive');
             $root->cat_bg = $image;
+            $root->slug = SiteHelpers::slugify($request->input('cat_name'));
             $root->save();
             toast('Kategori Başarıyla Güncellendi', 'success');
             return back();
@@ -185,6 +186,7 @@ class CategoryController extends Controller
             $root->description = $request->input('description');
             $root->must = $request->input('must');
             $root->isActive = $request->input('isActive');
+            $root->slug = SiteHelpers::slugify($request->input('cat_name'));
             $root->save();
             toast('Kategori Başarıyla Güncellendi', 'success');
             return back();
