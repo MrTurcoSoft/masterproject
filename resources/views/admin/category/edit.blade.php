@@ -9,6 +9,18 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group">
+                                <label for="ust_id">Kategorisi</label>
+                                <select name="ust_id" class="form-control">
+                                    <option><-- Kategori Seçiniz --></option>
+                                    <option {{$value->ust_id == null ? 'selected' : null}} value="null">Ana Kategori</option>
+                                    @foreach ($categories as $category)
+                                        <option {{$value->ust_id == $category->id ? 'selected' : null}} value="{{ $category->id }}">{{ $category->cat_name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
                                 <label for="first-name-vertical">Kategori Adı </label>
                                 <input type="text" id="first-name-vertical" class="form-control"
                                        name="cat_name" value="{{$value->cat_name}}" required>

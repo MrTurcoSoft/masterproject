@@ -17,6 +17,7 @@ class CategoryController extends Controller
         $this->middleware('auth');
         parent::__construct();
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -35,13 +36,14 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.new');
+        $categories = Category::all();
+        return view('admin.category.new', compact('categories'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -52,7 +54,9 @@ class CategoryController extends Controller
             'title' => 'required',
             'description' => 'required',
             'must' => 'required',
-            'cat_bg' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=1080,min_height=1080,max_width=1080,max_height=1080'
+            'cat_bg' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=1080,min_height=1080,max_width=1080,max_height=1080',
+            'ust_id' => 'nullable|exists:categories,id',
+
         ];
 
         $customMessages = [
@@ -74,7 +78,10 @@ class CategoryController extends Controller
         Validator::replacer('custom_validation_rule', function ($message, $attribute, $rule, $parameters) {
             return str_replace(':foo', $parameters[0], $message);
         });
-
+        // Alt kategori kontrolü
+        if ($request->has('ust_id')) {
+            $requestData['ust_id'] = $request->input('ust_id');
+        }
         $requestData = $request->all();
         $fileName = time() . '.' . $request->file('cat_bg')->getClientOriginalExtension();
         $path = $request->file('cat_bg')->storeAs('images/category', $fileName, 'public');
@@ -89,7 +96,7 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -100,26 +107,27 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
+        $categories = Category::all();
         $value = Category::all()->where('id', $id)->firstOrFail();
-        return view('admin.category.edit', compact('value'));
+        return view('admin.category.edit', compact('value', 'categories'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         if ($request->cat_bg) {
-          // Form validation
+            // Form validation
             $rules = [
                 'cat_name' => 'required',
                 'title' => 'required',
@@ -146,7 +154,7 @@ class CategoryController extends Controller
             $path = $request->file('cat_bg')->storeAs('images/category', $fileName, 'public');
             $image = '/storage/' . $path;
             $root = Category::findOrFail($id);
-            File::delete(public_path( $root->cat_bg));
+            File::delete(public_path($root->cat_bg));
             $root->cat_name = $request->input('cat_name');
             $root->title = $request->input('title');
             $root->description = $request->input('description');
@@ -197,15 +205,15 @@ class CategoryController extends Controller
     {
         $id = $request->id;
         $root = Category::findOrFail($id);
-if ($root->urunler()->count() < 1) {
-    if (!empty($root->cat_bg)) {
-        SiteHelpers::CatBgDelete($root);
-    }
-    $this->delete($id);
-} else {
-    alert('<b><i style="color: red" class="bi bi-x-octagon-fill"></i><br>Silemezsiniz!</b>', 'Önce Kategoriye Ait ürünleri silmelisiniz. Kategoride '.$root->urunler()->count().' Adet Ürün var!', 'danger');
-    echo 'no';
-}
+        if ($root->urunler()->count() < 1) {
+            if (!empty($root->cat_bg)) {
+                SiteHelpers::CatBgDelete($root);
+            }
+            $this->delete($id);
+        } else {
+            alert('<b><i style="color: red" class="bi bi-x-octagon-fill"></i><br>Silemezsiniz!</b>', 'Önce Kategoriye Ait ürünleri silmelisiniz. Kategoride ' . $root->urunler()->count() . ' Adet Ürün var!', 'danger');
+            echo 'no';
+        }
 
     }
 
@@ -220,10 +228,11 @@ if ($root->urunler()->count() < 1) {
         }
 
     }
+
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
