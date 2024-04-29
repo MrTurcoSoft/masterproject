@@ -46,7 +46,7 @@ class HomeController extends Controller
             $section3 = Homesection::all()->where('section', 2)->where('isActive')->first();
             $section5 = Homesection::all()->where('section', 4)->where('isActive')->first();
             $tabs = SectionTab::all()->where('isActive')->take(4);
-            $categories = Category::all()->where('isActive')->where('ust_id',null)->sortBy('must');
+            $categories = Category::all()->where('isActive')->where('ust_id','=',null)->sortBy('must');
             return view('frontend.home', compact('sliders', 'tr','section2', 'section3', 'section5', 'tabs', 'categories'));
 
         } elseif (\SiteHelpers::ayar('maintenance_mode') == 0)
@@ -56,7 +56,7 @@ class HomeController extends Controller
             $section3 = Homesection::all()->where('section', 2)->where('isActive')->first();
             $section5 = Homesection::all()->where('section', 4)->where('isActive')->first();
             $tabs = SectionTab::all()->where('isActive')->take(4);
-            $categories = Category::all()->where('isActive')->sortBy('must');
+            $categories = Category::all()->where('isActive')->where('ust_id','=',null)->sortBy('must');
             return view('frontend.home', compact('sliders', 'tr','section2', 'section3', 'section5', 'tabs', 'categories'));
 
         } elseif (\SiteHelpers::ayar('maintenance_mode') == 1) {

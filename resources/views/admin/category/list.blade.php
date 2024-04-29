@@ -43,6 +43,7 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Header Image</th>
+                                    <th>Kategorisi</th>
                                     <th>Kategori Adı</th>
                                     <th>Sayfa Başlığı</th>
                                     <th>İçerik</th>
@@ -59,6 +60,18 @@
                                             <td>{{$key+1}}</td>
                                             <td style="width: 30%">@if($value->cat_bg) <img src="{{$value->cat_bg}}" width="30%">@else
                                                     <label class="btn btn-danger btn-sm">Resim Yok</label> @endif</td>
+                                            <td>
+                                                @if($value->ust_id == null)
+                                                    <label class="btn btn-primary btn-sm">Ana Kategori</label>
+                                                    @elseif($value->ust_id!= null)
+                                                    <label class="btn btn-warning btn-sm">
+                                                    @foreach($categories as $category)
+                                                    {{$category->id == $value->ust_id ? $category->cat_name : null}}
+                                                    @endforeach
+                                                    </label>
+                                                @endif
+                                            </td>
+
                                             <td style="width: 20%">{{$value->cat_name}}</td>
                                             <td style="width: 20%">{{$value->title}}</td>
                                             <td style="width: 50%">{!! substr($value->description,0,50) !!}.....</td>

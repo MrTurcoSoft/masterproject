@@ -23,7 +23,7 @@ class Controller extends BaseController
     {
 
 
-        $categories = Category::all()->where('isActive')->sortBy('must');
+        $categories = Category::all()->where('isActive')->where('ust_id','=',null)->sortBy('must');
         View::share('_categories', $categories);
 
         if(Auth::check())
