@@ -59,10 +59,10 @@ Route::post('slider-management/delete','App\Http\Controllers\Admin\SliderControl
 Route::resource('/certificates','App\Http\Controllers\Admin\CertificateController');
 Route::post('certificates/delete','App\Http\Controllers\Admin\CertificateController@deleteImage')->name('certificate.delete');
 Route::resource('/homesections','App\Http\Controllers\Admin\HomeSectionsController');
-Route::get('/homesections/{id}/{section}','App\Http\Controllers\Admin\HomeSectionsController@edit')->name('homesections.edit');
-Route::post('homesections/delete','App\Http\Controllers\Admin\HomeSectionsController@deleteImage')->name('homesections.delete');
+Route::get('/homesections/{id}/{section}','App\Http\Controllers\Admin\HomeSectionsController@edit')->name('home-sections.edit');
+Route::post('homesections/delete','App\Http\Controllers\Admin\HomeSectionsController@deleteImage')->name('home-sections.delete');
 Route::resource('/sectiontabs','App\Http\Controllers\Admin\SectiontabsController');
-Route::post('sectiontabs/delete','App\Http\Controllers\Admin\SectiontabsController@deleteImage')->name('sectiontabs.delete');
+Route::post('sectiontabs/delete','App\Http\Controllers\Admin\SectiontabsController@deleteImage')->name('section-tabs.delete');
 Route::resource('/categories','App\Http\Controllers\Admin\CategoryController');
 Route::post('categories/delete','App\Http\Controllers\Admin\CategoryController@deleteImage')->name('categories.delete');
 Route::resource('/products','App\Http\Controllers\Admin\ProductController');
