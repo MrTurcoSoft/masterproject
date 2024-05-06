@@ -14,9 +14,9 @@
             <div class="row">
                 <div class="col-sm-10 col-sm-offset-1 text-center">
                    @if(isset($cat->ust_id))
-                        <h3 class="text-uppercase" style="font-size:medium">{{$tr->trans($mainCat->cat_name,app()->getLocale())}}</h3>
+                        <h3 class="text-uppercase" style="font-size:medium">{{strtoupper($tr->trans($mainCat->cat_name,app()->getLocale()))}}</h3>
                        @endif
-                    <h2>{{$tr->trans($cat->cat_name,app()->getLocale())}}</h2>
+                    <h2>{{strtoupper($tr->trans($cat->cat_name,app()->getLocale()))}}</h2>
                 </div>
             </div>
             <!--end row-->
@@ -29,7 +29,7 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 col-sm-12 text-center">
                     <p class="lead" style="font-size:medium">
-                        <b>{{$tr->trans($cat->title,app()->getLocale())}}</b>
+                        <b>{{strtoupper($tr->trans($cat->title,app()->getLocale()))}}</b>
                         <br>
                         {!! $tr->trans($cat->description,app()->getLocale()) !!}
 
