@@ -9,34 +9,34 @@
         <div class="nav-module menu-module left">
             <ul class="menu">
                 <li>
-                    <a href="{{route('about')}}">{{SiteHelpers::GoogleTRS('About Us')}}</a>
+                    <a href="{{route('about')}}">{{SiteHelpers::GoogleTRS(strtoupper('About Us'))}}</a>
                 </li>
                 @foreach($_categories as $key => $category)
                     @if($category->altkategoriler->count() > 0)
                         @if($category->must != 5)
-                        <li><a href="#">{{SiteHelpers::GoogleTRS($category->cat_name)}}</a>
+                        <li><a href="#">{{SiteHelpers::GoogleTRS(strtoupper($category->cat_name))}}</a>
                             <ul class="dropdown">
                                 @foreach($category->altkategoriler as $altkategoriler)
-                                    <li><a href="{{route('category',$altkategoriler->slug)}}">{{SiteHelpers::GoogleTRS($altkategoriler->cat_name)}}</a></li>
+                                    <li><a href="{{route('category',$altkategoriler->slug)}}">{{SiteHelpers::GoogleTRS(strtoupper($altkategoriler->cat_name))}}</a></li>
                                 @endforeach
                             </ul>
 
                             @else
                                 <div>
-                                    <b class="carixe">{{SiteHelpers::GoogleTRS($category->cat_name)}}</b>
+                                    <b class="carixe">{{SiteHelpers::GoogleTRS(strtoupper($category->cat_name))}}</b>
                                 </div>
                             @endif
                     </li>
                     @else
                         <li >
                             <a href="{{route('category',$category->slug)}}">
-                                    {{SiteHelpers::GoogleTRS($category->cat_name)}}
+                                    {{SiteHelpers::GoogleTRS(strtoupper($category->cat_name))}}
                             </a>
                         </li>
                     @endif
                 @endforeach
                 <li>
-                    <a href="{{route('contact')}}">{{SiteHelpers::GoogleTRS('Contact Us')}}</a>
+                    <a href="{{route('contact')}}">{{SiteHelpers::GoogleTRS(strtoupper('Contact Us'))}}</a>
                 </li>
                 <li class="mt-3 gflag-ml" >
                     <a href="lang/change?lang=en"
