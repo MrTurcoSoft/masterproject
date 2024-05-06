@@ -25,6 +25,17 @@ Route::get('/clear', function () {
     Artisan::call('config:cache');
     echo 'Cache temizlendi!';
 });
+Route::get('/optimize', function () {
+    Artisan::call('cache:clear');
+    Artisan::call('view:clear');
+    Artisan::call('route:clear');
+    Artisan::call('config:clear');
+    Artisan::call('route:cache');
+    Artisan::call('config:cache');
+    Artisan::call('view:cache');
+    Artisan::call('event:cache');
+    echo 'Cache optimize edildi!';
+});
 
 Route::get('/new-install', function () {
     Artisan::call('storage:link');
@@ -38,7 +49,7 @@ Route::get('/new-install', function () {
 Auth::routes();
 
 Route::get('/dashboard',[\App\Http\Controllers\Admin\AdminController::class,'index'])->name('dashboard');
-Route::get('/logout',[\App\Http\Controllers\Admin\AdminController::class,'logout'])->name('logout');
+//Route::get('/logout',[\App\Http\Controllers\Admin\AdminController::class,'logout'])->name('logout');
 Route::get('/about-management','App\Http\Controllers\Admin\AboutController@index')->name('about.index');
 Route::post('/about-management/','App\Http\Controllers\Admin\AboutController@store')->name('about.store');
 Route::get('/about-management/{id}/{type}','App\Http\Controllers\Admin\AboutController@edit')->name('about.edit');
