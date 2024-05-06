@@ -11,20 +11,29 @@
                 <li>
                     <a href="{{route('about')}}">{{SiteHelpers::GoogleTRS('About Us')}}</a>
                 </li>
-
                 @foreach($_categories as $key => $category)
-                    <li>
-                        <a href="{{route('category',$category->slug)}}">
-                            @if($category->must != 5)
-                                <div>{{SiteHelpers::GoogleTRS($category->cat_name)}}</div>
+                    @if($category->altkategoriler->count() > 0)
+                        @if($category->must != 5)
+                        <li><a href="#">{{SiteHelpers::GoogleTRS($category->cat_name)}}</a>
+                            <ul class="dropdown">
+                                @foreach($category->altkategoriler as $altkategoriler)
+                                    <li><a href="{{route('category',$altkategoriler->slug)}}">{{SiteHelpers::GoogleTRS($altkategoriler->cat_name)}}</a></li>
+                                @endforeach
+                            </ul>
+
                             @else
                                 <div>
                                     <b class="carixe">{{SiteHelpers::GoogleTRS($category->cat_name)}}</b>
                                 </div>
                             @endif
-                        </a>
                     </li>
-
+                    @else
+                        <li >
+                            <a href="{{route('category',$category->slug)}}">
+                                    {{SiteHelpers::GoogleTRS($category->cat_name)}}
+                            </a>
+                        </li>
+                    @endif
                 @endforeach
                 <li>
                     <a href="{{route('contact')}}">{{SiteHelpers::GoogleTRS('Contact Us')}}</a>

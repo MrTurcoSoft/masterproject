@@ -24,8 +24,14 @@ class CategoryController extends Controller
         $tr = new GoogleTranslate();
         $tr->setSource('en');
         $cat = Category::all()->where('slug', $slug)->first();
+        if ($cat->ust_id != null ) {
+            $mainCat=Category::all()->where('id',$cat->ust_id)->firstorFail();
+        } else {
+            $mainCat=null;
+        }
+
         $products = $cat->urunler;
-        return view("frontend.category", compact('cat', 'products','tr'));
+        return view("frontend.category", compact('cat', 'products','tr', 'mainCat'));
 
     }
 }

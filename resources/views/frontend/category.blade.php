@@ -13,6 +13,9 @@
         <div class="container pos-vertical-center">
             <div class="row">
                 <div class="col-sm-10 col-sm-offset-1 text-center">
+                   @if(isset($cat->ust_id))
+                        <h3 class="text-uppercase" style="font-size:medium">{{$tr->trans($mainCat->cat_name,app()->getLocale())}}</h3>
+                       @endif
                     <h2>{{$tr->trans($cat->cat_name,app()->getLocale())}}</h2>
                 </div>
             </div>

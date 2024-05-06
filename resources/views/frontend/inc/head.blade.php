@@ -32,6 +32,8 @@
         .gflag-ml {
             margin-left: 87px!important;
         }
+
+
     </style>
 
     @yield('page-css')

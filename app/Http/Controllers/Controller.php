@@ -26,6 +26,11 @@ class Controller extends BaseController
         $categories = Category::all()->where('isActive')->where('ust_id','=',null)->sortBy('must');
         View::share('_categories', $categories);
 
+        $sub_categories = Category::all()->where('isActive')->where('ust_id','!=',null)->sortBy('must');
+        View::share('_sub_categories', $sub_categories);
+
+
+
         if(Auth::check())
         {
             $user = Auth::User();
