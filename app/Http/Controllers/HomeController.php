@@ -47,8 +47,11 @@ class HomeController extends Controller
             $section5 = Homesection::all()->where('section', 4)->where('isActive')->first();
             $tabs = SectionTab::all()->where('isActive')->take(4);
             $categories = Category::all()->where('isActive')->where('ust_id','=',null)->sortBy('must');
-            return view('frontend.home', compact('sliders', 'tr','section2', 'section3', 'section5', 'tabs', 'categories'));
-
+            if(\SiteHelpers::ayar('site_theme') == 1) {
+                return view('frontend.home', compact('sliders', 'tr', 'section2', 'section3', 'section5', 'tabs', 'categories'));
+            } elseif(\SiteHelpers::ayar('site_theme') == 2){
+            return view('porto.home', compact('sliders', 'tr','section2', 'section3', 'section5', 'tabs', 'categories'));
+            }
         } elseif (\SiteHelpers::ayar('maintenance_mode') == 0)
         {
             $sliders = Slider::all()->where('isActive', 1);
@@ -57,8 +60,11 @@ class HomeController extends Controller
             $section5 = Homesection::all()->where('section', 4)->where('isActive')->first();
             $tabs = SectionTab::all()->where('isActive')->take(4);
             $categories = Category::all()->where('isActive')->where('ust_id','=',null)->sortBy('must');
-            return view('frontend.home', compact('sliders', 'tr','section2', 'section3', 'section5', 'tabs', 'categories'));
-
+            if(\SiteHelpers::ayar('site_theme') == 1) {
+                return view('frontend.home', compact('sliders', 'tr', 'section2', 'section3', 'section5', 'tabs', 'categories'));
+            } elseif(\SiteHelpers::ayar('site_theme') == 2){
+                return view('porto.home', compact('sliders', 'tr','section2', 'section3', 'section5', 'tabs', 'categories'));
+            }
         } elseif (\SiteHelpers::ayar('maintenance_mode') == 1) {
 
             return view('maintenance.index',compact('tr'));

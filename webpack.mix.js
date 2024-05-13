@@ -100,6 +100,66 @@ mix.js('resources/js/app.js', 'frontend/js')
         FrendResAsset + 'css/custom.css'
     ], FrendPubAsset + 'css/mrturco.css')
 
+
+/*
+|--------------------------------------------------------------------------
+| Porto Template Mix Asset Management
+|--------------------------------------------------------------------------
+*/
+const PortoResAsset = 'resources/assets/porto/';
+const PortoPubAsset = 'public/porto/';
+
+/*
+ |--------------------------------------------------------------------------
+ | Copy Fonts and Other Files
+ |--------------------------------------------------------------------------
+ */
+mix.copy(PortoResAsset + 'ajax/', PortoPubAsset + 'ajax/');
+mix.copy(PortoResAsset + 'master/', PortoPubAsset + 'master/');
+mix.copy(PortoResAsset + 'php/', PortoPubAsset + 'php/');
+mix.copy(PortoResAsset + 'vendor/', PortoPubAsset + 'vendor/');
+mix.copy(PortoResAsset + 'css/demos/', PortoPubAsset + 'css/demos/');
+mix.copy(PortoResAsset + 'css/examples/', PortoPubAsset + 'css/examples/');
+mix.copy(PortoResAsset + 'css/fonts/', PortoPubAsset + 'css/fonts/');
+mix.copy(PortoResAsset + 'css/skins/', PortoPubAsset + 'css/skins/');
+mix.copy(PortoResAsset + 'js/demos/', PortoPubAsset + 'js/demos/');
+mix.copy(PortoResAsset + 'js/examples/', PortoPubAsset + 'js/examples/');
+mix.copy(PortoResAsset + 'js/views/', PortoPubAsset + 'js/views/');
+
+/*
+ |--------------------------------------------------------------------------
+ | Copy CSS Files
+ |--------------------------------------------------------------------------
+ */
+
+/*
+ |--------------------------------------------------------------------------
+ | Copy JS Files
+ |--------------------------------------------------------------------------
+ */
+
+
+
+/*
+ |--------------------------------------------------------------------------
+ | Mix Css and Js Files
+ |--------------------------------------------------------------------------
+ */
+    // Frontend js ve css mixleme
+    mix.combine([
+        PortoResAsset + 'js/custom.js',
+        PortoResAsset + 'js/theme.init.js',
+        PortoResAsset + 'js/theme.js'
+    ], PortoPubAsset + 'js/mrturco.js')
+    mix.styles([
+        PortoResAsset + 'css/custom.css',
+        PortoResAsset + 'css/theme.css',
+        PortoResAsset + 'css/theme-blog.css',
+        PortoResAsset + 'css/theme-elements.css',
+        PortoResAsset + 'css/theme-shop.css',
+    ], PortoPubAsset + 'css/mrturco.css')
+
+
     .sourceMaps();
 mix.version()
 

@@ -50,12 +50,12 @@ class CatalogController extends Controller
         // Form validation
         $rules = [
             'name' => 'required',
-            'file' => 'required|mimes:pdf|max:2048'
+            'file' => 'required|mimes:pdf|max:10240'
         ];
         $customMessages = [
             'required' => ':attribute girişi gereklidir.',
             'mimes' => 'Sadece PDF uzantılı dosya yükleyebilirsiniz! ',
-            'max' => 'Yüklediğiniz dosyanın büyüklüğü 2048 Kb. dan küçük olmalıdır!'
+            'max' => 'Yüklediğiniz dosyanın büyüklüğü 10240 Kb. dan küçük olmalıdır!'
         ];
         $validator = Validator::make($request->all(), $rules, $customMessages);
         if ($validator->fails()) {
