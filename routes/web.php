@@ -68,7 +68,7 @@ Route::post('categories/delete','App\Http\Controllers\Admin\CategoryController@d
 Route::resource('/products','App\Http\Controllers\Admin\ProductController');
 Route::post('products/delete','App\Http\Controllers\Admin\ProductController@deleteImage')->name('products.delete');
 Route::resource('/settings','App\Http\Controllers\Admin\SettingsController');
-Route::get('/settings/{id}/{type}','App\Http\Controllers\Admin\SettingsController@edit')->name('settings.edit');
+//Route::get('/settings/{id}/{type}','App\Http\Controllers\Admin\SettingsController@edit')->name('settings.edit');
 Route::resource('/catalog','App\Http\Controllers\Admin\CatalogController');
 Route::post('/catalog/delete','App\Http\Controllers\Admin\CatalogController@deleteImage')->name('catalog.delete');
 
