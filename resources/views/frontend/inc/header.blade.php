@@ -59,14 +59,6 @@
                         <img src="{{asset("frontend/img/main/blank.png")}}"
                              height="32" width="32" alt="French"/>
                     </a>
-
-                    <a href="lang/change?lang=ar-IQ"
-                       title="{{$tr->trans('Arabic','ar-IQ')}}"
-                       class="gflag"
-                       style="background-position:-300px -0px;">
-                        <img src="{{asset("frontend/img/main/blank.png")}}"
-                             height="32" width="32" alt="Arabic"/>
-                    </a>
                     <a href="lang/change?lang=ru"
                        title="{{$tr->trans('Russian','ru')}}"
                        class="gflag"
@@ -81,14 +73,6 @@
                         style="background-position:-500px -0px;">
                         <img src="{{asset("frontend/img/main/blank.png")}}"
                              height="32" width="32" alt="Arabic"/>
-                    </a>
-                    <a
-                        href="lang/change?lang=tr"
-                        title="{{$tr->trans('Turkish','tr')}}"
-                        class="gflag"
-                        style="background-position:-600px -0px;">
-                        <img src="{{asset("frontend/img/main/blank.png")}}"
-                             height="32" width="32" alt="Turkish"/>
                     </a>
                 </li>
 
