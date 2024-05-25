@@ -10227,6 +10227,8 @@
     "/porto/js/views/view.home.js": "/porto/js/views/view.home.js?id=0ccb34981142cb94f0c803f8a0d9e9a2",
     "/porto/js/views/view.landing.js": "/porto/js/views/view.landing.js?id=8b5af6398855fbcfd174b46867539c7e",
     "/porto/js/views/view.shop.js": "/porto/js/views/view.shop.js?id=f7bf745dbec15dbdc79cf6f8106f306c",
-    "/porto/js/mrturco.js": "/porto/js/mrturco.js?id=eedb71f96a89cdd56c570f1cc53cb4ba",
+    "/porto/js/custom.js": "/porto/js/custom.js?id=d41d8cd98f00b204e9800998ecf8427e",
+    "/porto/js/theme.init.js": "/porto/js/theme.init.js?id=fb36457f6798221b38e7d6cd11872672",
+    "/porto/js/theme.js": "/porto/js/theme.js?id=9842c410a33ee93a9928814fca3b265e",
     "/porto/css/mrturco.css": "/porto/css/mrturco.css?id=d136afe3af6e8e827f3984f4f1f06ac9"
 }

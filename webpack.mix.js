@@ -125,6 +125,9 @@ mix.copy(PortoResAsset + 'css/skins/', PortoPubAsset + 'css/skins/');
 mix.copy(PortoResAsset + 'js/demos/', PortoPubAsset + 'js/demos/');
 mix.copy(PortoResAsset + 'js/examples/', PortoPubAsset + 'js/examples/');
 mix.copy(PortoResAsset + 'js/views/', PortoPubAsset + 'js/views/');
+mix.copy(PortoResAsset + 'js/custom.js', PortoPubAsset + 'js/custom.js');
+mix.copy(PortoResAsset + 'js/theme.init.js', PortoPubAsset + 'js/theme.init.js');
+mix.copy(PortoResAsset + 'js/theme.js', PortoPubAsset + 'js/theme.js');
 
 /*
  |--------------------------------------------------------------------------
@@ -146,11 +149,7 @@ mix.copy(PortoResAsset + 'js/views/', PortoPubAsset + 'js/views/');
  |--------------------------------------------------------------------------
  */
     // Frontend js ve css mixleme
-    mix.combine([
-        PortoResAsset + 'js/custom.js',
-        PortoResAsset + 'js/theme.init.js',
-        PortoResAsset + 'js/theme.js'
-    ], PortoPubAsset + 'js/mrturco.js')
+
     mix.styles([
         PortoResAsset + 'css/custom.css',
         PortoResAsset + 'css/theme.css',
