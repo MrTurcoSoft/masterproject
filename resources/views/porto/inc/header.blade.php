@@ -6,7 +6,7 @@
                     <div class="header-row">
                         <div class="header-logo">
                             <a href="{{route('home')}}">
-                                <img alt="DellaSoft" width="100" height="48" data-sticky-width="82" data-sticky-height="40" data-sticky-top="25" src="{{asset(config('settings.slogo'))}}">
+                                <img alt="DellaSoft" width="100" height="48" data-sticky-width="82" data-sticky-height="40" data-sticky-top="25" src="{{asset(config('settings.logo'))}}">
                             </a>
                         </div>
                     </div>
