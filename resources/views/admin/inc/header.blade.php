@@ -16,12 +16,12 @@
                                 @endif
                         </div>
                         <div class="text">
-                            <h6 class="user-dropdown-name">{{Session::get('user')->name}}</h6>
-                            <p class="user-dropdown-status text-sm text-muted">@if(Session::get('user')->isAdmin == 0) Süper Admin @elseif(Session::get('user')->isAdmin == 1) Admin @else Editör @endif</p>
+                            <h6 class="user-dropdown-name">{{Auth::user()->name}}</h6>
+                            <p class="user-dropdown-status text-sm text-muted">@if(Auth::user()->isAdmin == 0) Süper Admin @elseif(Auth::user()->isAdmin == 1) Admin @else Editör @endif</p>
                         </div>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="topbarUserDropdown">
-                        @if(Session::get('user')->isAdmin == 0)
+                        @if(Auth::user()->isAdmin == 0)
                        <li><a class="dropdown-item" href="{{route('route.list')}}">Route List</a></li>
                         @endif
                         <li><hr class="dropdown-divider"></li>

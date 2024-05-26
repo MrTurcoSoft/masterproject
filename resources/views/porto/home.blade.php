@@ -58,43 +58,47 @@
 
     <div class="home-intro bg-primary" id="home-intro">
         <div class="container">
-
+            @if(\Illuminate\Support\Facades\Auth::user())
+                <span CLASS="btn btn-primary btn--xs">BÖLÜM 1</span>
+            @endif
             <div class="row align-items-center">
                 <div class="col-lg-8">
                     <p>
-                        The fastest way to grow your business with the leader in <span class="highlighted-word">Technology</span>
-                        <span>Check out our options and features included.</span>
+                         <span class="highlighted-word">{{SiteHelpers::GoogleTRS($section2->title)}}</span>
+                        <span><small>{!! SiteHelpers::GoogleTRS($section2->description) !!}</small></span>
                     </p>
                 </div>
-                <div class="col-lg-4">
-                    <div class="get-started text-start text-lg-end">
-                        <a href="#" class="btn btn-dark btn-lg text-3 font-weight-semibold px-4 py-3">Get Started Now</a>
-                        <div class="learn-more">or <a href="index.html">learn more.</a></div>
-                    </div>
-                </div>
+
             </div>
 
         </div>
     </div>
 
     <div class="container">
+        @if(\Illuminate\Support\Facades\Auth::user())
+            <span CLASS="btn btn-primary btn--xs">BÖLÜM 2</span>
+        @endif
+            <div class="row py-4 mb-2">
+                <div class="col-md-7 order-2">
+                    <div class="overflow-hidden">
+                        <h2 class="text-color-dark font-weight-bold text-12 mb-2 pt-0 mt-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="300">{{SiteHelpers::GoogleTRS($section3->title)}}</h2>
+                    </div>
 
-        <div class="row text-center pt-3">
-            <div class="col-md-10 mx-md-auto">
-                <h1 class="word-rotator slide font-weight-bold text-8 mb-3 appear-animation" data-appear-animation="fadeInUpShorter">
-                    <span>Porto is </span>
-                    <span class="word-rotator-words bg-dark">
-									<b class="is-visible">incredibly</b>
-									<b>especially</b>
-									<b>extremely</b>
-								</span>
-                    <span> beautiful and fully responsive.</span>
-                </h1>
-                <p class="lead appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="300">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elementum, nulla vel pellentesque consequat, ante nulla hendrerit arcu, ac tincidunt mauris lacus sed leo.
-                </p>
+                    <p class="lead appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="700">{!! SiteHelpers::GoogleTRS($section3->description) !!}</p>
+
+                    <hr class="solid my-4 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="900">
+                    <div class="row align-items-center appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="1000">
+                        <div class="col-lg-6">
+
+                            <a href="{{$section3->url}}" class="btn btn-modern btn-primary mt-3"> {{SiteHelpers::GoogleTRS($section3->btnText)}}</a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-5 order-md-2 mb-4 mb-lg-0 appear-animation" data-appear-animation="fadeInRightShorter">
+                    <img src="{{asset($section3->image)}}" class="img-fluid mb-2" alt="{{SiteHelpers::ayar('mark')}}">
+                </div>
             </div>
-        </div>
 
     </div>
 
