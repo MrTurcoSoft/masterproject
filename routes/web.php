@@ -49,7 +49,7 @@ Route::get('/new-install', function () {
 Auth::routes();
 
 Route::get('/dashboard',[\App\Http\Controllers\Admin\AdminController::class,'index'])->name('dashboard');
-Route::get('/logout',[\App\Http\Controllers\Admin\AdminController::class,'logout'])->name('logout');
+//Route::get('/logout',[\App\Http\Controllers\Admin\AdminController::class,'logout'])->name('logout');
 Route::get('/about-management','App\Http\Controllers\Admin\AboutController@index')->name('about.index');
 Route::post('/about-management/','App\Http\Controllers\Admin\AboutController@store')->name('about.store');
 Route::get('/about-management/{id}/{type}','App\Http\Controllers\Admin\AboutController@edit')->name('about.edit');
@@ -68,7 +68,7 @@ Route::post('categories/delete','App\Http\Controllers\Admin\CategoryController@d
 Route::resource('/products','App\Http\Controllers\Admin\ProductController');
 Route::post('products/delete','App\Http\Controllers\Admin\ProductController@deleteImage')->name('products.delete');
 Route::resource('/settings','App\Http\Controllers\Admin\SettingsController');
-Route::get('/settings/{id}/{type}','App\Http\Controllers\Admin\SettingsController@edit')->name('settings.edit');
+Route::get('/settings/{id}/{type}','App\Http\Controllers\Admin\SettingsController@edit');
 Route::resource('/catalog','App\Http\Controllers\Admin\CatalogController');
 Route::post('/catalog/delete','App\Http\Controllers\Admin\CatalogController@deleteImage')->name('catalog.delete');
 

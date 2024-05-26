@@ -46,7 +46,7 @@
                                         <td>{{ $setting->settings_description }}</td>
                                         <td>{{ $setting->settings_key }}</td>
                                         <td>{{ $setting->settings_type }}</td>
-                                        <td>@if($setting->settings_type == 'textarea') {!! $setting->settings_value !!}@elseif($setting->settings_type == 'text') {{$setting->settings_value}} @elseif($setting->settings_type == 'logo'|| $setting->settings_type == 'slogo' || $setting->settings_type == 'favicon')
+                                        <td>@if($setting->settings_type == 'textarea') {!! $setting->settings_value !!}@elseif($setting->settings_type == 'text') {{$setting->settings_value}} @elseif($setting->settings_type == 'logo'|| $setting->settings_type == 'favicon')
                                                 <img src="{{asset($setting->settings_value)}}"  width="35%" alt="">@elseif($setting->settings_type == 'switch')<div class="form-check form-switch">
                                                     <input class="form-check-input input-lg " disabled type="checkbox" id="flexSwitchCheckChecked" name="isActive" value="1"  {{$setting->settings_value ? 'checked' :null }} >
                                                 </div> @endif</td>

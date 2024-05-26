@@ -34,6 +34,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $minutes = 180;
         $tr = new GoogleTranslate();
         $tr->setSource('en');
         $controll= Schema::hasTable('settings');
@@ -41,12 +42,25 @@ class HomeController extends Controller
 
 
         if (\SiteHelpers::ayar('maintenance_mode') == 1 && Auth::user()) {
-            $sliders = Slider::all()->where('isActive', 1);
-            $section2 = Homesection::all()->where('section', 1)->where('isActive')->first();
-            $section3 = Homesection::all()->where('section', 2)->where('isActive')->first();
-            $section5 = Homesection::all()->where('section', 4)->where('isActive')->first();
-            $tabs = SectionTab::all()->where('isActive')->take(4);
-            $categories = Category::all()->where('isActive')->where('ust_id','=',null)->sortBy('must');
+            $sliders = cache()->remember('home_sliders_key', $minutes, function () {
+                return Slider::all()->where('isActive', 1);
+            });
+
+            $section2 = cache()->remember('home_section2_key', $minutes, function () {
+                return Homesection::all()->where('section', 1)->where('isActive')->first();
+            });
+            $section3 = cache()->remember('home_section3_key', $minutes, function () {
+                return Homesection::all()->where('section', 2)->where('isActive')->first();
+            });
+            $section5 = cache()->remember('home_section5_key', $minutes, function () {
+                return Homesection::all()->where('section', 4)->where('isActive')->first();
+            });
+            $tabs = cache()->remember('home_tabs_key', $minutes, function () {
+                return SectionTab::all()->where('isActive')->take(4);
+            });
+            $categories = cache()->remember('home_categories_key', $minutes, function () {
+                return Category::all()->where('isActive')->where('ust_id','=',null)->sortBy('must');
+            });
             if(\SiteHelpers::ayar('site_theme') == 1) {
                 return view('frontend.home', compact('sliders', 'tr', 'section2', 'section3', 'section5', 'tabs', 'categories'));
             } elseif(\SiteHelpers::ayar('site_theme') == 2){
@@ -54,12 +68,25 @@ class HomeController extends Controller
             }
         } elseif (\SiteHelpers::ayar('maintenance_mode') == 0)
         {
-            $sliders = Slider::all()->where('isActive', 1);
-            $section2 = Homesection::all()->where('section', 1)->where('isActive')->first();
-            $section3 = Homesection::all()->where('section', 2)->where('isActive')->first();
-            $section5 = Homesection::all()->where('section', 4)->where('isActive')->first();
-            $tabs = SectionTab::all()->where('isActive')->take(4);
-            $categories = Category::all()->where('isActive')->where('ust_id','=',null)->sortBy('must');
+            $sliders = cache()->remember('home_sliders_key', $minutes, function () {
+                return Slider::all()->where('isActive', 1);
+            });
+
+            $section2 = cache()->remember('home_section2_key', $minutes, function () {
+                return Homesection::all()->where('section', 1)->where('isActive')->first();
+            });
+            $section3 = cache()->remember('home_section3_key', $minutes, function () {
+                return Homesection::all()->where('section', 2)->where('isActive')->first();
+            });
+            $section5 = cache()->remember('home_section5_key', $minutes, function () {
+                return Homesection::all()->where('section', 4)->where('isActive')->first();
+            });
+            $tabs = cache()->remember('home_tabs_key', $minutes, function () {
+                return SectionTab::all()->where('isActive')->take(4);
+            });
+            $categories = cache()->remember('home_categories_key', $minutes, function () {
+                return Category::all()->where('isActive')->where('ust_id','=',null)->sortBy('must');
+            });
             if(\SiteHelpers::ayar('site_theme') == 1) {
                 return view('frontend.home', compact('sliders', 'tr', 'section2', 'section3', 'section5', 'tabs', 'categories'));
             } elseif(\SiteHelpers::ayar('site_theme') == 2){
@@ -76,10 +103,16 @@ class HomeController extends Controller
 
     public function catalog()
     {
+        $minutes = 180;
         $tr = new GoogleTranslate();
         $tr->setSource('en');
-        $about = About::all()->firstOrFail();
-        $catalog = Catalog::all()->where('isActive', 1);
+        $about = cache()->remember('about_catalog_key', $minutes, function () {
+            return About::all()->firstOrFail();
+        });
+        $catalog = cache()->remember('catalog_key', $minutes, function () {
+            return Catalog::all()->where('isActive', 1);
+        });
+
         return view('frontend.catalog', compact('catalog', 'about','tr'));
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -21,16 +22,6 @@ class Controller extends BaseController
 
     public function __construct()
     {
-
-
-        $categories = Category::all()->where('isActive')->where('ust_id','=',null)->sortBy('must');
-        View::share('_categories', $categories);
-
-        $sub_categories = Category::all()->where('isActive')->where('ust_id','!=',null)->sortBy('must');
-        View::share('_sub_categories', $sub_categories);
-
-
-
         if(Auth::check())
         {
             $user = Auth::User();

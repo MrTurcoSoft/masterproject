@@ -5,7 +5,8 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "^8.0",
+        "php": "^8.3.0",
+        "laravel/sail": "^1.0.1",
         "baum/baum": "3.x-dev",
         "fruitcake/laravel-cors": "^2.2.0",
         "guzzlehttp/guzzle": "^7.8.1",
@@ -19,6 +20,7 @@
         "yajra/laravel-datatables-oracle": "^10.0"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.13",
         "fakerphp/faker": "^1.9.1",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
