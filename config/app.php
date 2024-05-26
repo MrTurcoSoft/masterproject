@@ -181,7 +181,6 @@ return [
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
         Jenssegers\Agent\AgentServiceProvider::class,
-        Barryvdh\Debugbar\ServiceProvider::class,
 
 
     ],
