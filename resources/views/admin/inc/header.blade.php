@@ -9,7 +9,11 @@
                 <div class="dropdown">
                     <a href="#" id="topbarUserDropdown" class="user-dropdown d-flex align-items-center dropend dropdown-toggle " data-bs-toggle="dropdown" aria-expanded="false">
                         <div class="avatar avatar-md2" >
+                            @if(Session::get('user')->image != null)
                             <img src="{{asset(Session::get('user')->image)}}" alt="Avatar">
+                                @else
+                                <img src="{{asset('admin/image/user_avatar.png')}}" alt="Avatar">
+                                @endif
                         </div>
                         <div class="text">
                             <h6 class="user-dropdown-name">{{Session::get('user')->name}}</h6>
