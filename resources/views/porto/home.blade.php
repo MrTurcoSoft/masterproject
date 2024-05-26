@@ -102,47 +102,47 @@
 
     </div>
 
-    <div class="appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200">
-        <div class="home-concept mt-5">
-            <div class="container">
+    <div class="container py-2">
+        @if(\Illuminate\Support\Facades\Auth::user())
+            <div align="center">
+                <span CLASS="btn btn-primary btn--xs mb-10">BÖLÜM 3</span>
+            </div>
+        @endif
+            <div class="col-lg-6">
+                <div class="tabs">
+                    <ul class="nav nav-tabs">
+                        @foreach($tabs as $key=>$tab)
+                        <li class="nav-item">
+                            <a class="nav-link {{$key==0 ? 'active':null }}" href="#{{strtolower(str_replace(' ', '', $tab->title))}}" data-bs-toggle="tab">{{SiteHelpers::GoogleTRS(strtoupper($tab->title))}}</a>
+                        </li>
+                       @endforeach
+                    </ul>
+                    <div class="tab-content">
+                        @foreach($tabs as $key=>$tab)
+                        <div id="{{strtolower(str_replace(' ', '', $tab->title))}}" class="tab-pane {{$key==0 ? 'active':null }}">
+                            <article class="post post-medium">
+                                <div class="row mb-3">
+                                    <div class="col-lg-5">
+                                        <div class="post-image">
+                                            <a href="javascript:void(0)">
+                                                <img src="{{$tab->image}}" class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0" alt="{{$tab->title}}" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <div class="post-content">
+                                            <h2 class="font-weight-semibold pt-4 pt-lg-0 text-5 line-height-4 mb-2"><a href="javascript:void(0)">{{SiteHelpers::GoogleTRS($tab->title)}}</a></h2>
+                                            <p class="mb-0"> {!! SiteHelpers::GoogleTRS($tab->description) !!}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
 
-                <div class="row text-center">
-                    <span class="sun"></span>
-                    <span class="cloud"></span>
-                    <div class="col-lg-2 ms-lg-auto">
-                        <div class="process-image">
-                            <img src="img/home/home-concept-item-1.png" alt="" />
-                            <strong>Strategy</strong>
                         </div>
-                    </div>
-                    <div class="col-lg-2">
-                        <div class="process-image process-image-on-middle">
-                            <img src="img/home/home-concept-item-2.png" alt="" />
-                            <strong>Planning</strong>
-                        </div>
-                    </div>
-                    <div class="col-lg-2">
-                        <div class="process-image">
-                            <img src="img/home/home-concept-item-3.png" alt="" />
-                            <strong>Build</strong>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 ms-lg-auto">
-                        <div class="project-image">
-                            <div id="fcSlideshow" class="fc-slideshow">
-                                <ul class="fc-slides">
-                                    <li><a href="portfolio-single-wide-slider.html" aria-label=""><img class="img-fluid" src="img/projects/project-home-1.jpg" alt="" /></a></li>
-                                    <li><a href="portfolio-single-wide-slider.html" aria-label=""><img class="img-fluid" src="img/projects/project-home-2.jpg" alt="" /></a></li>
-                                    <li><a href="portfolio-single-wide-slider.html" aria-label=""><img class="img-fluid" src="img/projects/project-home-3.jpg" alt="" /></a></li>
-                                </ul>
-                            </div>
-                            <strong class="our-work">Our Work</strong>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
-
             </div>
-        </div>
     </div>
 
     <div class="container mb-5 pb-4">
