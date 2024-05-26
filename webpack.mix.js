@@ -118,6 +118,7 @@ mix.copy(PortoResAsset + 'ajax/', PortoPubAsset + 'ajax/');
 mix.copy(PortoResAsset + 'master/', PortoPubAsset + 'master/');
 mix.copy(PortoResAsset + 'php/', PortoPubAsset + 'php/');
 mix.copy(PortoResAsset + 'vendor/', PortoPubAsset + 'vendor/');
+mix.copy(PortoResAsset + 'img/', PortoPubAsset + 'img/');
 mix.copy(PortoResAsset + 'css/demos/', PortoPubAsset + 'css/demos/');
 mix.copy(PortoResAsset + 'css/examples/', PortoPubAsset + 'css/examples/');
 mix.copy(PortoResAsset + 'css/fonts/', PortoPubAsset + 'css/fonts/');

@@ -6,9 +6,21 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="form-group">
-                            <label for="first-name-vertical">Slider İçeriği</label>
-                            <input type="text" id="first-name-vertical" class="form-control"
+                            <label for="title">Slider Başlığı</label>
+                            <input type="text" id="title" class="form-control"
                                    name="title" value="" required >
+
+                        </div>
+                        <div class="form-group">
+                            <label for="content">Slider İçeriği 1.satır</label>
+                            <input type="text" id="content" class="form-control"
+                                   name="content" value="" required >
+
+                        </div>
+                        <div class="form-group">
+                            <label for="content2">Slider İçeriği 2.satır</label>
+                            <input type="text" id="content2" class="form-control"
+                                   name="content2" value="" required >
 
                         </div>
                     </div>

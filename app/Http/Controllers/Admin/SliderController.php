@@ -53,6 +53,8 @@ class SliderController extends Controller
         // Form validation
         $rules = [
             'title' => 'required',
+            'content' => 'required',
+            'content2' => 'required',
             'btnText' => 'required',
             'url' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=1920,min_height=1280,max_width=1920,max_height=1280'
@@ -125,6 +127,8 @@ class SliderController extends Controller
             // Form validation
             $rules = [
                 'title' => 'required',
+                'content' => 'required',
+                'content2' => 'required',
                 'btnText' => 'required',
                 'url' => 'required',
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=1920,min_height=1280,max_width=1920,max_height=1280'
@@ -158,6 +162,8 @@ class SliderController extends Controller
             $slider = Slider::findOrFail($id);
             File::delete(public_path( $slider->image));
             $slider->title = $request->input('title');
+            $slider->content = $request->input('content');
+            $slider->content2 = $request->input('content2');
             $slider->btnText = $request->input('btnText');
             $slider->url = $request->input('url');
             $slider->isActive = $request->input('isActive');
@@ -170,6 +176,8 @@ class SliderController extends Controller
             // Form validation
             $rules = [
                 'title' => 'required',
+                'content' => 'required',
+                'content2' => 'required',
                 'btnText' => 'required',
                 'url' => 'required'
             ];
@@ -196,6 +204,8 @@ class SliderController extends Controller
 
             $slider = Slider::findOrFail($id);
             $slider->title = $request->input('title');
+            $slider->content = $request->input('content');
+            $slider->content2 = $request->input('content2');
             $slider->btnText = $request->input('btnText');
             $slider->url = $request->input('url');
             $slider->isActive = $request->input('isActive');
