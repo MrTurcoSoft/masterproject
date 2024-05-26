@@ -50,9 +50,9 @@
             <button type="button" role="presentation" class="owl-next" aria-label="Next"></button>
         </div>
         <div class="owl-dots mb-5">
-            <button role="button" class="owl-dot active"><span></span></button>
-            <button role="button" class="owl-dot"><span></span></button>
-            <button role="button" class="owl-dot"><span></span></button>
+            @foreach($sliders as $key=>$slider)
+            <button role="button" class="owl-dot {{($key==0)?'active':''}}" aria-label="Slide {{($key+1)}}"><span></span></button>
+            @endforeach
         </div>
     </div>
 
