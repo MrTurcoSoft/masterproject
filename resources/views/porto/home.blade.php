@@ -12,7 +12,7 @@
 
                 <!-- Carousel Slide  -->
                 @foreach($sliders as $key=>$slider)
-                <div class="owl-item position-relative" style="background-image: url({{asset("$slider->image")}}); background-color: #2E3136; background-size: cover; background-position: center;">
+                <div class="owl-item position-relative" style="background-image: url({{asset("$slider->image")}}); background-color: rgba(0, 0, 0, 0.5); background-size: cover; background-position: center;">
                     <div class="container position-relative z-index-1 h-100">
                         <div class="d-flex flex-column align-items-center justify-content-center h-100">
                             <h3 class="position-relative text-color-light text-5 line-height-5 font-weight-medium px-4 mb-2 appear-animation" data-appear-animation="fadeInDownShorter" data-plugin-options="{'minWindowWidth': 0}">
