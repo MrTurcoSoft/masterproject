@@ -1,85 +1,28 @@
 <footer id="footer">
     <div class="container">
-        <div class="footer-ribbon">
-            <span>Get in Touch</span>
-        </div>
-        <div class="row py-5 my-4">
-            <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
-                <h5 class="text-3 mb-3">NEWSLETTER</h5>
-                <p class="pe-1">Keep up on our always evolving product features and technology. Enter your e-mail address and subscribe to our newsletter.</p>
-                <div class="alert alert-success d-none" id="newsletterSuccess">
-                    <strong>Success!</strong> You've been added to our email list.
-                </div>
-                <div class="alert alert-danger d-none" id="newsletterError"></div>
-                <form id="newsletterForm" action="php/newsletter-subscribe.php" method="POST" class="me-4 mb-3 mb-md-0">
-                    <div class="input-group input-group-rounded">
-                        <input class="form-control form-control-sm bg-light" placeholder="Email Address" name="newsletterEmail" id="newsletterEmail" type="email">
-                        <button class="btn btn-light text-color-dark" type="submit"><strong>GO!</strong></button>
-                    </div>
-                </form>
-            </div>
-            <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
-                <h5 class="text-3 mb-3">LATEST POSTS</h5>
-                <ul class="list-unstyled mb-0">
-                    <li class="mb-2 pb-1">
-                        <a href="#">
-                            <p class="text-3 text-color-light opacity-8 mb-0"><i class="fas fa-angle-right text-color-primary"></i><strong class="ms-2 font-weight-semibold">Lorem ipsum dolor sit amet.</strong></p>
-                            <p class="text-2 mb-0">12:55 AM Dec 19th</p>
-                        </a>
-                    </li>
-                    <li class="mb-2 pb-1">
-                        <a href="#">
-                            <p class="text-3 text-color-light opacity-8 mb-0"><i class="fas fa-angle-right text-color-primary"></i><strong class="ms-2 font-weight-semibold">Ipsum dolor sit amet.</strong></p>
-                            <p class="text-2 mb-0">12:55 AM Dec 19th</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <p class="text-3 text-color-light opacity-8 mb-0"><i class="fas fa-angle-right text-color-primary"></i><strong class="ms-2 font-weight-semibold">Lorem ipsum dolor sit amet.</strong></p>
-                            <p class="text-2 mb-0">12:55 AM Dec 19th</p>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-md-6 col-lg-3 mb-4 mb-md-0">
-                <div class="contact-details">
-                    <h5 class="text-3 mb-3">CONTACT US</h5>
-                    <ul class="list list-icons list-icons-lg">
-                        <li class="mb-1"><i class="far fa-dot-circle text-color-primary"></i><p class="m-0">234 Street Name, City Name</p></li>
-                        <li class="mb-1"><i class="fab fa-whatsapp text-color-primary"></i><p class="m-0"><a href="tel:8001234567">(800) 123-4567</a></p></li>
-                        <li class="mb-1"><i class="far fa-envelope text-color-primary"></i><p class="m-0"><a href="mailto:mail@example.com">mail@example.com</a></p></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-2">
-                <h5 class="text-3 mb-3">FOLLOW US</h5>
-                <ul class="social-icons">
-                    <li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                    <li class="social-icons-twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter"><i class="fab fa-x-twitter"></i></a></li>
-                    <li class="social-icons-linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin"><i class="fab fa-linkedin-in"></i></a></li>
+        <div class="row py-5">
+            <div class="col text-center">
+                <ul class="footer-social-icons social-icons social-icons-clean social-icons-big social-icons-opacity-light social-icons-icon-light mt-1">
+                    <li class="social-icons-facebook"><a href="https://www.facebook.com/{{config('settings.facebook')}}" target="_blank" title="Facebook"><i class="fab fa-facebook-f text-2"></i></a></li>
+                    <li class="social-icons-instagram"><a href="https://www.instgram.com/{{config('settings.instagram')}}" target="_blank" title="Instagram"><i class="fab fa-instagram text-2"></i></a></li>
+                    <li class="social-icons-linkedin"><a href="https://www.linkedin.com/showcase/{{config('settings.linkedin')}}" target="_blank" title="Linkedin"><i class="fab fa-linkedin-in text-2"></i></a></li>
                 </ul>
             </div>
         </div>
     </div>
-    <div class="footer-copyright">
+    <div class="footer-copyright footer-copyright-style-2">
         <div class="container py-2">
             <div class="row py-4">
-                <div class="col-lg-1 d-flex align-items-center justify-content-center justify-content-lg-start mb-2 mb-lg-0">
-                    <a href="index.html" class="logo pe-0 pe-lg-3">
-                        <img alt="Porto Website Template" src="img/logo-footer.png" class="opacity-5" width="49" height="22" data-plugin-options="{'appearEffect': 'fadeIn'}">
-                    </a>
+                <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+                    <p>
+                        <span class="pe-0 pe-md-3 d-block d-md-inline-block"><i class="far fa-dot-circle text-color-primary top-1 p-relative"></i><span class="text-color-light opacity-7 ps-1">{{SiteHelpers::GoogleTRS(config('settings.firmCounty'))}},{{SiteHelpers::GoogleTRS(config('settings.postcode'))}},{{SiteHelpers::GoogleTRS(config('settings.firmCity'))}}/{{SiteHelpers::GoogleTRS('Turkiye')}}</span></span>
+                        <span class="pe-0 pe-md-3 d-block d-md-inline-block"><i class="fab fa-whatsapp text-color-primary top-1 p-relative"></i><a href="tel:{{config('settings.phoneGsm')}}" class="text-color-light opacity-7 ps-1">{{config('settings.phoneGsm')}}</a></span>
+                        <span class="pe-0 pe-md-3 d-block d-md-inline-block"><i class="far fa-envelope text-color-primary top-1 p-relative"></i><a href="mailto:{{config('settings.email')}}" class="text-color-light opacity-7 ps-1">{{config('settings.email')}}</a></span>
+                    </p>
                 </div>
-                <div class="col-lg-7 d-flex align-items-center justify-content-center justify-content-lg-start mb-4 mb-lg-0">
-                    <p>© Copyright 2024. All Rights Reserved.</p>
-                </div>
-                <div class="col-lg-4 d-flex align-items-center justify-content-center justify-content-lg-end">
-                    <nav id="sub-menu">
-                        <ul>
-                            <li><i class="fas fa-angle-right"></i><a href="page-faq.html" class="ms-1 text-decoration-none"> FAQ's</a></li>
-                            <li><i class="fas fa-angle-right"></i><a href="sitemap.html" class="ms-1 text-decoration-none"> Sitemap</a></li>
-                            <li><i class="fas fa-angle-right"></i><a href="contact-us.html" class="ms-1 text-decoration-none"> Contact Us</a></li>
-                        </ul>
-                    </nav>
+                <div class="col-lg-4 d-flex align-items-center justify-content-center justify-content-lg-end mb-4 mb-lg-0 pt-4 pt-lg-0">
+                    <p>© Copyright {{date('Y')}}. All Rights Reserved.</p> ||
+                    <p>Coded by <a href="https://by-turco.com" target="_blank" class="text-color-light opacity-7 ps-1">MrTurco</a>.</p>
                 </div>
             </div>
         </div>

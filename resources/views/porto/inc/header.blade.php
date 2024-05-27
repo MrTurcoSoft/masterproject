@@ -68,7 +68,7 @@
                             </div>
                             <ul class="header-social-icons social-icons d-none d-sm-block">
                                 <li class="social-icons-instagram"><a href="https://www.instgram.com/{{config('settings.instagram')}}" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a></li>
-                                <li class="social-icons-twitter"><a href="https://www.twitter.com/{{config('settings.twitter')}}" target="_blank" title="X"><i class="fab fa-x-twitter"></i></a></li>
+                                <li class="social-icons-facebook"><a href="https://www.facebook.com/{{config('settings.facebook')}}" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
                                 <li class="social-icons-linkedin"><a href="https://www.linkedin.com/showcase/{{config('settings.linkedin')}}" target="_blank" title="Linkedin"><i class="fab fa-linkedin-in"></i></a></li>
                             </ul>
                             <button class="btn header-btn-collapse-nav" data-bs-toggle="collapse" data-bs-target=".header-nav-main nav">
