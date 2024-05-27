@@ -108,7 +108,7 @@
                 <span CLASS="btn btn-primary btn--xs mb-10">BÖLÜM 3</span>
             </div>
         @endif
-            <div class="col-lg-10">
+            <div class="col-lg-12">
                 <div class="tabs">
                     <ul class="nav nav-tabs">
                         @foreach($tabs as $key=>$tab)
