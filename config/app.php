@@ -181,6 +181,7 @@ return [
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
         Jenssegers\Agent\AgentServiceProvider::class,
+        Riverskies\Laravel\MobileDetect\MobileDetectServiceProvider::class
 
 
     ],
@@ -199,6 +200,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         'GoogleTranslate' => Stichoza\GoogleTranslate\GoogleTranslate::class,
         'Agent' => Jenssegers\Agent\Facades\Agent::class,
+        'MobileDetect' => Riverskies\Laravel\MobileDetect\Facades\MobileDetect::class,
     ])->toArray(),
 
 ];
