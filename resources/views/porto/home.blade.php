@@ -102,13 +102,13 @@
 
     </div>
 
-    <div class="container py-2">
+    <div class="container mb-5 pb-4">
         @if(\Illuminate\Support\Facades\Auth::user())
             <div align="center">
                 <span CLASS="btn btn-primary btn--xs mb-10">BÖLÜM 3</span>
             </div>
         @endif
-            <div class="col-lg-6">
+            <div class="col-lg-10">
                 <div class="tabs">
                     <ul class="nav nav-tabs">
                         @foreach($tabs as $key=>$tab)
