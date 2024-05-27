@@ -60,7 +60,7 @@
             <div class="comingsoon-wrapper text-center">
                 <div class="logo">
                     <a href="#">
-                        <img src="{{asset(SiteHelpers::ayar('logo_small'))}}" width="50%" alt="Logo">
+                        <img src="{{asset(SiteHelpers::ayar('logo'))}}" width="50%" alt="Logo">
                     </a>
                 </div><!-- /.logo -->
 <div class="goog-te-menu-value">

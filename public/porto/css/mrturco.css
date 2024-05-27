@@ -27679,7 +27679,7 @@ body.page-transition-active {
 	opacity: 0 !important;
 }
 
-/* 
+/*
 Image 360º Viewer
 Credits: Codyhouse (https://codyhouse.co/gem/360-degrees-product-viewer)
 */
@@ -32165,11 +32165,11 @@ html.gecko .sort-destination.sort-destination-margin > [class*="col-"] {
 
 .nav-tabs li .nav-link {
 	border-radius: 5px 5px 0 0;
-	font-size: 13px;
+	font-size: 12px;
 	font-weight: 600;
 	letter-spacing: -0.2px;
 	padding: 11.2px 24px;
-	padding: .7rem 1.5rem;
+	padding: 0.7rem 0.5rem;
 	transition: all .2s;
 	margin-right: 1px;
 }
