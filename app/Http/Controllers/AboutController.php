@@ -11,10 +11,17 @@ class AboutController extends Controller
 {
     public function index()
     {
-        $tr = new GoogleTranslate();
+        $minutes = 180;
+        $tr = cache()->remember('tr_key', $minutes, function () {
+            return new GoogleTranslate();
+        });
         $tr->setSource('en');
-        $about = About::all()->firstOrFail();
-        $cert = Certificate::all();
+        $about = cache()->remember('about_key', $minutes, function () {
+            return About::all()->firstOrFail();
+        });
+        $cert = cache()->remember('certificates_key', $minutes, function () {
+            return Certificate::all();
+        });
         if(\SiteHelpers::ayar('site_theme') == 1) {
             return view('frontend.about', compact('about', 'cert','tr'));
         } elseif(\SiteHelpers::ayar('site_theme') == 2) {
