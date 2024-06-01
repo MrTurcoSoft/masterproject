@@ -34,7 +34,7 @@
                             <a href="{{$value->file}}" download="{{$tr->trans($value->name,app()->getLocale())}}">
                                 <div class="card card-7">
                                     <div class="card__image bg--white">
-                                        <img src="{{asset('frontend/img/main/pdf.webp')}}" width="30%" alt="">
+                                        <img src="{{asset('frontend/img/main/pdf.webp')}}" width="30%" alt="CATALOGUE">
                                     </div>
                                     <div class="card__body boxed bg--white text-center">
                                         <div class="card__title">

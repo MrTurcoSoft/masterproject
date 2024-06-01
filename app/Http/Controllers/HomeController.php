@@ -112,7 +112,10 @@ class HomeController extends Controller
         $catalog = cache()->remember('catalog_key', $minutes, function () {
             return Catalog::all()->where('isActive', 1);
         });
-
-        return view('frontend.catalog', compact('catalog', 'about','tr'));
+        if(\SiteHelpers::ayar('site_theme') == 1) {
+            return view('frontend.catalog', compact('catalog', 'about', 'tr'));
+        } elseif(\SiteHelpers::ayar('site_theme') == 2) {
+            return view('porto.catalog', compact('catalog', 'about', 'tr'));
+        }
     }
 }
