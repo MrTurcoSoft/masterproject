@@ -15,6 +15,10 @@ class AboutController extends Controller
         $tr->setSource('en');
         $about = About::all()->firstOrFail();
         $cert = Certificate::all();
-        return view('frontend.about', compact('about', 'cert','tr'));
+        if(\SiteHelpers::ayar('site_theme') == 1) {
+            return view('frontend.about', compact('about', 'cert','tr'));
+        } elseif(\SiteHelpers::ayar('site_theme') == 2) {
+        return view('porto.about', compact('about', 'cert','tr'));
+        }
     }
 }
