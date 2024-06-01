@@ -13,13 +13,15 @@
              style="padding: 8rem 0;"></div>
         <div class="container pt-lg-5 mt-5">
             <div class="row pt-3 pb-lg-0 pb-xl-0">
-                <div class="col-lg-6 pt-4 mb-5 mb-lg-0">
+                <div class="col-lg-6 pt-4 mb-5 mb-lg-0" >
 
                     <h1 class="font-weight-bold text-10 text-xl-12 line-height-2 mb-3"
                         style="color: #000000;">{{$tr->trans($cat->cat_name,app()->getLocale())}}</h1>
-                    <p class="opacity-7 text-4 negative-ls-05 pb-2 mb-4" style="color: #000000;">
-                        {!! $tr->trans($cat->description,app()->getLocale()) !!}
+                    <div class="alert alert-default">
+                    <p class="opacity-7 text-4 negative-ls-05 pb-2 mb-4" style="background-color: #2a2525;" >
+                       {!! $tr->trans($cat->description,app()->getLocale()) !!}
                     </p>
+                    </div>
                     <a href="#{{$cat->cat_name}}" data-hash data-hash-offset="0" data-hash-offset-lg="100"
                        class="btn btn-gradient-primary btn-effect-4 font-weight-semi-bold px-4 btn-py-2 text-3">{{$tr->trans('View '.$cat->cat_name,app()->getLocale())}}
                         <i class="fas fa-arrow-down ms-1"></i></a>
