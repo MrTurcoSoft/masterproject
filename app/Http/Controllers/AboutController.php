@@ -12,9 +12,8 @@ class AboutController extends Controller
     public function index()
     {
         $minutes = 180;
-        $tr = cache()->remember('tr_key', $minutes, function () {
-            return new GoogleTranslate();
-        });
+        $tr = new GoogleTranslate();
+
         $tr->setSource('en');
         $about = cache()->remember('about_key', $minutes, function () {
             return About::all()->firstOrFail();
