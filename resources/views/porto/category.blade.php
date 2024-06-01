@@ -17,8 +17,8 @@
 
                     <h1 class="font-weight-bold text-10 text-xl-12 line-height-2 mb-3"
                         style="color: #000000;">{{$tr->trans($cat->cat_name,app()->getLocale())}}</h1>
-                    <div class="alert alert-default">
-                    <p class="opacity-7 text-4 negative-ls-05 pb-2 mb-4" style="background-color: #2a2525;" >
+                    <div style="color: #000000;">
+                    <p class="opacity-7 text-4 negative-ls-05 pb-2 mb-4" >
                        {!! $tr->trans($cat->description,app()->getLocale()) !!}
                     </p>
                     </div>
