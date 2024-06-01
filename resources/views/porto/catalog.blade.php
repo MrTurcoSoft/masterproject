@@ -30,7 +30,7 @@
     <div id="catalogue" class="container py-2">
 
         <div  class="row mb-5 pb-3">
-            @if($catalog->count() > 10 )
+            @if($catalog->count() > 0 )
                 @foreach($catalog as $key => $value)
                     <div class="col-md-6 col-lg-4 mb-5 mb-lg-0 appear-animation" data-appear-animation="fadeInUpShorter"
                          data-appear-animation-delay="600">
