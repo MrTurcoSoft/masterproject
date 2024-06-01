@@ -17,7 +17,7 @@
 
                     <h1 class="font-weight-bold text-10 text-xl-12 line-height-2 mb-3"
                         style="color: #000000;">{{$tr->trans($cat->cat_name,app()->getLocale())}}</h1>
-                    <p class="opacity-7 text-4 negative-ls-05 pb-2 mb-4">
+                    <p class="opacity-7 text-4 negative-ls-05 pb-2 mb-4" style="color: #000000;">
                         {!! $tr->trans($cat->description,app()->getLocale()) !!}
                     </p>
                     <a href="#{{$cat->cat_name}}" data-hash data-hash-offset="0" data-hash-offset-lg="100"
@@ -34,6 +34,13 @@
         <div class="masonry-loader masonry-loader-showing">
             <div class="row products product-thumb-info-list" data-plugin-masonry
                  data-plugin-options="{'layoutMode': 'fitRows'}">
+                @if(count($products) == 0)
+                    <div class="col-12">
+                        <div class="alert alert-danger">
+                            {{$tr->trans('No products found',app()->getLocale())}}
+                        </div>
+                    </div>
+                            @endif
                 @foreach($products as $key => $product)
                     <div class="col-12 col-sm-6 col-lg-3">
                         <div class="product mb-0">
