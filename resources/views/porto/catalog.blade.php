@@ -15,7 +15,7 @@
             <div class="row pt-3 pb-lg-0 pb-xl-0">
                 <div class="col-lg-6 pt-4 mb-5 mb-lg-0">
 
-                    <h1 class="font-weight-bold text-10 text-xl-12 line-height-2 mb-3">{{$tr->trans('CATALOGUE’S',app()->getLocale())}}</h1>
+                    <h1 class="font-weight-bold text-10 text-xl-12 line-height-2 mb-3" style="color: #000000;">{{$tr->trans('CATALOGUE’S',app()->getLocale())}}</h1>
 
                     <a href="#catalogue" data-hash data-hash-offset="0" data-hash-offset-lg="100"
                        class="btn btn-gradient-primary btn-effect-4 font-weight-semi-bold px-4 btn-py-2 text-3">{{$tr->trans('View
