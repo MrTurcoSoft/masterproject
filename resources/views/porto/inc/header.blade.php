@@ -15,10 +15,10 @@
                     <div class="header-row pt-3">
                         <nav class="header-nav-top">
                             <ul class="nav nav-pills">
-                                <li class="nav-item nav-item-left-border nav-item-left-border-remove nav-item-left-border-md-show">
+                                <li class="nav-item nav-item-anim-icon d-none d-md-block">
                                     <a class="nav-link ps-0" href="{{route('about')}}"><i class="fas fa-angle-right"></i> {{SiteHelpers::GoogleTRS('About Us')}}</a>
                                 </li>
-                                <li class="nav-item nav-item-left-border nav-item-left-border-remove nav-item-left-border-md-show">
+                                <li class="nav-item nav-item-anim-icon d-none d-md-block">
                                     <a class="nav-link" href="{{route('contact')}}"><i class="fas fa-angle-right"></i> {{SiteHelpers::GoogleTRS('Contact Us')}}</a>
                                 </li>
                                 <li class="nav-item nav-item-left-border nav-item-left-border-remove nav-item-left-border-md-show">
@@ -63,6 +63,18 @@
                                                         {{SiteHelpers::GoogleTRS(strtoupper($category->cat_name))}}
                                                     </a>
                                                 </li>
+                                                @mobile
+                                                <li class="menu-item">
+                                                    <a class="dropdown-item dropdown-toggle" href="{{route('about')}}">
+                                                        {{SiteHelpers::GoogleTRS('About Us')}}
+                                                    </a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a class="dropdown-item dropdown-toggle" href="{{route('contact')}}">
+                                                        {{SiteHelpers::GoogleTRS('Contact Us')}}
+                                                    </a>
+                                                </li>
+                                                @endmobile
                                             @endif
                                             @endforeach
 
