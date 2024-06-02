@@ -63,7 +63,18 @@
                                                         {{SiteHelpers::GoogleTRS(strtoupper($category->cat_name))}}
                                                     </a>
                                                 </li>
-
+                                                @mobile
+                                                <li class="menu-item">
+                                                    <a class="dropdown-item dropdown-toggle" href="{{route('about')}}">
+                                                        {{SiteHelpers::GoogleTRS('About Us')}}
+                                                    </a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a class="dropdown-item dropdown-toggle" href="{{route('contact')}}">
+                                                        {{SiteHelpers::GoogleTRS('Contact Us')}}
+                                                    </a>
+                                                </li>
+                                                @endmobile
                                             @endif
                                             @endforeach
 
