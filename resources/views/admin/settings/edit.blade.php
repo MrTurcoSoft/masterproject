@@ -88,7 +88,7 @@
                             </script>
 
                         @endif
-                        <input type="hidden" name="settings_key" value="{{$setting->settings_key}}">
+                        <input type="hidden" name="settings_type" value="{{$setting->settings_type}}">
                         <input type="submit" value="Ayarı Güncelle" class="btn btn-primary">
                     </form>
 

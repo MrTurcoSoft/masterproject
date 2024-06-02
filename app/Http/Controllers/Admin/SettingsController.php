@@ -88,9 +88,11 @@ class SettingsController extends Controller
      */
     public function update(Request $request, $id, Factory $cache)
     {
+
         $input = $request->all();
         $data = Setting::findOrFail($id);
-        if ($request->settings_key == 'textarea' || $request->settings_key == 'text' || $request->settings_key == 'switch') {
+
+        if ($request->settings_type == 'textarea' || $request->settings_type == 'text' || $request->settings_type == 'switch') {
             // Form validation
             $rules = [
                 'settings_value' => 'required'
