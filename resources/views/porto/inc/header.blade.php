@@ -15,10 +15,10 @@
                     <div class="header-row pt-3">
                         <nav class="header-nav-top">
                             <ul class="nav nav-pills">
-                                <li class="nav-item nav-item-anim-icon  d-md-block">
+                                <li class="nav-item nav-item-left-border nav-item-left-border-remove nav-item-left-border-md-show">
                                     <a class="nav-link ps-0" href="{{route('about')}}"><i class="fas fa-angle-right"></i> {{SiteHelpers::GoogleTRS('About Us')}}</a>
                                 </li>
-                                <li class="nav-item nav-item-anim-icon  d-md-block">
+                                <li class="nav-item nav-item-left-border nav-item-left-border-remove nav-item-left-border-md-show">
                                     <a class="nav-link" href="{{route('contact')}}"><i class="fas fa-angle-right"></i> {{SiteHelpers::GoogleTRS('Contact Us')}}</a>
                                 </li>
                                 <li class="nav-item nav-item-left-border nav-item-left-border-remove nav-item-left-border-md-show">
