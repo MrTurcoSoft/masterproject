@@ -87,8 +87,14 @@ return [
         'de' => 'German',
         'fr' => 'French',
         'ru' => 'Russian',
-        'ar-SA' => 'Arabic',
-        'tr' => 'Türkçe',
+        'ar' => 'Arabic', // Arapça için sadece 'ar' kullanılır, 'ar-SA' bölge belirteci içindir.
+        'sq' => 'Albanian',
+        'bs' => 'Bosnian',
+        'pl' => 'Polish',
+        'hu' => 'Hungarian',
+        'el' => 'Greek',
+        'bg' => 'Bulgarian',
+        'sr' => 'Serbian'
     ],
 
     /*
