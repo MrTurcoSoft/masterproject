@@ -81,8 +81,15 @@ return [
     | to any of the locales which will be supported by the application.
     |
     */
-
-    'locale' => env('APP_LANG', 'en'),
+    'locale' => 'en', // Varsayılan dil
+    'locales' => [
+        'en' => 'English',
+        'de' => 'German',
+        'fr' => 'French',
+        'ru' => 'Russian',
+        'ar-SA' => 'Arabic',
+        'tr' => 'Türkçe',
+    ],
 
     /*
     |--------------------------------------------------------------------------
