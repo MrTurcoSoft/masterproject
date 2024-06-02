@@ -2,7 +2,14 @@
 <html lang="en">
 @include('porto.inc.head')
 
-<body data-plugin-page-transition>
+<body class="loading-overlay-showing" data-loading-overlay data-plugin-options="{'hideDelay': 500, 'effect': 'percentageProgress2'}">
+<div class="loading-overlay loading-overlay-percentage loading-overlay-percentage-effect-2">
+    <div class="loading-overlay-background-layer"></div>
+    <div class="page-loader-progress-wrapper">
+        <span class="page-loader-progress">0</span>
+        <span class="page-loader-progress-symbol">%</span>
+    </div>
+</div>
 <div class="body">
 
    @include('porto.inc.header')
