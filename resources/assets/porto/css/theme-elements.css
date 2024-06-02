@@ -16011,7 +16011,7 @@ section.section-dark h1, section.section-dark h2, section.section-dark h3, secti
 }
 
 section.section-dark p {
-	color: var(--dark-inverse);
+	color: var(--dark);
 }
 
 section.section-dark-scale-2 {
