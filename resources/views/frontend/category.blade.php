@@ -49,7 +49,7 @@
                     <div class="masonry__container masonry--animate masonry--active">
                        @foreach($products as $key => $product)
                         <div class="col-md-4 col-sm-6 masonry__item">
-                            <a href="{{route('product',$product->slug)}}}}">
+                            <a href="{{route('product',$product->slug)}}">
                                 <div class="card card-7">
                                     <div class="card__image bg--white">
                                         <img alt="Pic"
