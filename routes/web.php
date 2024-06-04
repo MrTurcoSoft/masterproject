@@ -26,6 +26,11 @@ Route::get('/clear', function () {
     Artisan::call('config:cache');
     echo 'Cache temizlendi!';
 });
+
+Route::get('/sitemap-generate', function () {
+    Artisan::call('sitemap:generate');
+    echo 'Sitemap Oluşturuldu!';
+});
 Route::get('/optimize', function () {
     Artisan::call('cache:clear');
     Artisan::call('view:clear');
