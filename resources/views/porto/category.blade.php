@@ -55,7 +55,7 @@
                                 </div>
 
                                 <div class="addtocart-btn-wrapper">
-                                    <a href="{{route('product',$product->slug)}}"
+                                    <a href="{{route('product',['slug' => $product->slug])}}"
                                        class="text-decoration-none addtocart-btn"
                                        title="{{$tr->trans('View '.$product->name,app()->getLocale())}}">
                                         <i class="fa-regular fa-eye"></i>
@@ -63,7 +63,7 @@
                                 </div>
 
 
-                                <a href="{{route('product',$product->slug)}}">
+                                <a href="{{route('product',['slug' => $product->slug])}}">
                                     <div class="product-thumb-info-image">
                                         <img alt="" class="img-fluid" src="{{$product->image}}">
 
@@ -75,7 +75,7 @@
                                     <a href="#"
                                        class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-1">{{$tr->trans($product->name,app()->getLocale())}}</a>
                                     <h3 class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0">
-                                        <a href="{{route('product',$product->slug)}}"
+                                        <a href="{{route('product',['slug' => $product->slug])}}"
                                            class="text-color-dark text-color-hover-primary">{{$tr->trans($product->title,app()->getLocale())}}</a>
                                     </h3>
                                 </div>
