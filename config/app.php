@@ -81,9 +81,9 @@ return [
     | to any of the locales which will be supported by the application.
     |
     */
-    'locale' => 'en', // Varsayılan dil
+    'locale' => 'en-US', // Varsayılan dil
     'locales' => [
-        'en' => 'English',
+        'en-US' => 'English',
         'de' => 'German',
         'fr' => 'French',
         'ru' => 'Russian',
@@ -108,7 +108,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'en-US',
 
     /*
     |--------------------------------------------------------------------------

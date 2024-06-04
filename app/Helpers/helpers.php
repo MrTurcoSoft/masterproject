@@ -140,4 +140,16 @@ class SiteHelpers
       return $translate;
     }
 
+    /**
+     * @throws \DeepL\DeepLException
+     */
+    public static function DeepLTRS($str)
+    {
+        $authKey = "b0ca088b-5165-4308-9d4e-5aedcbebce56:fx"; // Replace with your key
+        $translator = new \DeepL\Translator($authKey);
+
+        $result = $translator->translateText($str, null, app()->getLocale());
+
+        return $result->text;;
+    }
 }

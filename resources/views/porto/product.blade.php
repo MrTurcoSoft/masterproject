@@ -373,26 +373,31 @@
         <div class="container py-4">
             <h4 class="mb-3 text-4 text-uppercase">{{SiteHelpers::GoogleTRS('Related')}} <strong class="font-weight-extra-bold">{{SiteHelpers::GoogleTRS('Products')}}</strong></h4>
             <div class="row">
-                @foreach($relateProducts->random(4) as $key => $value)
-                <div class="col-12 col-sm-6 col-lg-3 mb-4">
-                    <div class="portfolio-item">
-                        <a href="{{route('product',$value->slug)}}" aria-label="">
-									<span class="thumb-info thumb-info-lighten thumb-info-no-borders border-radius-0">
-										<span class="thumb-info-wrapper border-radius-0">
-											<img src="{{$value->image}}" class="img-fluid border-radius-0" alt="{{SiteHelpers::GoogleTRS($value->name.' '.$value->title)}}">
-											<span class="thumb-info-title">
-												<span class="thumb-info-inner">{{SiteHelpers::GoogleTRS($value->name)}}</span>
-												<span class="thumb-info-type">{{SiteHelpers::GoogleTRS($value->title)}}</span>
-											</span>
-											<span class="thumb-info-action">
-												<span class="thumb-info-action-icon bg-dark opacity-8"><i class="fas fa-plus"></i></span>
-											</span>
-										</span>
-									</span>
-                        </a>
+                @php
+                    $products = $relateProducts->count() >= 4 ? $relateProducts->random(4) : $relateProducts;
+                @endphp
+
+                @foreach($products as $key => $value)
+                    <div class="col-12 col-sm-6 col-lg-3 mb-4">
+                        <div class="portfolio-item">
+                            <a href="{{ route('product', $value->slug) }}" aria-label="">
+                <span class="thumb-info thumb-info-lighten thumb-info-no-borders border-radius-0">
+                    <span class="thumb-info-wrapper border-radius-0">
+                        <img src="{{ $value->image }}" class="img-fluid border-radius-0" alt="{{ SiteHelpers::GoogleTRS($value->name . ' ' . $value->title) }}">
+                        <span class="thumb-info-title">
+                            <span class="thumb-info-inner">{{ SiteHelpers::GoogleTRS($value->name) }}</span>
+                            <span class="thumb-info-type">{{ SiteHelpers::GoogleTRS($value->title) }}</span>
+                        </span>
+                        <span class="thumb-info-action">
+                            <span class="thumb-info-action-icon bg-dark opacity-8"><i class="fas fa-plus"></i></span>
+                        </span>
+                    </span>
+                </span>
+                            </a>
+                        </div>
                     </div>
-                </div>
-               @endforeach
+                @endforeach
+
             </div>
         </div>
     </section>
