@@ -29,7 +29,9 @@ class SitemapController extends Controller
 
         // Diğer sayfalar
         $sitemap->add(Url::create('/about'))
-            ->add(Url::create('/contact'));
+            ->add(Url::create('/contact'))
+            ->add(Url::create('/catalogue'));
+
 
         // Site haritasını kaydetme
         $sitemap->writeToFile(public_path('sitemap.xml'));

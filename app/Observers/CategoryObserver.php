@@ -1,33 +1,47 @@
 <?php
 
-namespace App\Console\Commands;
+namespace App\Observers;
 
-use Illuminate\Console\Command;
+use App\Models\Category;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
 
-class GenerateSitemap extends Command
+class CategoryObserver
 {
     /**
-     * The name and signature of the console command.
+     * Handle the Category "created" event.
      *
-     * @var string
+     * @param  \App\Models\Category  $category
+     * @return void
      */
-    protected $signature = 'sitemap:generate';
+    public function created(Category $category)
+    {
+        $this->updateSitemap();
+    }
 
     /**
-     * The console command description.
+     * Handle the Category "updated" event.
      *
-     * @var string
+     * @param  \App\Models\Category  $category
+     * @return void
      */
-    protected $description = 'Generate the sitemap for the website';
+    public function updated(Category $category)
+    {
+        $this->updateSitemap();
+    }
 
     /**
-     * Execute the console command.
+     * Handle the Category "deleted" event.
      *
-     * @return int
+     * @param  \App\Models\Category  $category
+     * @return void
      */
-    public function handle()
+    public function deleted(Category $category)
+    {
+        $this->updateSitemap();
+    }
+
+    protected function updateSitemap()
     {
         $sitemap = Sitemap::create();
 
@@ -46,17 +60,13 @@ class GenerateSitemap extends Command
             $sitemap->add(Url::create("/category/{$category->slug}"));
         }
 
-
         // Diğer sayfalar
         $sitemap->add(Url::create('/about'))
             ->add(Url::create('/contact'))
             ->add(Url::create('/catalogue'));
 
+
         // Site haritasını kaydetme
         $sitemap->writeToFile(public_path('sitemap.xml'));
-
-        $this->info('Sitemap generated successfully.');
-
-        return 0;
     }
 }

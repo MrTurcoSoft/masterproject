@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\Category;
+use App\Models\Product;
+use App\Observers\CategoryObserver;
+use App\Observers\ProductObserver;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
@@ -28,5 +32,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::directive('active', function ($route) {
             return "<?php echo Route::currentRouteNamed($route) ? 'active' : ''; ?>";
         });
+        Product::observe(ProductObserver::class);
+        Category::observe(CategoryObserver::class);
     }
 }

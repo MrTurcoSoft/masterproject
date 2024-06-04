@@ -1,33 +1,47 @@
 <?php
 
-namespace App\Console\Commands;
+namespace App\Observers;
 
-use Illuminate\Console\Command;
+use App\Models\Product;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
 
-class GenerateSitemap extends Command
+class ProductObserver
 {
     /**
-     * The name and signature of the console command.
+     * Handle the Product "created" event.
      *
-     * @var string
+     * @param  \App\Models\Product  $product
+     * @return void
      */
-    protected $signature = 'sitemap:generate';
+    public function created(Product $product)
+    {
+        $this->updateSitemap();
+    }
 
     /**
-     * The console command description.
+     * Handle the Product "updated" event.
      *
-     * @var string
+     * @param  \App\Models\Product  $product
+     * @return void
      */
-    protected $description = 'Generate the sitemap for the website';
+    public function updated(Product $product)
+    {
+        $this->updateSitemap();
+    }
 
     /**
-     * Execute the console command.
+     * Handle the Product "deleted" event.
      *
-     * @return int
+     * @param  \App\Models\Product  $product
+     * @return void
      */
-    public function handle()
+    public function deleted(Product $product)
+    {
+        $this->updateSitemap();
+    }
+
+    protected function updateSitemap()
     {
         $sitemap = Sitemap::create();
 
@@ -54,9 +68,5 @@ class GenerateSitemap extends Command
 
         // Site haritasını kaydetme
         $sitemap->writeToFile(public_path('sitemap.xml'));
-
-        $this->info('Sitemap generated successfully.');
-
-        return 0;
     }
 }

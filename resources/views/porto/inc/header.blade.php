@@ -66,6 +66,11 @@
 
                                             @endif
                                             @endforeach
+                                        <li class="menu-item">
+                                            <a class="dropdown-item dropdown-toggle" href="{{route('catalogue')}}">
+                                                {{SiteHelpers::GoogleTRS('CATALOGUE’S')}}
+                                            </a>
+                                        </li>
                                         @mobile
                                         <li class="menu-item">
                                             <a class="dropdown-item dropdown-toggle" href="{{route('about')}}">
