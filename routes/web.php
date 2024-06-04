@@ -27,10 +27,7 @@ Route::get('/clear', function () {
     echo 'Cache temizlendi!';
 });
 
-Route::get('/sitemap-generate', function () {
-    Artisan::call('sitemap:generate');
-    echo 'Sitemap Oluşturuldu!';
-});
+
 Route::get('/optimize', function () {
     Artisan::call('cache:clear');
     Artisan::call('view:clear');
@@ -105,3 +102,9 @@ Route::get('/product/{slug}', [App\Http\Controllers\ProductController::class, 'i
 
 
 Route::get('/sitemap', [SitemapController::class, 'index']);
+
+
+Route::get('/sitemap-generate', function () {
+    Artisan::call('sitemap:generate');
+    echo 'Sitemap Oluşturuldu!';
+});
