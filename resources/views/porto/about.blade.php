@@ -41,7 +41,7 @@
                                     title="Facebook"><i class="fab fa-facebook-f"></i></a>
                             </li>
                             <li class="social-icons-instagram"><a
-                                    href="https://www.instgram.com/{{config('settings.instagram')}}" target="_blank"
+                                    href="https://www.instagram.com/{{config('settings.instagram')}}" target="_blank"
                                     title="Instagram"><i class="fab fa-instagram"></i></a>
                             </li>
                             <li class="social-icons-linkedin"><a
