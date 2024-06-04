@@ -20,6 +20,7 @@
     <meta name="twitter:description" content="Amenity Supplier offers a wide range of high-quality amenity products for hotels, spas, and resorts. Discover our premium toiletries, guest amenities, and personalized service.">
     <meta name="twitter:image" content="{{asset(config('settings.logo'))}}">
 
+    <meta name="ahrefs-site-verification" content="b8de5075aeec4dbd1402defb7be32c8395bfc7155450ff27e1c3da38a9690530">
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{asset(config('settings.favicon'))}}" type="image/png" />
