@@ -4,9 +4,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title')</title>
-    <meta name="keywords" content="WebSite Template" />
-    <meta name="description" content="Porto - Multipurpose Website Template">
-    <meta name="author" content="okler.net">
+    <meta name="keywords" content="DellaSoft,amenity supplier, hotel amenities, spa amenities, guest amenities, premium toiletries, hotel products, spa products, resort amenities, personalized amenities, high-quality amenities, hospitality products">
+    <meta name="description" content="Amenity Supplier offers a wide range of high-quality amenity products for hotels, spas, and resorts. Discover our premium toiletries, guest amenities, and personalized service.">
+
+    <meta name="author" content="MrTurco">
+
+    <meta property="og:title" content="High-Quality Amenity Products Supplier - Amenity Supplier">
+    <meta property="og:description" content="Amenity Supplier offers a wide range of high-quality amenity products for hotels, spas, and resorts. Discover our premium toiletries, guest amenities, and personalized service.">
+    <meta property="og:url" content="https://www.amenitysupplier.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="{{asset(config('settings.logo'))}}">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="High-Quality Amenity Products Supplier - Amenity Supplier">
+    <meta name="twitter:description" content="Amenity Supplier offers a wide range of high-quality amenity products for hotels, spas, and resorts. Discover our premium toiletries, guest amenities, and personalized service.">
+    <meta name="twitter:image" content="{{asset(config('settings.logo'))}}">
+
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{asset(config('settings.favicon'))}}" type="image/png" />
