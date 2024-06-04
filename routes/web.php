@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LangController;
+use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -95,6 +96,7 @@ Route::get('/catalogue',[App\Http\Controllers\HomeController::class,'catalog'])-
 Route::get('/contact',[App\Http\Controllers\ContactController::class,'index'])->name('contact');
 
 Route::get('/category/{slug}', [App\Http\Controllers\CategoryController::class, 'index'])->name('category');
-Route::get('/{slug}', [App\Http\Controllers\ProductController::class, 'index'])->name('product');
+Route::get('/product/{slug}', [App\Http\Controllers\ProductController::class, 'index'])->name('product');
 
 
+Route::get('/sitemap', [SitemapController::class, 'index']);
