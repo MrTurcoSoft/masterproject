@@ -4,7 +4,7 @@
             <div class="col text-center">
                 <ul class="footer-social-icons social-icons social-icons-clean social-icons-big social-icons-opacity-light social-icons-icon-light mt-1">
                     <li class="social-icons-facebook"><a href="https://www.facebook.com/{{config('settings.facebook')}}" target="_blank" title="Facebook"><i class="fab fa-facebook-f text-2"></i></a></li>
-                    <li class="social-icons-instagram"><a href="https://www.instgram.com/{{config('settings.instagram')}}" target="_blank" title="Instagram"><i class="fab fa-instagram text-2"></i></a></li>
+                    <li class="social-icons-instagram"><a href="https://www.instagram.com/{{config('settings.instagram')}}" target="_blank" title="Instagram"><i class="fab fa-instagram text-2"></i></a></li>
                     <li class="social-icons-linkedin"><a href="https://www.linkedin.com/showcase/{{config('settings.linkedin')}}" target="_blank" title="Linkedin"><i class="fab fa-linkedin-in text-2"></i></a></li>
                 </ul>
             </div>
