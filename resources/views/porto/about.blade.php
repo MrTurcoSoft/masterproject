@@ -1,5 +1,5 @@
 @extends('porto.layouts.porto')
-@section('title',\SiteHelpers::ayar('mark').' | '.$tr->trans('About us',app()->getLocale()))
+@section('title',\SiteHelpers::ayar('mark').' | About Us')
 @section('page-css')
 
 
@@ -13,7 +13,7 @@
                 <div class="overflow-hidden">
                     <h2 class="text-color-dark font-weight-bold text-12 mb-2 pt-0 mt-0 appear-animation"
                         data-appear-animation="maskUp"
-                        data-appear-animation-delay="300">{{$tr->trans($about->name,app()->getLocale())}}</h2>
+                        data-appear-animation-delay="300">{{$about->name}}</h2>
                 </div>
                 <div class="overflow-hidden mb-3">
                     <p class="font-weight-bold text-primary text-uppercase mb-0 appear-animation"
@@ -21,7 +21,7 @@
                        data-appear-animation-delay="500">{{SiteHelpers::GoogleTRS(config('settings.mark'))}}</p>
                 </div>
                 <p class="lead appear-animation" data-appear-animation="fadeInUpShorter"
-                   data-appear-animation-delay="700">{!! $tr->trans($about->description,app()->getLocale()) !!}</p>
+                   data-appear-animation-delay="700">{!! $about->description !!}</p>
 
                 <hr class="solid my-4 appear-animation" data-appear-animation="fadeInUpShorter"
                     data-appear-animation-delay="900">
@@ -29,12 +29,12 @@
                      data-appear-animation-delay="1000">
                     <div class="col-lg-6">
                         <a href="{{route('contact')}}"
-                           class="btn btn-modern btn-dark mt-3">{{$tr->trans('Get In Touch',app()->getLocale())}}</a>
+                           class="btn btn-modern btn-dark mt-3">Get In Touch</a>
 
                     </div>
                     <div class="col-sm-6 text-lg-end my-4 my-lg-0">
                         <strong
-                            class="text-uppercase text-1 me-3 text-dark">{{$tr->trans('follow me',app()->getLocale())}}</strong>
+                            class="text-uppercase text-1 me-3 text-dark">follow me</strong>
                         <ul class="social-icons float-lg-end">
                             <li class="social-icons-facebook"><a
                                     href="https://www.facebook.com/{{config('settings.facebook')}}" target="_blank"
@@ -68,7 +68,7 @@
         <div class="overflow-hidden">
             <h2 class="text-color-dark font-weight-normal text-6 mb-0 appear-animation" data-appear-animation="maskUp">
                 <strong
-                    class="font-weight-extra-bold">{{$tr->trans('Our Brands and Certificates',app()->getLocale())}}</strong>
+                    class="font-weight-extra-bold">Our Brands and Certificates</strong>
             </h2>
         </div>
 
@@ -88,8 +88,8 @@
                                                      alt="">
 												<span class="thumb-info-title">
 													<span
-                                                        class="thumb-info-inner line-height-1 font-weight-bold text-dark position-relative top-3">{{$tr->trans($value->name,app()->getLocale())}}</span>
-													<span class="thumb-info-type">{{$tr->trans('Our Brands and Certificates',app()->getLocale())}}</span>
+                                                        class="thumb-info-inner line-height-1 font-weight-bold text-dark position-relative top-3">{{$value->name}}</span>
+													<span class="thumb-info-type">Our Brands and Certificates</span>
 												</span>
 												<span class="thumb-info-action">
 													<a href="javascript:void(0)" >

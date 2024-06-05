@@ -15,7 +15,7 @@
             <div class="row py-4">
                 <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
                     <p>
-                        <span class="pe-0 pe-md-3 d-block d-md-inline-block"><i class="fa-solid fa-location-dot text-color-primary top-1 p-relative"></i><span class="text-color-light opacity-7 ps-1">{{SiteHelpers::GoogleTRS(config('settings.firmCounty'))}},{{SiteHelpers::GoogleTRS(config('settings.postcode'))}},{{SiteHelpers::GoogleTRS(config('settings.firmCity'))}}/{{SiteHelpers::GoogleTRS('Turkiye')}}</span></span>
+                        <span class="pe-0 pe-md-3 d-block d-md-inline-block"><i class="fa-solid fa-location-dot text-color-primary top-1 p-relative"></i><span class="text-color-light opacity-7 ps-1">{{config('settings.firmCounty')}},{{config('settings.postcode')}},{{config('settings.firmCity')}}/Turkiye</span></span>
                         <span class="pe-0 pe-md-3 d-block d-md-inline-block"><i class="fa-solid fa-phone text-color-primary top-1 p-relative"></i><a href="tel:{{config('settings.phoneGsm')}}" class="text-color-light opacity-7 ps-1">{{config('settings.phoneGsm')}}</a></span>
                         <span class="pe-0 pe-md-3 d-block d-md-inline-block"><i class="far fa-envelope text-color-primary top-1 p-relative"></i><a href="mailto:{{config('settings.email')}}" class="text-color-light opacity-7 ps-1">{{config('settings.email')}}</a></span>
                     </p>

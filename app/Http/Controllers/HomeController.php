@@ -35,8 +35,7 @@ class HomeController extends Controller
     public function index()
     {
         $minutes = 180;
-        $tr = new GoogleTranslate();
-        $tr->setSource('en');
+
         $controll= Schema::hasTable('settings');
        if ($controll) {
 
@@ -62,9 +61,9 @@ class HomeController extends Controller
                 return Category::all()->where('isActive')->where('ust_id','=',null)->sortBy('must');
             });
             if(\SiteHelpers::ayar('site_theme') == 1) {
-                return view('frontend.home', compact('sliders', 'tr', 'section2', 'section3', 'section5', 'tabs', 'categories'));
+                return view('frontend.home', compact('sliders',  'section2', 'section3', 'section5', 'tabs', 'categories'));
             } elseif(\SiteHelpers::ayar('site_theme') == 2){
-            return view('porto.home', compact('sliders', 'tr','section2', 'section3', 'section5', 'tabs', 'categories'));
+            return view('porto.home', compact('sliders', 'section2', 'section3', 'section5', 'tabs', 'categories'));
             }
         } elseif (\SiteHelpers::ayar('maintenance_mode') == 0)
         {
@@ -88,13 +87,13 @@ class HomeController extends Controller
                 return Category::all()->where('isActive')->where('ust_id','=',null)->sortBy('must');
             });
             if(\SiteHelpers::ayar('site_theme') == 1) {
-                return view('frontend.home', compact('sliders', 'tr', 'section2', 'section3', 'section5', 'tabs', 'categories'));
+                return view('frontend.home', compact('sliders',  'section2', 'section3', 'section5', 'tabs', 'categories'));
             } elseif(\SiteHelpers::ayar('site_theme') == 2){
-                return view('porto.home', compact('sliders', 'tr','section2', 'section3', 'section5', 'tabs', 'categories'));
+                return view('porto.home', compact('sliders', 'section2', 'section3', 'section5', 'tabs', 'categories'));
             }
         } elseif (\SiteHelpers::ayar('maintenance_mode') == 1) {
 
-            return view('maintenance.index',compact('tr'));
+            return view('errors.503');
         }
        } else {
            return redirect('/install');
@@ -104,8 +103,7 @@ class HomeController extends Controller
     public function catalog()
     {
         $minutes = 180;
-        $tr = new GoogleTranslate();
-        $tr->setSource('en');
+
         $about = cache()->remember('about_catalog_key', $minutes, function () {
             return About::all()->firstOrFail();
         });
@@ -113,9 +111,9 @@ class HomeController extends Controller
             return Catalog::all()->where('isActive', 1);
         });
         if(\SiteHelpers::ayar('site_theme') == 1) {
-            return view('frontend.catalog', compact('catalog', 'about', 'tr'));
+            return view('frontend.catalog', compact('catalog', 'about'));
         } elseif(\SiteHelpers::ayar('site_theme') == 2) {
-            return view('porto.catalog', compact('catalog', 'about', 'tr'));
+            return view('porto.catalog', compact('catalog', 'about'));
         }
     }
 }

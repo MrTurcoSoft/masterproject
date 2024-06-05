@@ -12,9 +12,7 @@ class AboutController extends Controller
     public function index()
     {
         $minutes = 180;
-        $tr = new GoogleTranslate();
 
-        $tr->setSource('en');
         $about = cache()->remember('about_key', $minutes, function () {
             return About::all()->firstOrFail();
         });
@@ -22,9 +20,9 @@ class AboutController extends Controller
             return Certificate::all();
         });
         if(\SiteHelpers::ayar('site_theme') == 1) {
-            return view('frontend.about', compact('about', 'cert','tr'));
+            return view('frontend.about', compact('about', 'cert'));
         } elseif(\SiteHelpers::ayar('site_theme') == 2) {
-        return view('porto.about', compact('about', 'cert','tr'));
+        return view('porto.about', compact('about', 'cert'));
         }
     }
 }

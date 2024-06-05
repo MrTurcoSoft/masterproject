@@ -1,5 +1,5 @@
 @extends('porto.layouts.porto')
-@section('title',SiteHelpers::ayar('mark').' | '.$tr->trans($product->name.' '.$product->title,app()->getLocale()))
+@section('title',SiteHelpers::ayar('mark').' | '.$product->name.' '.$product->title)
 @section('page-css')
     {{--sayfaya özel css kodlarını eklemek için kullanın--}}
     <style>
@@ -236,13 +236,13 @@
                     <div class="row">
                         <div class="col-md-12 align-self-center p-static order-2 text-center">
                             <div class="overflow-hidden pb-2">
-                                <h1 class="text-dark font-weight-bold text-9 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="100">{{$tr->trans($product->name,app()->getLocale())}} <br> {{$tr->trans($product->title,app()->getLocale())}}</h2>
+                                <h1 class="text-dark font-weight-bold text-9 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="100">{{ $product->name }} <br> {{ $product->title }}</h1>
                             </div>
                         </div>
                         <div class="col-md-12 align-self-center order-1">
                             <ul class="breadcrumb d-block text-center appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="300">
-                                <li><a href="{{route('home')}}">{{$tr->trans('Home',app()->getLocale())}}</a></li>
-                                <li><a href="{{route('category',$category->slug)}}">{{$tr->trans($category->cat_name,app()->getLocale())}}</a></li>
+                                <li><a href="{{route('home')}}">Home</a></li>
+                                <li><a href="{{route('category',$category->slug)}}">{{$category->cat_name}}</a></li>
 
                             </ul>
                         </div>
@@ -261,7 +261,7 @@
                 <div class="owl-carousel owl-theme nav-inside nav-inside-edge nav-squared nav-with-transparency nav-dark mt-3" data-plugin-options="{'items': 1, 'margin': 10, 'loop': false, 'nav': true, 'dots': false}">
                     <div>
                         <div class="img-thumbnail border-0 border-radius-0 p-0 d-block">
-                            <img src="{{$product->image}}" class="img-fluid border-radius-0" alt="{{$tr->trans($product->name,app()->getLocale())}}">
+                            <img src="{{$product->image}}" class="img-fluid border-radius-0" alt="{{$product->name}}">
                         </div>
                     </div>
                 </div>
@@ -269,7 +269,7 @@
                 <hr class="solid my-5 appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="1000">
 
                 <div class="appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="1100">
-                    <strong class="text-uppercase text-1 me-3 text-dark float-start position-relative top-2">{{$tr->trans('Share',app()->getLocale())}}</strong>
+                    <strong class="text-uppercase text-1 me-3 text-dark float-start position-relative top-2">Share</strong>
                     <!-- Sharingbutton Facebook -->
                     <a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u={{ urlencode(request()->url()) }}" target="_blank" rel="noopener" aria-label="">
                         <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
@@ -343,26 +343,26 @@
             </div>
             <div class="col-md-6">
                 <div class="overflow-hidden">
-                    <h4>{{$tr->trans($product->name,app()->getLocale())}} <br> {{$tr->trans($product->title,app()->getLocale())}}</h4>
-                    <h2 class="text-color-dark font-weight-normal text-4 mb-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="600">{{$tr->trans('Product',app()->getLocale())}} <strong class="font-weight-extra-bold">{{$tr->trans('Description',app()->getLocale())}}</strong></h2>
+                    <h4>{{$product->name}} <br> {{$product->title}}</h4>
+                    <h2 class="text-color-dark font-weight-normal text-4 mb-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="600">Product <strong class="font-weight-extra-bold">Description</strong></h2>
                 </div>
                 <p class="appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="800">
-                    {!! $tr->trans($product->description,app()->getLocale()) !!}
+                    {!! $product->description !!}
 
                 </p>
 
                 <div class="overflow-hidden mt-4">
-                    <h2 class="text-color-dark font-weight-normal text-4 mb-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="1000">{{$tr->trans('Product',app()->getLocale())}} <strong class="font-weight-extra-bold">{{$tr->trans('Spesifications',app()->getLocale())}}</strong></h2>
+                    <h2 class="text-color-dark font-weight-normal text-4 mb-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="1000">Product <strong class="font-weight-extra-bold">Spesifications</strong></h2>
                 </div>
                 <ul class="list list-icons list-primary list-borders text-2 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="1200">
-                    <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">{{$tr->trans('Volume/Pack Of',app()->getLocale())}}:</strong> {{$tr->trans($product->detay->volume,app()->getLocale())}}</li>
-                    <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">{{$tr->trans('Box Sizes',app()->getLocale())}}:</strong> {{SiteHelpers::GoogleTRS($product->detay->boxsize)}}</li>
-                    <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">{{SiteHelpers::GoogleTRS('Quantity in Box')}}:</strong> {{SiteHelpers::GoogleTRS($product->detay->qtyBox)}}</li>
-                    <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">{{SiteHelpers::GoogleTRS('Box Net Weight')}}:</strong> {{SiteHelpers::GoogleTRS($product->detay->BoxNetW)}}</li>
-                    <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">{{SiteHelpers::GoogleTRS('Box Gross Weight')}}:</strong> {{SiteHelpers::GoogleTRS($product->detay->BoxGrossW)}}</li>
-                    <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">{{SiteHelpers::GoogleTRS('Boxes on Pallet')}}:</strong> {{SiteHelpers::GoogleTRS($product->detay->BoxOnPallet)}}</li>
-                    <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">{{SiteHelpers::GoogleTRS('HS CODE')}}:</strong> {{SiteHelpers::GoogleTRS($product->detay->hsCode)}}</li>
-                    <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">{{SiteHelpers::GoogleTRS('BARCODE')}}:</strong> {{SiteHelpers::GoogleTRS($product->detay->barcode)}}</li>
+                    <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">Volume/Pack Of:</strong> {{$product->detay->volume}}</li>
+                    <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">Box Sizes:</strong> {{$product->detay->boxsize}}</li>
+                    <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">Quantity in Box:</strong> {{$product->detay->qtyBox}}</li>
+                    <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">Box Net Weight:</strong> {{$product->detay->BoxNetW}}</li>
+                    <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">Box Gross Weight:</strong> {{$product->detay->BoxGrossW}}</li>
+                    <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">Boxes on Pallet:</strong> {{$product->detay->BoxOnPallet}}</li>
+                    <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">HS CODE:</strong> {{$product->detay->hsCode}}</li>
+                    <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">BARCODE:</strong> {{$product->detay->barcode}}</li>
                 </ul>
             </div>
         </div>
@@ -371,7 +371,7 @@
 
     <section class="section section-height-3 bg-color-grey m-0 border-0 appear-animation" data-appear-animation="fadeIn" data-plugin-options="{'accY': -150}">
         <div class="container py-4">
-            <h4 class="mb-3 text-4 text-uppercase">{{SiteHelpers::GoogleTRS('Related')}} <strong class="font-weight-extra-bold">{{SiteHelpers::GoogleTRS('Products')}}</strong></h4>
+            <h4 class="mb-3 text-4 text-uppercase">Related <strong class="font-weight-extra-bold">Products</strong></h4>
             <div class="row">
                 @php
                     $products = $relateProducts->count() >= 4 ? $relateProducts->random(4) : $relateProducts;
@@ -383,10 +383,10 @@
                             <a href="{{ route('product', $value->slug) }}" aria-label="">
                 <span class="thumb-info thumb-info-lighten thumb-info-no-borders border-radius-0">
                     <span class="thumb-info-wrapper border-radius-0">
-                        <img src="{{ $value->image }}" class="img-fluid border-radius-0" alt="{{ SiteHelpers::GoogleTRS($value->name . ' ' . $value->title) }}">
+                        <img src="{{ $value->image }}" class="img-fluid border-radius-0" alt="{{ $value->name.' '.$value->title }}">
                         <span class="thumb-info-title">
-                            <span class="thumb-info-inner">{{ SiteHelpers::GoogleTRS($value->name) }}</span>
-                            <span class="thumb-info-type">{{ SiteHelpers::GoogleTRS($value->title) }}</span>
+                            <span class="thumb-info-inner">{{ $value->name }}</span>
+                            <span class="thumb-info-type">{{ $value->title }}</span>
                         </span>
                         <span class="thumb-info-action">
                             <span class="thumb-info-action-icon bg-dark opacity-8"><i class="fas fa-plus"></i></span>

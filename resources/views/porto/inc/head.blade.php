@@ -50,24 +50,7 @@
     <link id="skinCSS" rel="stylesheet" href="{{asset('porto/css/skins/default.css')}}">
 
 
-    <style type="text/css">
-        <!--
-        a.gflag {vertical-align:middle;font-size:5px;padding:1px 0;background-repeat:no-repeat;background-image:url({{asset('frontend/img/flag/flags.png')}});margin-top: 20px;}
-        a.gflag img {border:0;padding-top: 16px !important;}
-        /*a.gflag:hover {background-image:url(//gtranslate.net/flags/32a.png);}*/
-        a.gflag:hover {background-image:url({{asset('frontend/img/flag/flags.png')}});}
-        #goog-gt-tt {display:none !important;}
-        .goog-te-banner-frame {display:none !important;}
-        .goog-te-menu-value:hover {text-decoration:none !important;}
-        body {top:0 !important;}
-        #google_translate_element2 {display:none!important;}
-        -->
-        .gflag-ml {
-            margin-left: 87px!important;
-        }
 
-
-    </style>
 
     @yield('page-css')
     <!-- Yandex.Metrika counter -->

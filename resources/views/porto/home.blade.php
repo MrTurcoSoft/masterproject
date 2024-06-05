@@ -1,5 +1,5 @@
 @extends('porto.layouts.porto')
-@section('title',SiteHelpers::ayar('mark').' |'.SiteHelpers::GoogleTRS('Homepage'))
+@section('title',SiteHelpers::ayar('mark').' | Homepage')
 @section('page-css')
     {{--sayfaya özel css kodlarını eklemek için kullanın--}}
     <style>
@@ -31,13 +31,13 @@
 												<img src="{{asset('porto/img/slides/slide-title-border.png')}}" class="w-auto appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="250" data-plugin-options="{'minWindowWidth': 0}" alt="" />
 											</span>
 
-                                <span class="position-relative">  {{SiteHelpers::GoogleTRS($slider->title)}}  <span class="position-absolute left-50pct transform3dx-n50 top-0 mt-4"><img src="{{asset('porto/img/slides/slide-blue-line.png')}}" class="w-auto appear-animation" data-appear-animation="fadeInLeftShorterPlus" data-appear-animation-delay="1000" data-plugin-options="{'minWindowWidth': 0}" alt="" /></span></span>
+                                <span class="position-relative">  {{$slider->title}}  <span class="position-absolute left-50pct transform3dx-n50 top-0 mt-4"><img src="{{asset('porto/img/slides/slide-blue-line.png')}}" class="w-auto appear-animation" data-appear-animation="fadeInLeftShorterPlus" data-appear-animation-delay="1000" data-plugin-options="{'minWindowWidth': 0}" alt="" /></span></span>
                                 <span class="position-absolute left-100pct top-50pct transform3dy-n50 opacity-3">
 												<img src="{{asset('porto/img/slides/slide-title-border.png')}}" class="w-auto appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="250" data-plugin-options="{'minWindowWidth': 0}" alt="" />
 											</span>
                             </h3>
-                            <h1 class="text-color-light font-weight-extra-bold text-12 mb-3 appear-animation" data-appear-animation="blurIn" data-appear-animation-delay="500" data-plugin-options="{'minWindowWidth': 0}">{{SiteHelpers::GoogleTRS($slider->content)}}</h1>
-                            <p class="text-4 text-color-light font-weight-light opacity-7 mb-0" data-plugin-animated-letters data-plugin-options="{'startDelay': 1000, 'minWindowWidth': 0}">{{SiteHelpers::GoogleTRS($slider->content2)}}</p>
+                            <h1 class="text-color-light font-weight-extra-bold text-12 mb-3 appear-animation" data-appear-animation="blurIn" data-appear-animation-delay="500" data-plugin-options="{'minWindowWidth': 0}">{{$slider->content}}</h1>
+                            <p class="text-4 text-color-light font-weight-light opacity-7 mb-0" data-plugin-animated-letters data-plugin-options="{'startDelay': 1000, 'minWindowWidth': 0}">{{$slider->content2}}</p>
                         </div>
                     </div>
                 </div>
@@ -64,8 +64,8 @@
             <div class="row align-items-center">
                 <div class="col-lg-8">
                     <p>
-                         <span class="highlighted-word">{{SiteHelpers::GoogleTRS($section2->title)}}</span>
-                        <span><small>{!! SiteHelpers::GoogleTRS($section2->description) !!}</small></span>
+                         <span class="highlighted-word">{{$section2->title}}</span>
+                        <span><small>{!! $section2->description !!}</small></span>
                     </p>
                 </div>
 
@@ -81,16 +81,16 @@
             <div class="row py-4 mb-2">
                 <div class="col-md-7 order-2">
                     <div class="overflow-hidden">
-                        <h2 class="text-color-dark font-weight-bold text-12 mb-2 pt-0 mt-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="300">{{SiteHelpers::GoogleTRS($section3->title)}}</h2>
+                        <h2 class="text-color-dark font-weight-bold text-12 mb-2 pt-0 mt-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="300">{{$section3->title}}</h2>
                     </div>
 
-                    <p class="lead appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="700">{!! SiteHelpers::GoogleTRS($section3->description) !!}</p>
+                    <p class="lead appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="700">{!! $section3->description !!}</p>
 
                     <hr class="solid my-4 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="900">
                     <div class="row align-items-center appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="1000">
                         <div class="col-lg-6">
 
-                            <a href="{{$section3->url}}" class="btn btn-modern btn-primary mt-3"> {{SiteHelpers::GoogleTRS($section3->btnText)}}</a>
+                            <a href="{{$section3->url}}" class="btn btn-modern btn-primary mt-3"> {{$section3->btnText}}</a>
                         </div>
 
                     </div>
@@ -115,7 +115,7 @@
                     <ul class="nav nav-tabs">
                         @foreach($tabs as $key=>$tab)
                         <li class="nav-item">
-                            <a class="nav-link {{$key==0 ? 'active':null }}" href="#{{strtolower(str_replace(' ', '', $tab->title))}}" data-bs-toggle="tab">{{SiteHelpers::GoogleTRS(strtoupper($tab->title))}}</a>
+                            <a class="nav-link {{$key==0 ? 'active':null }}" href="#{{strtolower(str_replace(' ', '', $tab->title))}}" data-bs-toggle="tab">{{strtoupper($tab->title)}}</a>
                         </li>
                        @endforeach
                     </ul>
@@ -133,8 +133,8 @@
                                     </div>
                                     <div class="col-lg-7">
                                         <div class="post-content">
-                                            <h2 class="font-weight-semibold pt-4 pt-lg-0 text-5 line-height-4 mb-2"><a href="javascript:void(0)">{{SiteHelpers::GoogleTRS($tab->title)}}</a></h2>
-                                            <p class="mb-0"> {!! SiteHelpers::GoogleTRS($tab->description) !!}</p>
+                                            <h2 class="font-weight-semibold pt-4 pt-lg-0 text-5 line-height-4 mb-2"><a href="javascript:void(0)">{{$tab->title}}</a></h2>
+                                            <p class="mb-0"> {!! $tab->description !!}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -155,13 +155,13 @@
                 <div class="row">
                     <div class="col-sm-9 col-lg-9">
                         <div class="call-to-action-content">
-                            <h3><strong class="font-weight-extra-bold">{{SiteHelpers::GoogleTRS($section5->title)}}</strong></h3>
+                            <h3><strong class="font-weight-extra-bold">{{$section5->title}}</strong></h3>
 
                         </div>
                     </div>
                     <div class="col-sm-3 col-lg-3">
                         <div class="call-to-action-btn">
-                            <a href="mailto:{{$section5->url}}" target="_blank" class="btn btn-modern text-2 btn-primary">{{SiteHelpers::GoogleTRS($section5->btnText)}}</a>
+                            <a href="mailto:{{$section5->url}}" target="_blank" class="btn btn-modern text-2 btn-primary">{{$section5->btnText}}</a>
                         </div>
                     </div>
                 </div>

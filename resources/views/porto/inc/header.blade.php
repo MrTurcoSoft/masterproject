@@ -16,19 +16,15 @@
                         <nav class="header-nav-top">
                             <ul class="nav nav-pills">
                                 <li class="nav-item nav-item-anim-icon d-none d-md-block">
-                                    <a class="nav-link ps-0" href="{{route('about')}}"><i class="fas fa-angle-right"></i> {{SiteHelpers::GoogleTRS('About Us')}}</a>
+                                    <a class="nav-link ps-0" href="{{route('about')}}"><i class="fas fa-angle-right"></i> About Us</a>
                                 </li>
                                 <li class="nav-item nav-item-anim-icon d-none d-md-block">
-                                    <a class="nav-link" href="{{route('contact')}}"><i class="fas fa-angle-right"></i> {{SiteHelpers::GoogleTRS('Contact Us')}}</a>
+                                    <a class="nav-link" href="{{route('contact')}}"><i class="fas fa-angle-right"></i> Contact Us</a>
                                 </li>
                                 <li class="nav-item nav-item-left-border nav-item-left-border-remove nav-item-left-border-md-show">
                                     <span class="ws-nowrap"><i class="fas fa-phone"></i> {{config('settings.phoneGsm')}}</span>
                                 </li>
-                                @if(app()->getLocale() != 'en-US')
-                                <li class="nav-item nav-item-left-border nav-item-left-border-remove nav-item-left-border-md-show"><a href="?lang=en-US" title="English" >
-                                    <img src="{{ asset('frontend/img/flag/US.webp') }}" height="24" width="24" alt="English"/>
-                                </a></li>
-                                    @endif
+
                             </ul>
                         </nav>
 
@@ -40,20 +36,20 @@
                                     <ul class="nav nav-pills" id="mainNav">
                                         <li class="menu-item ">
                                             <a class="dropdown-item dropdown-toggle @active('home')" href="{{route('home')}}">
-                                                {{SiteHelpers::GoogleTRS(strtoupper('Home'))}}
+                                                Home
                                             </a>
                                         </li>
                                         @foreach($_categories as $key => $category)
                                             @if($category->altkategoriler->count() > 0)
                                                 <li class="dropdown">
                                                     <a class="dropdown-item dropdown-toggle " href="javascript:void(0)">
-                                                        {{SiteHelpers::GoogleTRS(strtoupper($category->cat_name))}}
+                                                        {{strtoupper($category->cat_name)}}
                                                     </a>
                                                     <ul class="dropdown-menu">
                                                         @foreach($category->altkategoriler as $altkategoriler)
                                                         <li>
                                                             <a class="dropdown-item" href="{{route('category',$altkategoriler->slug)}}">
-                                                                {{SiteHelpers::GoogleTRS(strtoupper($altkategoriler->cat_name))}}
+                                                                {{strtoupper($altkategoriler->cat_name)}}
                                                             </a>
                                                         </li>
                                                         @endforeach
@@ -62,7 +58,7 @@
                                                 @else
                                                 <li class="menu-item">
                                                     <a class="dropdown-item dropdown-toggle" href="{{route('category',$category->slug)}}">
-                                                        {{SiteHelpers::GoogleTRS(strtoupper($category->cat_name))}}
+                                                        {{strtoupper($category->cat_name)}}
                                                     </a>
                                                 </li>
 
@@ -70,18 +66,18 @@
                                             @endforeach
                                         <li class="menu-item">
                                             <a class="dropdown-item dropdown-toggle" href="{{route('catalogue')}}">
-                                                {{SiteHelpers::GoogleTRS('CATALOGUE’S')}}
+                                                CATALOGUE’S
                                             </a>
                                         </li>
                                         @mobile
                                         <li class="menu-item">
                                             <a class="dropdown-item dropdown-toggle" href="{{route('about')}}">
-                                                {{SiteHelpers::GoogleTRS('About Us')}}
+                                                About Us
                                             </a>
                                         </li>
                                         <li class="menu-item">
                                             <a class="dropdown-item dropdown-toggle" href="{{route('contact')}}">
-                                                {{SiteHelpers::GoogleTRS('Contact Us')}}
+                                                Contact Us
                                             </a>
                                         </li>
                                         @endmobile

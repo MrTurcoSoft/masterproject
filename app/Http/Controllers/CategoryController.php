@@ -22,8 +22,7 @@ class CategoryController extends Controller
     public function index($slug)
     {
 
-        $tr = new GoogleTranslate();
-        $tr->setSource('en');
+
         $cat = Category::all()->where('slug', $slug)->first();
         if ($cat->ust_id != null ) {
             $mainCat=Category::all()->where('id',$cat->ust_id)->firstorFail();
@@ -34,9 +33,9 @@ class CategoryController extends Controller
         $products = $cat->urunler;
 
         if(\SiteHelpers::ayar('site_theme') == 1) {
-            return view("frontend.category", compact('cat', 'products', 'tr', 'mainCat'));
+            return view("frontend.category", compact('cat', 'products', 'mainCat'));
         } elseif(\SiteHelpers::ayar('site_theme') == 2) {
-            return view("porto.category", compact('cat', 'products', 'tr', 'mainCat'));
+            return view("porto.category", compact('cat', 'products', 'mainCat'));
         }
 
     }

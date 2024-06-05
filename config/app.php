@@ -82,20 +82,7 @@ return [
     |
     */
     'locale' => 'en-US', // Varsayılan dil
-    'locales' => [
-        'en-US' => 'English',
-        'de' => 'German',
-        'fr' => 'French',
-        'ru' => 'Russian',
-        'ar' => 'Arabic', // Arapça için sadece 'ar' kullanılır, 'ar-SA' bölge belirteci içindir.
-        'sq' => 'Albanian',
-        'bs' => 'Bosnian',
-        'pl' => 'Polish',
-        'hu' => 'Hungarian',
-        'el' => 'Greek',
-        'bg' => 'Bulgarian',
-        'sr' => 'Serbian'
-    ],
+
 
     /*
     |--------------------------------------------------------------------------
