@@ -24,9 +24,11 @@
                                 <li class="nav-item nav-item-left-border nav-item-left-border-remove nav-item-left-border-md-show">
                                     <span class="ws-nowrap"><i class="fas fa-phone"></i> {{config('settings.phoneGsm')}}</span>
                                 </li>
+                                @if(app()->getLocale() != 'en-US')
                                 <li class="nav-item nav-item-left-border nav-item-left-border-remove nav-item-left-border-md-show"><a href="?lang=en-US" title="English" >
                                     <img src="{{ asset('frontend/img/flag/US.webp') }}" height="24" width="24" alt="English"/>
                                 </a></li>
+                                    @endif
                             </ul>
                         </nav>
 
