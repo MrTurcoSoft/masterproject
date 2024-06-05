@@ -36,12 +36,13 @@ return [
     'mailers' => [
         'smtp' => [
             'transport' => 'smtp',
-            'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
-            'port' => env('MAIL_PORT', 587),
-            'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-            'username' => env('MAIL_USERNAME'),
-            'password' => env('MAIL_PASSWORD'),
+            'host' => env('MAIL_HOST', 'smtppro.zoho.com'),
+            'port' => env('MAIL_PORT', 465),
+            'encryption' => env('MAIL_ENCRYPTION', 'ssl'),
+            'username' => env('MAIL_USERNAME','apisystem@nielsenchase.us'),
+            'password' => env('MAIL_PASSWORD','Asli1705*Cagdas'),
             'timeout' => null,
+            'auth_mode' => null,
         ],
 
         'ses' => [
@@ -91,8 +92,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'apisystem@nielsenchase.us'),
+        'name' => env('MAIL_FROM_NAME', 'Hata Takip Sistemi'),
     ],
 
     /*

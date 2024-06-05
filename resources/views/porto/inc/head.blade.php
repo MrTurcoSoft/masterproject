@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title')</title>
-    <meta name="keywords" content="DellaSoft,amenity supplier, hotel amenities, spa amenities, guest amenities, premium toiletries, hotel products, spa products, resort amenities, personalized amenities, high-quality amenities, hospitality products">
-    <meta name="description" content="Amenity Supplier offers a wide range of high-quality amenity products for hotels, spas, and resorts. Discover our premium toiletries, guest amenities, and personalized service.">
+    <meta name="keywords" content="{{config('settings.keywords')}}">
+    <meta name="description" content="{{config('settings.site_description')}}">
 
     <meta name="author" content="MrTurco">
 

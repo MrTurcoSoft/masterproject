@@ -103,8 +103,3 @@ Route::get('/product/{slug}', [App\Http\Controllers\ProductController::class, 'i
 
 Route::get('/sitemap', [SitemapController::class, 'index']);
 
-
-Route::get('/sitemap-generate', function () {
-    Artisan::call('sitemap:generate');
-    echo 'Sitemap Oluşturuldu!';
-});

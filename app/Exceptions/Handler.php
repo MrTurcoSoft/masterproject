@@ -3,7 +3,9 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Support\Facades\Mail;
 use Throwable;
+use App\Mail\ErrorReport;
 
 class Handler extends ExceptionHandler
 {
@@ -37,5 +39,21 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+    public function render($request, Throwable $exception)
+    {
+        if ($this->isHttpException($exception) && $exception->getStatusCode() == 500) {
+            // Hata detaylarını e-posta ile gönder
+            $url = $request->fullUrl();
+            $message = $exception->getMessage();
+            $trace = $exception->getTraceAsString();
+
+            Mail::to('atilturk@gmail.com')->send(new ErrorReport($url, $message, $trace));
+
+            // Özel 500 hata sayfasını döndür
+            return response()->view('errors.500', [], 500);
+        }
+
+        return parent::render($request, $exception);
     }
 }
