@@ -30,6 +30,13 @@
                 <div class="blog-posts">
 
                     <div class="row">
+                        @if($posts->count() == 0)
+                            <div class="col-md-12">
+                                <div class="alert alert-warning">
+                                    <strong>Warning!</strong> No posts found.
+                                </div>
+                            </div>
+                        @endif
                         @foreach($posts as $post)
                             <div class="col-md-4">
                                 <article class="post post-medium border-0 pb-0 mb-5">
