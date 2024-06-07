@@ -70,7 +70,7 @@
                                             </a>
                                         </li>
                                         <li class="menu-item">
-                                            <a class="dropdown-item dropdown-toggle" href="{{route('blog-posts')}}">
+                                            <a class="dropdown-item dropdown-toggle" href="{{url('blog-posts')}}">
                                                 BLOG
                                             </a>
                                         </li>
