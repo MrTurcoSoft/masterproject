@@ -69,6 +69,11 @@
                                                 CATALOGUE’S
                                             </a>
                                         </li>
+                                        <li class="menu-item">
+                                            <a class="dropdown-item dropdown-toggle" href="{{route('blog-posts')}}">
+                                                BLOG
+                                            </a>
+                                        </li>
                                         @mobile
                                         <li class="menu-item">
                                             <a class="dropdown-item dropdown-toggle" href="{{route('about')}}">

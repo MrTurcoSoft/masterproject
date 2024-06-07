@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LangController;
+use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
@@ -74,7 +75,7 @@ Route::resource('/settings','App\Http\Controllers\Admin\SettingsController');
 Route::get('/settings/{id}/{type}','App\Http\Controllers\Admin\SettingsController@edit');
 Route::resource('/catalog','App\Http\Controllers\Admin\CatalogController');
 Route::post('/catalog/delete','App\Http\Controllers\Admin\CatalogController@deleteImage')->name('catalog.delete');
-
+Route::resource('posts', PostController::class);
 
 
 
@@ -99,6 +100,9 @@ Route::get('/contact',[App\Http\Controllers\ContactController::class,'index'])->
 
 Route::get('/category/{slug}', [App\Http\Controllers\CategoryController::class, 'index'])->name('category');
 Route::get('/product/{slug}', [App\Http\Controllers\ProductController::class, 'index'])->name('product');
+
+Route::get('/blog-posts',[App\Http\Controllers\PostController::class,'index'])->name('blog-posts');
+Route::get('/blog-posts/{slug}', [App\Http\Controllers\PostController::class, 'show'])->name('blog-posts.show');
 
 
 Route::get('/sitemap', [SitemapController::class, 'index']);

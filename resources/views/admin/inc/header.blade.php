@@ -170,6 +170,25 @@
                         </div>
                     </div>
                 </li>
+                <li class="menu-item  has-sub">
+                    <a href="#" class='menu-link'>
+                        <span><i class="bi bi-blog"></i> Blog</span>
+                    </a>
+                    <div class="submenu ">
+                        <!-- Wrap to submenu-group-wrapper if you want 3-level submenu. Otherwise remove it. -->
+                        <div class="submenu-group-wrapper">
+                            <ul class="submenu-group">
+                                <li
+                                    class="submenu-item  ">
+                                    <a href="{{route('posts.index')}}"
+                                       class='submenu-link'>Postlar </a>
+                                </li>
+
+                            </ul>
+
+                        </div>
+                    </div>
+                </li>
                 <li class="menu-item"> </li>
                 <li class="menu-item"> </li>
                 <li class="menu-item"><a style="color: #ffffff; font-size: xx-large " href="{{route('settings.index')}}"  title="Site Ayarları"><i class="bi bi-database-gear"></i></a> </li>
