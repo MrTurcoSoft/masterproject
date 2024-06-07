@@ -134,6 +134,28 @@ class PostController extends Controller
         return redirect()->route('posts.index');
     }
 
+    public function deleteImage(Request $request)
+    {
+        $id = $request->id;
+        $root = Post::findOrFail($id);
+
+        if (!empty($root->file)) {
+            Storage::delete($root->file);
+        }
+        $this->delete($id);
+    }
+
+    public function delete($id)
+    {
+        $root = Post::findOrFail($id);
+        $root->delete();
+        if ($root) {
+            echo 'ok';
+        } else {
+            echo 'no';
+        }
+
+    }
     public function destroy(Post $post)
     {
         $post->delete();

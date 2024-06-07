@@ -76,6 +76,7 @@ Route::get('/settings/{id}/{type}','App\Http\Controllers\Admin\SettingsControlle
 Route::resource('/catalog','App\Http\Controllers\Admin\CatalogController');
 Route::post('/catalog/delete','App\Http\Controllers\Admin\CatalogController@deleteImage')->name('catalog.delete');
 Route::resource('posts', PostController::class);
+Route::post('/posts/delete','App\Http\Controllers\Admin\PostController@deleteImage')->name('blog-posts.delete');
 
 
 
