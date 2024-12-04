@@ -74,7 +74,7 @@
             <div class="row mt-5">
                 <div class="col text-center">
                     <div class="logo">
-                        <a href="{{url('/')}}">
+                        <a href="{{url('/en')}}">
                             <img width="100" height="48" src="{{asset(config('settings.logo'))}}" alt="{{config('settings.mark')}}">
                         </a>
                     </div>
@@ -93,7 +93,7 @@
                             <span class="text-6 font-weight-bold text-color-dark">UNEXPECTED ERROR</span>
                             <p class="text-3 my-4 line-height-8">An unexpected error has occured.The technical unit has been notified. The problem will be fixed as soon as possible.</p>
                         </div>
-                        <a href="{{url('/')}}" class="btn btn-primary btn-rounded btn-xl font-weight-semibold text-2 px-4 py-3 mt-1 mb-4"><i class="fas fa-angle-left pe-3"></i>GO BACK TO HOME PAGE</a>
+                        <a href="{{url('/en')}}" class="btn btn-primary btn-rounded btn-xl font-weight-semibold text-2 px-4 py-3 mt-1 mb-4"><i class="fas fa-angle-left pe-3"></i>GO BACK TO HOME PAGE</a>
                     </div>
                 </div>
             </section>

@@ -1,30 +1,27 @@
 <?php
-
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Config;
 
 class SetLocale
 {
-    public function handle(Request $request, Closure $next)
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @return mixed
+     */
+    public function handle($request, Closure $next)
     {
-        if ($request->has('lang')) {
-            // URL'de lang parametresi varsa bunu kullan
-            $locale = $request->get('lang');
-        } else {
-            // Tarayıcı dilini al
-            $locale = substr($request->server('HTTP_ACCEPT_LANGUAGE'), 0, 2);
-        }
+        $locale = $request->segment(1); // URL'nin ilk segmentini alıyoruz, örneğin: /en
 
-        // Eğer desteklenen diller arasındaysa locale'yi ayarla
-        if (array_key_exists($locale, Config::get('app.locales'))) {
-            App::setLocale($locale);
+        if (in_array($locale, ['en', 'de', 'fr', 'sr', 'it', 'hu', 'es'])) {
+            App::setLocale($locale); // Eğer desteklenen dillerden biriyse uygulamanın dilini ayarla
         } else {
-            // Desteklenmeyen dilse varsayılan dile ayarla
-            App::setLocale(Config::get('app.fallback_locale'));
+            $locale = config('app.locale'); // Desteklenmiyorsa varsayılan dile geç
+            return redirect("$locale" . $request->getPathInfo());
         }
 
         return $next($request);

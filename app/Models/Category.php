@@ -14,11 +14,21 @@ class Category extends Model
     protected $guarded = array('_token');
 
 
-    public function urunler()
+    public function urunler($locale = 'en')
     {
-        return $this->belongsToMany('App\Models\Product', 'category_products');
+        return $this->belongsToMany(Product::class, 'category_products')->get()->map(function ($urun) use ($locale) {
+            if ($locale !== 'en') {
+                $urun->name = $urun->{'name_' . $locale};
+                $urun->description = $urun->{'description_' . $locale};
+                $urun->title = $urun->{'title_' . $locale};
+                $urun->slug = $urun->{'slug_' . $locale};
+                $urun->page_title = $urun->{'page_title_' . $locale};
+                $urun->page_description = $urun->{'page_description_' . $locale};
+                $urun->page_keywords = $urun->{'page_keywords_' . $locale};
+            }
+            return $urun;
+        });
     }
-
     public function altkategoriler()
     {
         return $this->hasMany('App\Models\Category', 'ust_id', 'id');

@@ -150,6 +150,9 @@ class SiteHelpers
 
         $result = $translator->translateText($str, null, app()->getLocale());
 
-        return $result->text;;
+        return $result->text;
     }
+
+
+
 }

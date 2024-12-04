@@ -35,6 +35,11 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        parent::boot();
+
+        // Rota parametrelerinde varsayılan locale tanımlama
+        Route::pattern('locale', 'en|fr|de|it|hu|sr|es');
+
         $this->configureRateLimiting();
 
         $this->routes(function () {

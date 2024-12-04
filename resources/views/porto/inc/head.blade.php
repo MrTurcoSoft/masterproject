@@ -3,21 +3,21 @@
     <!-- Basic -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title')</title>
-    <meta name="keywords" content="{{config('settings.keywords')}}">
-    <meta name="description" content="{{config('settings.site_description')}}">
+    <title>@yield('title',config('settings.title'))</title>
+    <meta name="keywords" content="@yield('keywords',config('settings.keywords'))">
+    <meta name="description" content="@yield('description',config('settings.site_description'))">
 
     <meta name="author" content="MrTurco">
 
-    <meta property="og:title" content="High-Quality Amenity Products Supplier - Amenity Supplier">
-    <meta property="og:description" content="Amenity Supplier offers a wide range of high-quality amenity products for hotels, spas, and resorts. Discover our premium toiletries, guest amenities, and personalized service.">
-    <meta property="og:url" content="https://www.amenitysupplier.com/">
+    <meta property="og:title" content="@yield('title',config('settings.title'))">
+    <meta property="og:description" content="@yield('description',config('settings.site_description'))">
+    <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:type" content="website">
     <meta property="og:image" content="{{asset(config('settings.logo'))}}">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="High-Quality Amenity Products Supplier - Amenity Supplier">
-    <meta name="twitter:description" content="Amenity Supplier offers a wide range of high-quality amenity products for hotels, spas, and resorts. Discover our premium toiletries, guest amenities, and personalized service.">
+    <meta name="twitter:title" content="@yield('title',config('settings.title'))">
+    <meta name="twitter:description" content="@yield('description',config('settings.site_description'))">
     <meta name="twitter:image" content="{{asset(config('settings.logo'))}}">
 
     <meta name="ahrefs-site-verification" content="b8de5075aeec4dbd1402defb7be32c8395bfc7155450ff27e1c3da38a9690530">

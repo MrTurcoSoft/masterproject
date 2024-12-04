@@ -5,9 +5,10 @@
                 <div class="header-column">
                     <div class="header-row">
                         <div class="header-logo">
-                            <a href="{{route('home')}}">
-                                <img alt="DellaSoft" width="100" height="48" data-sticky-width="82" data-sticky-height="40" data-sticky-top="25" src="{{asset(config('settings.logo'))}}">
+                            <a href="{{ getLocalizedUrl('home') }}">
+                                <img alt="DellaSoft" width="100" height="48" data-sticky-width="82" data-sticky-height="40" data-sticky-top="25" src="{{ asset(config('settings.logo')) }}">
                             </a>
+
                         </div>
                     </div>
                 </div>
@@ -16,10 +17,12 @@
                         <nav class="header-nav-top">
                             <ul class="nav nav-pills">
                                 <li class="nav-item nav-item-anim-icon d-none d-md-block">
-                                    <a class="nav-link ps-0" href="{{route('about')}}"><i class="fas fa-angle-right"></i> About Us</a>
+                                    <a class="nav-link ps-0" href="{{ getLocalizedUrl('about') }}"><i class="fas fa-angle-right"></i> {{___("About Us")}}</a>
+
                                 </li>
                                 <li class="nav-item nav-item-anim-icon d-none d-md-block">
-                                    <a class="nav-link" href="{{route('contact')}}"><i class="fas fa-angle-right"></i> Contact Us</a>
+                                    <a class="nav-link" href="{{ getLocalizedUrl('contact') }}"><i class="fas fa-angle-right"></i> {{___("Contact Us")}}</a>
+
                                 </li>
                                 <li class="nav-item nav-item-left-border nav-item-left-border-remove nav-item-left-border-md-show">
                                     <span class="ws-nowrap"><i class="fas fa-phone"></i> {{config('settings.phoneGsm')}}</span>
@@ -35,55 +38,60 @@
                                 <nav class="collapse">
                                     <ul class="nav nav-pills" id="mainNav">
                                         <li class="menu-item ">
-                                            <a class="dropdown-item dropdown-toggle @active('home')" href="{{route('home')}}">
-                                                Home
+                                            <a class="dropdown-item dropdown-toggle @active('home')" href="{{ getLocalizedUrl('home') }}">
+                                                {{___("Home")}}
                                             </a>
+
                                         </li>
                                         @foreach($_categories as $key => $category)
                                             @if($category->altkategoriler->count() > 0)
                                                 <li class="dropdown">
-                                                    <a class="dropdown-item dropdown-toggle " href="javascript:void(0)">
-                                                        {{strtoupper($category->cat_name)}}
+                                                    <a class="dropdown-item dropdown-toggle" href="javascript:void(0)">
+                                                        {{ strtoupper($category->cat_name) }}
                                                     </a>
                                                     <ul class="dropdown-menu">
                                                         @foreach($category->altkategoriler as $altkategoriler)
-                                                        <li>
-                                                            <a class="dropdown-item" href="{{route('category',$altkategoriler->slug)}}">
-                                                                {{strtoupper($altkategoriler->cat_name)}}
-                                                            </a>
-                                                        </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="{{ getLocalizedUrl('category', ['slug' => $altkategoriler->slug]) }}">
+                                                                    {{ strtoupper($altkategoriler->cat_name) }}
+                                                                </a>
+                                                            </li>
                                                         @endforeach
                                                     </ul>
                                                 </li>
-                                                @else
+                                            @else
                                                 <li class="menu-item">
-                                                    <a class="dropdown-item dropdown-toggle" href="{{route('category',$category->slug)}}">
-                                                        {{strtoupper($category->cat_name)}}
+                                                    <a class="dropdown-item dropdown-toggle" href="{{ getLocalizedUrl('category', ['slug' => $category->slug]) }}">
+                                                        {{ strtoupper($category->cat_name) }}
                                                     </a>
                                                 </li>
-
                                             @endif
-                                            @endforeach
+                                        @endforeach
+
                                         <li class="menu-item">
-                                            <a class="dropdown-item dropdown-toggle" href="{{route('catalogue')}}">
-                                                CATALOGUE’S
+                                            <a class="dropdown-item dropdown-toggle" href="{{ getLocalizedUrl('catalogue') }}">
+                                                {{___("CATALOGUE’S")}}
                                             </a>
+
                                         </li>
                                         <li class="menu-item">
-                                            <a class="dropdown-item dropdown-toggle" href="{{url('blog-posts')}}">
-                                                BLOG
+                                            <a class="dropdown-item dropdown-toggle" href="{{ getLocalizedUrl('blog-posts') }}">
+                                                {{___("BLOG")}}
                                             </a>
+
                                         </li>
                                         @mobile
                                         <li class="menu-item">
-                                            <a class="dropdown-item dropdown-toggle" href="{{route('about')}}">
-                                                About Us
+                                            <a class="dropdown-item dropdown-toggle" href="{{ getLocalizedUrl('about') }}">
+                                                {{___("About Us")}}
                                             </a>
+
                                         </li>
                                         <li class="menu-item">
-                                            <a class="dropdown-item dropdown-toggle" href="{{route('contact')}}">
-                                                Contact Us
+                                            <a class="dropdown-item dropdown-toggle" href="{{ getLocalizedUrl('contact') }}">
+                                                {{___("Contact Us")}}
                                             </a>
+
                                         </li>
                                         @endmobile
                                     </ul>

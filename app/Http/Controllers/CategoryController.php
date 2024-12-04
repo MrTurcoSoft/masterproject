@@ -18,25 +18,24 @@ class CategoryController extends Controller
         parent::__construct();
     }
 
-
-    public function index($slug)
+    public function index($locale, $slug)
     {
-
-
-        $cat = Category::all()->where('slug', $slug)->first();
-        if ($cat->ust_id != null ) {
-            $mainCat=Category::all()->where('id',$cat->ust_id)->firstorFail();
+        $cat = Category::where('slug', $slug)->firstOrFail();
+        if ($cat->ust_id != null) {
+            $mainCat = Category::where('id', $cat->ust_id)->firstOrFail();
         } else {
-            $mainCat=null;
+            $mainCat = null;
         }
 
-        $products = $cat->urunler;
+        // Dile Göre Ürünleri Getir
+        $products = $cat->urunler($locale);
 
-        if(\SiteHelpers::ayar('site_theme') == 1) {
+        if (\SiteHelpers::ayar('site_theme') == 1) {
             return view("frontend.category", compact('cat', 'products', 'mainCat'));
-        } elseif(\SiteHelpers::ayar('site_theme') == 2) {
+        } elseif (\SiteHelpers::ayar('site_theme') == 2) {
             return view("porto.category", compact('cat', 'products', 'mainCat'));
         }
-
     }
+
+
 }
