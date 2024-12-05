@@ -87,6 +87,7 @@ Route::get('lang/home', [LangController::class, 'index']);
 Route::get('lang/change', [LangController::class, 'change'])->name('changeLang');
 
 // Varsayılan dil için (Dil kodu olmadan)
+Route::group(['middleware' => 'setlocale'], function () {
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/about', [App\Http\Controllers\AboutController::class, 'index'])->name('about');
 Route::get('/catalogue', [App\Http\Controllers\HomeController::class, 'catalog'])->name('catalogue');
@@ -98,36 +99,38 @@ Route::get('/product/{slug}', [App\Http\Controllers\ProductController::class, 'i
 Route::get('/blog-posts', [App\Http\Controllers\PostController::class, 'index'])->name('blog-posts');
 Route::get('/blog-posts/{slug}', [App\Http\Controllers\PostController::class, 'show'])->name('blog-posts.show');
 
+});
 
 // Diğer diller için rotalar
 Route::group(['prefix' => '{locale}', 'middleware' => 'setlocale', 'where' => ['locale' => 'fr|de|it|hu|sr|es']], function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('localized.home');
-    Route::get('/{catalog}/{slug}', [App\Http\Controllers\CategoryController::class, 'index'])
-        ->where('catalog', 'catalogue|katalog|catalogo|katalog|katalog|katalógus')
-        ->name('localized.category');
 
-    Route::get('/about', [App\Http\Controllers\AboutController::class, 'index'])
+    Route::get('/{about}', [App\Http\Controllers\AboutController::class, 'index'])
         ->where('about', 'a-propos|uber-uns|chi-siamo|rolunk|o-nama|sobre-nosotros')
         ->name('localized.about');
 
-    Route::get('/contact', [App\Http\Controllers\ContactController::class, 'index'])
+    Route::get('/{contact}', [App\Http\Controllers\ContactController::class, 'index'])
         ->where('contact', 'contact|kontakt|contatto|kapcsolat|kontakt|contacto')
         ->name('localized.contact');
 
-    Route::get('/catalogue', [App\Http\Controllers\HomeController::class, 'catalog'])
+    Route::get('/{catalogue}', [App\Http\Controllers\HomeController::class, 'catalog'])
         ->where('catalogue', 'catalogue|katalog|catalogo|katalogus|katalog|catalogo')
         ->name('localized.catalogue');
 
-    Route::get('/product/{slug}', [App\Http\Controllers\ProductController::class, 'index'])
+    Route::get('/{category}/{slug}', [App\Http\Controllers\CategoryController::class, 'index'])
+        ->where('category', 'categorie|kategorie|categoria|kategoriak|kategorija|categoria')
+        ->name('localized.category');
+
+    Route::get('/{product}/{slug}', [App\Http\Controllers\ProductController::class, 'index'])
         ->where('product', 'produit|produkt|prodotto|termek|proizvod|producto')
         ->name('localized.product');
 
-    Route::get('/blog-posts', [App\Http\Controllers\PostController::class, 'index'])
-        ->where('blog-posts', 'articles|blog-artikel|articoli|termek|proizvod|producto')
+    Route::get('/{blog-posts}', [App\Http\Controllers\PostController::class, 'index'])
+        ->where('blog-posts', 'articles|blog-artikel|articoli|blog-bejegyzesek|blog-objave|entradas-de-blog')
         ->name('localized.blog-posts');
 
-    Route::get('/blog-posts/{slug}', [App\Http\Controllers\PostController::class, 'show'])
-        ->where('blog-posts', 'articles|blog-artikel|articoli|termek|proizvod|producto')
+    Route::get('/{blog-posts}/{slug}', [App\Http\Controllers\PostController::class, 'show'])
+        ->where('blog-posts', 'articles|blog-artikel|articoli|blog-bejegyzesek|blog-objave|entradas-de-blog')
         ->name('localized.blog-posts.show');
 });
 

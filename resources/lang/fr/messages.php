@@ -21,4 +21,7 @@ return array (
   'Mon-Friday -' => 'Mon-Friday -',
   'Saturday   -' => 'Saturday   -',
   'Sunday     - Closed' => 'Sunday     - Closed',
+  'View
+                        CATALOGUE' => 'View
+                        CATALOGUE',
 );

@@ -17,11 +17,11 @@
                         <nav class="header-nav-top">
                             <ul class="nav nav-pills">
                                 <li class="nav-item nav-item-anim-icon d-none d-md-block">
-                                    <a class="nav-link ps-0" href="{{ getLocalizedUrl('about') }}"><i class="fas fa-angle-right"></i> {{___("About Us")}}</a>
+                                    <a class="nav-link ps-0" href="{{ getLocalizedUrl('about',['about' => 'about']) }}"><i class="fas fa-angle-right"></i> {{___("About Us")}}</a>
 
                                 </li>
                                 <li class="nav-item nav-item-anim-icon d-none d-md-block">
-                                    <a class="nav-link" href="{{ getLocalizedUrl('contact') }}"><i class="fas fa-angle-right"></i> {{___("Contact Us")}}</a>
+                                    <a class="nav-link" href="{{ getLocalizedUrl('contact', ['contact' => 'contact']) }}"><i class="fas fa-angle-right"></i> {{___("Contact Us")}}</a>
 
                                 </li>
                                 <li class="nav-item nav-item-left-border nav-item-left-border-remove nav-item-left-border-md-show">
@@ -52,7 +52,7 @@
                                                     <ul class="dropdown-menu">
                                                         @foreach($category->altkategoriler as $altkategoriler)
                                                             <li>
-                                                                <a class="dropdown-item" href="{{ getLocalizedUrl('category', ['slug' => $altkategoriler->slug]) }}">
+                                                                <a class="dropdown-item" href="{{ getLocalizedUrl('category', ['slug' => $altkategoriler->slug,'category' => 'category']) }}">
                                                                     {{ strtoupper($altkategoriler->cat_name) }}
                                                                 </a>
                                                             </li>
@@ -61,7 +61,7 @@
                                                 </li>
                                             @else
                                                 <li class="menu-item">
-                                                    <a class="dropdown-item dropdown-toggle" href="{{ getLocalizedUrl('category', ['slug' => $category->slug]) }}">
+                                                    <a class="dropdown-item dropdown-toggle" href="{{ getLocalizedUrl('category', ['slug' => $category->slug,'category' => 'category']) }}">
                                                         {{ strtoupper($category->cat_name) }}
                                                     </a>
                                                 </li>
@@ -69,26 +69,26 @@
                                         @endforeach
 
                                         <li class="menu-item">
-                                            <a class="dropdown-item dropdown-toggle" href="{{ getLocalizedUrl('catalogue') }}">
+                                            <a class="dropdown-item dropdown-toggle" href="{{ getLocalizedUrl('catalogue', ['catalogue' => 'catalogue']) }}">
                                                 {{___("CATALOGUE’S")}}
                                             </a>
 
                                         </li>
                                         <li class="menu-item">
-                                            <a class="dropdown-item dropdown-toggle" href="{{ getLocalizedUrl('blog-posts') }}">
+                                            <a class="dropdown-item dropdown-toggle" href="{{ getLocalizedUrl('blog-posts', ['blog-posts' => 'blog-posts']) }}">
                                                 {{___("BLOG")}}
                                             </a>
 
                                         </li>
                                         @mobile
                                         <li class="menu-item">
-                                            <a class="dropdown-item dropdown-toggle" href="{{ getLocalizedUrl('about') }}">
+                                            <a class="dropdown-item dropdown-toggle" href="{{ getLocalizedUrl('about', ['about' => 'about']) }}">
                                                 {{___("About Us")}}
                                             </a>
 
                                         </li>
                                         <li class="menu-item">
-                                            <a class="dropdown-item dropdown-toggle" href="{{ getLocalizedUrl('contact') }}">
+                                            <a class="dropdown-item dropdown-toggle" href="{{ getLocalizedUrl('contact', ['contact' => 'contact']) }}">
                                                 {{___("Contact Us")}}
                                             </a>
 

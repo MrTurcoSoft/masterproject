@@ -15,13 +15,14 @@ class SetLocale
      */
     public function handle($request, Closure $next)
     {
-        $locale = $request->segment(1); // URL'nin ilk segmentini alıyoruz, örneğin: /en
+        // URL'deki dil kodunu al
+        $locale = $request->segment(1);
 
-        if (in_array($locale, ['en', 'de', 'fr', 'sr', 'it', 'hu', 'es'])) {
-            App::setLocale($locale); // Eğer desteklenen dillerden biriyse uygulamanın dilini ayarla
+        // Eğer dil kodu destekleniyorsa ayarla, yoksa varsayılanı kullan
+        if (in_array($locale, ['fr', 'de', 'it', 'hu', 'sr', 'es'])) {
+            App::setLocale($locale);
         } else {
-            $locale = config('app.locale'); // Desteklenmiyorsa varsayılan dile geç
-            return redirect("$locale" . $request->getPathInfo());
+            App::setLocale('en'); // Varsayılan dil
         }
 
         return $next($request);

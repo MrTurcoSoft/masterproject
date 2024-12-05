@@ -67,26 +67,98 @@ if (!function_exists('getLocalizedUrl')) {
     {
         $locale = app()->getLocale();
 
-        // Eğer varsayılan dil (en) ise, locale eklemeden rota oluştur
+        // Rota için çevirileri al
+        $translations = [
+            'category' => [
+                'en' => 'category',
+                'fr' => 'categorie',
+                'de' => 'kategorie',
+                'it' => 'categoria',
+                'hu' => 'kategoriak',
+                'sr' => 'kategorija',
+                'es' => 'categoria',
+            ],
+            'product' => [
+                'en' => 'product',
+                'fr' => 'produit',
+                'de' => 'produkt',
+                'it' => 'prodotto',
+                'hu' => 'termek',
+                'sr' => 'proizvod',
+                'es' => 'producto',
+            ],
+            'about' => [
+                'en' => 'about',
+                'fr' => 'a-propos',
+                'de' => 'uber-uns',
+                'it' => 'chi-siamo',
+                'hu' => 'rolunk',
+                'sr' => 'o-nama',
+                'es' => 'sobre-nosotros',
+            ],
+            'contact' => [
+                'en' => 'contact',
+                'fr' => 'contact',
+                'de' => 'kontakt',
+                'it' => 'contatto',
+                'hu' => 'kapcsolat',
+                'sr' => 'kontakt',
+                'es' => 'contacto',
+            ],
+            'catalogue' => [
+                'en' => 'catalogue',
+                'fr' => 'catalogue',
+                'de' => 'katalog',
+                'it' => 'catalogo',
+                'hu' => 'katalogus',
+                'sr' => 'katalog',
+                'es' => 'catalogo',
+            ],
+            'blog-posts' => [
+                'en' => 'blog-posts',
+                'fr' => 'articles',
+                'de' => 'blog-artikel',
+                'it' => 'articoli',
+                'hu' => 'blog-bejegyzesek',
+                'sr' => 'blog-objave',
+                'es' => 'entradas-de-blog',
+            ],
+        ];
+
+        // Parametreleri güncelle
+        if (isset($parameters['category']) && isset($translations['category'][$locale])) {
+            $parameters['category'] = $translations['category'][$locale];
+        }
+
+        if (isset($parameters['product']) && isset($translations['product'][$locale])) {
+            $parameters['product'] = $translations['product'][$locale];
+        }
+
+        if (isset($parameters['about']) && isset($translations['about'][$locale])) {
+            $parameters['about'] = $translations['about'][$locale];
+        }
+        if (isset($parameters['contact']) && isset($translations['contact'][$locale])) {
+            $parameters['contact'] = $translations['contact'][$locale];
+        }
+        if (isset($parameters['catalogue']) && isset($translations['catalogue'][$locale])) {
+            $parameters['catalogue'] = $translations['catalogue'][$locale];
+        }
+        if (isset($parameters['blog-posts']) && isset($translations['blog-posts'][$locale])) {
+            $parameters['blog-posts'] = $translations['blog-posts'][$locale];
+        }
+
+        // Varsayılan dil (İngilizce) için dil kodu ekleme
         if ($locale === 'en') {
-            if (\Illuminate\Support\Facades\Route::has($routeName)) {
-                return route($routeName, $parameters);
-            }
-            throw new Exception("Route [$routeName] not defined.");
+            return route($routeName, $parameters);
         }
 
-        // Diğer diller için locale parametresini ekle
+        // Diğer diller için dil kodunu ekle
         $localizedRouteName = 'localized.' . $routeName;
+        $parameters = array_merge(['locale' => $locale], $parameters);
 
-        if (\Illuminate\Support\Facades\Route::has($localizedRouteName)) {
-            $parameters = array_merge(['locale' => $locale], $parameters);
-            return route($localizedRouteName, $parameters);
-        }
-
-        throw new Exception("Route [$localizedRouteName] not defined.");
+        return route($localizedRouteName, $parameters);
     }
 }
-
 
 
 
