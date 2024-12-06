@@ -10,4 +10,5 @@ class About extends Model
 {
     use HasFactory;
     use SoftDeletes;
+    protected $guarded = [];
 }

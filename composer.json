@@ -10,6 +10,7 @@
         "deeplcom/deepl-php": "^1.7",
         "fruitcake/laravel-cors": "^2.2.0",
         "guzzlehttp/guzzle": "^7.8.1",
+        "intervention/image": "^2.7",
         "jenssegers/agent": "^2.6.4",
         "laravel/framework": "^v9.52.18",
         "laravel/sail": "^1.0.1",
@@ -20,6 +21,7 @@
         "riverskies/laravel-mobile-detect": "^1.3",
         "spatie/laravel-sitemap": "^6.4",
         "stichoza/google-translate-php": "^5.1",
+        "symfony/string": "^7.2",
         "yajra/laravel-datatables-oracle": "^10.0"
     },
     "require-dev": {

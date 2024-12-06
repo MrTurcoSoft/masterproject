@@ -12,4 +12,13 @@
 <link href="{{asset('backend/assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{asset('backend/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{asset('backend/assets/css/theme.min.css')}}" rel="stylesheet" type="text/css" />
+<!-- JavaScript -->
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"
+/>
+<!-- Sweet Alerts css -->
+<link href="{{asset('backend/plugins/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css" />
+
 @yield('page-css')

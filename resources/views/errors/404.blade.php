@@ -36,9 +36,9 @@
                 <div class="col-md-4 mt-4 mt-md-0">
                     <h4 class="text-primary">Here are some useful links</h4>
                     <ul class="nav nav-list flex-column">
-                        <li class="nav-item"><a class="nav-link" href="{{ route('home', ['locale' => app()->getLocale()]) }}">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('about', ['locale' => app()->getLocale()]) }}">About Us</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('contact', ['locale' => app()->getLocale()]) }}">Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ getLocalizedUrl('home') }}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ getLocalizedUrl('about',['about' => 'about']) }}">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ getLocalizedUrl('contact', ['contact' => 'contact']) }}">Contact Us</a></li>
                     </ul>
                 </div>
             </div>

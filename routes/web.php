@@ -89,15 +89,29 @@ Route::get('lang/change', [LangController::class, 'change'])->name('changeLang')
 // Varsayılan dil için (Dil kodu olmadan)
 Route::group(['middleware' => 'setlocale'], function () {
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/about', [App\Http\Controllers\AboutController::class, 'index'])->name('about');
-Route::get('/catalogue', [App\Http\Controllers\HomeController::class, 'catalog'])->name('catalogue');
-Route::get('/contact', [App\Http\Controllers\ContactController::class, 'index'])->name('contact');
+Route::get('/{about}', [App\Http\Controllers\AboutController::class, 'index'])
+    ->where('about', 'about')
+    ->name('about');
+Route::get('/{catalogue}', [App\Http\Controllers\HomeController::class, 'catalog'])
+    ->where('catalogue', 'catalogue')
+    ->name('catalogue');
+Route::get('/{contact}', [App\Http\Controllers\ContactController::class, 'index'])
+    ->where('contact', 'contact')
+    ->name('contact');
 
-Route::get('/category/{slug}', [App\Http\Controllers\CategoryController::class, 'index'])->name('category');
-Route::get('/product/{slug}', [App\Http\Controllers\ProductController::class, 'index'])->name('product');
+Route::get('/{category}/{slug}', [App\Http\Controllers\CategoryController::class, 'index'])
+    ->where('category', 'category')
+    ->name('category');
+Route::get('/{product}/{slug}', [App\Http\Controllers\ProductController::class, 'index'])
+    ->where('product', 'product')
+    ->name('product');
 
-Route::get('/blog-posts', [App\Http\Controllers\PostController::class, 'index'])->name('blog-posts');
-Route::get('/blog-posts/{slug}', [App\Http\Controllers\PostController::class, 'show'])->name('blog-posts.show');
+Route::get('/{blog-posts}', [App\Http\Controllers\PostController::class, 'index'])
+    ->where('blog-posts', 'blog-posts')
+    ->name('blog-posts');
+Route::get('/{blog-posts}/{slug}', [App\Http\Controllers\PostController::class, 'show'])
+    ->where('blog-posts', 'blog-posts')
+    ->name('blog-posts.show');
 
 });
 

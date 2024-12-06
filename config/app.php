@@ -181,7 +181,8 @@ return [
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
         Jenssegers\Agent\AgentServiceProvider::class,
-        Riverskies\Laravel\MobileDetect\MobileDetectServiceProvider::class
+        Riverskies\Laravel\MobileDetect\MobileDetectServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
 
     ],
@@ -201,6 +202,7 @@ return [
         'GoogleTranslate' => Stichoza\GoogleTranslate\GoogleTranslate::class,
         'Agent' => Jenssegers\Agent\Facades\Agent::class,
         'MobileDetect' => Riverskies\Laravel\MobileDetect\Facades\MobileDetect::class,
+        'Image' => Intervention\Image\Facades\Image::class,
     ])->toArray(),
 
 ];

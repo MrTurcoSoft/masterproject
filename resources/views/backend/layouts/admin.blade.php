@@ -47,7 +47,7 @@
 
 <!-- Overlay-->
 <div class="menu-overlay"></div>
-
+@include('sweetalert::alert')
 
 <!-- jQuery  -->
 <script src="{{asset('backend/assets/js/jquery.min.js')}}"></script>
@@ -63,6 +63,12 @@
 
 <!-- Morris Custom Js-->
 <script src="{{asset('backend/assets/pages/dashboard-demo.js')}}"></script>
+
+<!-- Sweet Alerts Js-->
+<script src="{{asset('backend/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
+
+<!-- Sweet Alerts Js-->
+<script src="{{asset('backend/assets/pages/sweet-alert-demo.js')}}"></script>
 
 <!-- App js -->
 <script src="{{asset('backend/assets/js/theme.js')}}"></script>

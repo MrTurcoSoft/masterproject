@@ -17,30 +17,27 @@ class AboutController extends Controller
 
         // Dil koduna uygun şekilde veritabanından veri alma
         $about = Cache::remember("about_key_$locale", $minutes, function () use ($locale) {
-            $about = About::firstOrFail(); // İlk kaydı getir, hata olursa 404 döner
+            $about = About::firstOrFail();
 
             // Varsayılan dil değilse ilgili dildeki alanları ata
             if ($locale !== 'en') {
-                $about->name = $about->{'name_' . $locale};
-                $about->description = $about->{'description_' . $locale};
-                $about->page_description = $about->{'page_description_' . $locale};
-                $about->page_keywords = $about->{'page_keywords_' . $locale};
-                $about->slug = $about->{'slug_' . $locale};
+                $about->name = $about->getOriginal('name_' . $locale) ?? $about->getOriginal('name');
+                $about->description = $about->getOriginal('description_' . $locale) ?? $about->getOriginal('description');
+                $about->page_description = $about->getOriginal('page_description_' . $locale) ?? $about->getOriginal('page_description');
+                $about->page_keywords = $about->getOriginal('page_keywords_' . $locale) ?? $about->getOriginal('page_keywords');
+                $about->slug = $about->getOriginal('slug_' . $locale) ?? $about->getOriginal('slug');
             }
 
             return $about;
         });
 
         $certificate = Cache::remember("certificates_key_$locale", $minutes, function () use ($locale) {
-            $certificate = Certificate::all();
-            // Koleksiyon üzerinde döngü yaparak her öğeyi güncelleyin
-            foreach ($certificate as $cert) {
+            return Certificate::all()->map(function ($cert) use ($locale) {
                 if ($locale !== 'en') {
-                    $certificate->name = $cert->{'name_' . $locale} ?? $certificate->name; // Eğer name_fr yoksa, varsayılan name'i kullan
+                    $cert->name = $cert->{'name_' . $locale} ?? $cert->name;
                 }
-            }
-            return $certificate;
-
+                return $cert; // Güncellenmiş öğeyi döndür
+            });
         });
 
 
